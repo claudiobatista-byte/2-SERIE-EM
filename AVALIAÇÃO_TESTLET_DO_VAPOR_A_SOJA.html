@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Avaliação Testlet – Ciências Humanas – Do Vapor à Soja</title>
+<style>
+:root{
+  --navy:#0D2B45; --gold:#B8920A; --gold-lt:#f5f0d8;
+  --bg:#f0ece2; --line:#ddd8cc; --sel-bg:#edf2fb;
+  --ok:#2d6a1f; --ok-bg:#e8f5e2; --err:#8b1a1a; --err-bg:#fdeaea;
+  --box-bg:#fdf7e3; --top-h:50px;
+  --chist:#1a4a6b; --cgeo:#1b5e20; --cfil:#4a148c; --csoc:#7b1f1f;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;font-family:'Segoe UI',sans-serif;background:var(--bg);}
+
+/* ── CAPA ── */
+#capa{position:fixed;inset:0;z-index:999;background:var(--navy);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto;}
+.capa-box{width:100%;max-width:680px;border:2px solid var(--gold);border-radius:20px;background:rgba(0,0,0,0.28);padding:32px 26px;text-align:center;color:white;}
+.capa-box h1{font-size:clamp(1.5rem,5.5vw,2.4rem);letter-spacing:2px;margin-bottom:6px;font-family: Georgia, serif;}
+.capa-box h2{font-size:clamp(0.9rem,3vw,1.35rem);color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
+.capa-box h3{font-size:clamp(0.75rem,2.3vw,0.95rem);opacity:.8;font-weight:normal;margin-bottom:14px;}
+.capa-desc{font-size:clamp(0.7rem,2vw,0.85rem);opacity:.75;margin-bottom:18px;line-height:1.6;}
+.capa-input{width:100%;padding:13px;margin-bottom:16px;border-radius:8px;border:none;outline:none;font-size:clamp(0.9rem,3vw,1.1rem);text-align:center;}
+.btn-iniciar{background:var(--gold);color:var(--navy);border:none;padding:15px 40px;font-size:clamp(1rem,3.5vw,1.25rem);font-weight:900;border-radius:50px;cursor:pointer;box-shadow:0 8px 0 #8a6d08;transition:.2s;width:100%;max-width:320px;}
+.btn-iniciar:active{transform:translateY(3px);box-shadow:0 5px 0 #8a6d08;}
+.tlet-preview{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 18px;text-align:left;}
+.tp-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:9px 12px;}
+.tp-card strong{display:block;font-size:.72rem;color:var(--gold);margin-bottom:3px;}
+.tp-card span{font-size:.68rem;opacity:.72;line-height:1.45;}
+
+/* ── TOPBAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);border-bottom:3px solid var(--gold);display:none;flex-direction:column;}
+.ttabs{display:flex;overflow-x:auto;}
+.tbtn{flex-shrink:0;background:none;border:none;padding:0 16px;height:var(--top-h);color:rgba(255,255,255,.5);font-weight:bold;cursor:pointer;text-transform:uppercase;font-size:clamp(0.58rem,1.9vw,0.74rem);border-bottom:3px solid transparent;white-space:nowrap;}
+.tbtn.on{color:white;border-bottom-color:var(--gold);}
+#user-bar{background:rgba(0,0,0,.2);padding:4px 14px;font-size:0.70rem;color:white;display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── CONTEÚDO ── */
+#conteudo{position:fixed;top:0;left:0;right:0;bottom:0;display:none;overflow:hidden;}
+.panel{display:none;position:absolute;inset:0;overflow-y:auto;padding:16px;}
+.panel.on{display:block;}
+
+/* ── SIMULADO ── */
+#pq{padding:0;display:none;flex-direction:column;}
+#pq.on{display:flex;}
+#stage-scroll{flex:1;overflow-y:auto;padding:14px 12px 10px;-webkit-overflow-scrolling:touch;}
+.stage{max-width:840px;margin:0 auto;}
+
+/* ── NAV ── */
+#qnav{flex-shrink:0;background:var(--navy);border-top:3px solid var(--gold);padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.nav-btn{flex:1;padding:12px 8px;background:transparent;border:2px solid white;color:white;border-radius:8px;cursor:pointer;font-weight:bold;text-transform:uppercase;font-size:clamp(0.62rem,2.3vw,0.82rem);white-space:nowrap;transition:.2s;}
+.nav-btn:active{background:white;color:var(--navy);}
+#q-counter{flex:1.6;text-align:center;color:white;font-weight:bold;font-size:clamp(0.65rem,2.2vw,0.85rem);line-height:1.4;}
+
+/* ── CARD QUESTÃO ── */
+.q-card{background:white;border-radius:14px;display:none;box-shadow:0 4px 18px rgba(0,0,0,.07);overflow:hidden;margin-bottom:4px;}
+.q-card.active{display:block;}
+
+/* Faixa colorida do testlet */
+.tlet-faixa{padding:10px 18px;color:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.tf-hist{background:var(--chist);}
+.tf-geo{background:var(--cgeo);}
+.tf-fil{background:var(--cfil);}
+.tf-soc{background:var(--csoc);}
+.tlet-faixa-titulo{font-size:clamp(.72rem,2.2vw,.88rem);font-weight:700;opacity:.9;}
+.tlet-faixa-num{font-size:clamp(.62rem,1.8vw,.75rem);opacity:.75;}
+
+/* Área do texto-base (compartilhado) */
+.texto-base-wrap{background:#fffdf4;border-bottom:2px dashed var(--gold);padding:16px 18px;}
+.texto-base-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px;}
+.trecho{font-style:italic;border-left:4px solid var(--gold);padding:12px 14px;background:var(--gold-lt);line-height:1.78;font-size:clamp(0.8rem,2.4vw,0.97rem);color:#333;border-radius:0 6px 6px 0; text-align: justify;}
+.fonte{font-size:.68rem;color:#888;margin-top:8px;padding-left:4px;}
+
+/* Área da questão */
+.q-body{padding:16px 18px;}
+.q-header-line{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.q-badge{display:inline-block;background:var(--gold);color:var(--navy);padding:4px 13px;border-radius:5px;font-weight:bold;font-size:.8rem;}
+.disc-pill{display:inline-block;padding:3px 11px;border-radius:20px;font-size:.65rem;font-weight:700;color:white;}
+.dp-hist{background:var(--chist);}
+.dp-geo{background:var(--cgeo);}
+.dp-fil{background:var(--cfil);}
+.dp-soc{background:var(--csoc);}
+.desc-tag{font-size:.62rem;color:#888;border:1px solid #ddd;border-radius:10px;padding:2px 8px;}
+.enunciado{font-weight:800;font-size:clamp(0.88rem,2.6vw,1.1rem);margin-bottom:15px;color:var(--navy);line-height:1.42; text-align: justify;}
+.options { margin-top: 11px; display: flex; flex-direction: column; gap: 6px; }
+.opt{display:flex;align-items:flex-start;gap:10px;padding:12px 11px;margin-bottom:8px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:.15s;font-size:clamp(0.8rem,2.4vw,0.95rem);line-height:1.45;}
+.opt:active{background:var(--gold-lt);}
+.opt.selected{border-color:var(--gold);background:var(--sel-bg);font-weight:700;}
+.opt b{min-width:22px;flex-shrink:0;}
+
+/* ── OVERLAY RESULTADO ── */
+#overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.72);align-items:center;justify-content:center;padding:20px;}
+#overlay.on{display:flex;}
+.overlay-box{background:var(--navy);color:white;padding:30px 22px;border-radius:16px;text-align:center;border:2px solid var(--gold);max-width:400px;width:100%;}
+.overlay-box h2{font-size:clamp(1rem,4vw,1.4rem);margin-bottom:6px;}
+#score-main{font-size:clamp(2.2rem,8vw,3.4rem);font-weight:900;color:var(--gold);display:block;margin:12px 0;}
+#score-pct{opacity:.8;font-size:.88rem;}
+.overlay-btns{display:flex;gap:10px;flex-direction:column;margin-top:16px;}
+.ob{padding:13px;border-radius:10px;font-weight:700;font-size:clamp(.85rem,3vw,1rem);cursor:pointer;border:none;width:100%;}
+.ob-gold{background:var(--gold);color:var(--navy);}
+.ob-out{background:transparent;color:white;border:2px solid white;}
+
+/* ── PAINEL HABILIDADES ── */
+.hd-wrap{max-width:840px;margin:0 auto;}
+.hd-card{background:white;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden;}
+.hd-card{background:white;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden;}
+.hd-head{padding:12px 18px;color:white;font-weight:700;font-size:clamp(.82rem,2.5vw,.98rem);}
+.hd-head-hist{background:var(--chist);}
+.hd-head-geo{background:var(--cgeo);}
+.hd-head-fil{background:var(--cfil);}
+.hd-head-soc{background:var(--csoc);}
+.hd-body{padding:14px 18px;}
+.hd-item{font-size:clamp(.77rem,2.3vw,.9rem);line-height:1.55;color:#333;margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid #f0ece2;}
+.hd-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.hd-item b{color:var(--navy);}
+
+/* ── GABARITO ── */
+.gab-wrap{max-width:840px;margin:0 auto;}
+.gab-header{background:var(--navy);color:white;padding:18px;border-radius:10px;margin-bottom:16px;border-left:8px solid var(--gold);}
+.stat-box{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.stat-card{background:rgba(255,255,255,.1);padding:12px 5px;border-radius:8px;text-align:center;}
+.stat-val{display:block;font-size:clamp(1.2rem,4vw,1.6rem);font-weight:900;color:var(--gold);}
+.stat-label{font-size:clamp(.58rem,1.6vw,.72rem);text-transform:uppercase;opacity:.8;}
+.gab-filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.fbtn{padding:6px 14px;border:1.5px solid var(--line);border-radius:20px;background:white;cursor:pointer;font-size:.74rem;font-weight:700;}
+.fbtn.on{background:var(--navy);color:white;border-color:var(--navy);}
+.gab-item{background:white;margin-bottom:10px;padding:15px 16px;border-radius:10px;border:1.5px solid var(--line);}
+.badge-res{padding:4px 10px;border-radius:5px;font-weight:bold;font-size:.68rem;float:right;text-transform:uppercase;}
+.badge-res.ok{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok);}
+.badge-res.err{background:var(--err-bg);color:var(--err);border:1px solid var(--err);}
+.resp-det{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:.85rem;}
+.resp-det.ok{background:var(--ok-bg);color:var(--ok);}
+.resp-det.err{background:var(--err-bg);color:var(--err);}
+
+/* EXPORT BUTTON STYLE */
+.btn-save-img {
+  margin-top: 14px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+.btn-save-img:hover { opacity: 0.9; }
+.save-msg { font-size: 11px; color: #aaa; margin-top: 6px; min-height: 14px; }
+
+@media(max-width:480px){
+  .tlet-preview{grid-template-columns:1fr;}
+  .stat-box{grid-template-columns:1fr 1fr;}
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div id="capa">
+  <div class="capa-box">
+    <h1>🌱 DO VAPOR À SOJA</h1>
+    <h2>Avaliação por Testlets — Novo ENEM</h2>
+    <h3>Ciências Humanas e Sociais Aplicadas &nbsp;·&nbsp; 3ª Série &nbsp;·&nbsp; Ensino Médio</h3>
+    <p class="capa-desc">
+      <strong style="color:var(--gold)">5 Testlets · 20 questões</strong><br>
+      Cada bloco temático compartilha <strong style="color:var(--gold)">um texto-base comum</strong> analisado
+      sob as lentes integradas de História, Geografia, Filosofia e Sociologia de forma interdisciplinar.
+    </p>
+    <div class="tlet-preview">
+      <div class="tp-card"><strong>Testlet 1 — Q1 a Q4</strong><span>Pioneirismo Global vs Vulnerabilidade</span></div>
+      <div class="tp-card"><strong>Testlet 2 — Q5 a Q8</strong><span>Mudança Estratégica e Atuação do Estado (1930)</span></div>
+      <div class="tp-card"><strong>Testlet 3 — Q9 a Q12</strong><span>A Armadilha da Desindustrialização Prematura</span></div>
+      <div class="tp-card"><strong>Testlet 4 — Q13 a Q16</strong><span>Impactos Sociais no Mercado de Trabalho Urbano</span></div>
+      <div class="tp-card" style="grid-column:1/-1"><strong>Testlet 5 — Q17 a Q20</strong><span>Experiência Internacional e Escolhas Deliberadas de Política</span></div>
+    </div>
+    <input class="capa-input" id="nome-input" type="text" placeholder="Digite seu nome completo" autocomplete="off">
+    <br>
+    <button class="btn-iniciar" onclick="iniciar()">INICIAR AVALIAÇÃO ▶</button>
+  </div>
+</div>
+
+<div id="topbar">
+  <div class="ttabs">
+    <button class="tbtn" id="tab-d-btn" onclick="tab('d',this)">📋 Habilidades</button>
+    <button class="tbtn" id="tab-q-btn" onclick="tab('q',this)">📝 Testlets</button>
+    <button class="tbtn" id="tab-g-btn" onclick="tab('g',this)" style="display:none">📊 Gabarito Comentado</button>
+  </div>
+  <div id="user-bar">
+    <span id="display-nome">ALUNO: —</span>
+    <span>CIÊNCIAS HUMANAS</span>
+    <span>MODELO TESTLET ENEM</span>
+  </div>
+</div>
+
+<div id="conteudo">
+
+  <div class="panel" id="pd">
+    <div class="hd-wrap">
+      <p style="font-size:.8rem;color:#666;margin-bottom:14px;text-align:center;">Estrutura de Matriz Curricular integrada com foco nas competências do ENEM e DC-GO.</p>
+      <div class="hd-card">
+        <div class="hd-head hd-head-hist">📜 HISTÓRIA</div>
+        <div class="hd-body">
+          <div class="hd-item"><b>Habilidade central:</b> Analisar as trajetórias históricas de desenvolvimento econômico, comparando o pioneirismo industrial europeu com o processo de substituição de importações no Brasil pós-1930.</div>
+        </div>
+      </div>
+      <div class="hd-card">
+        <div class="hd-head hd-head-geo">🌍 GEOGRAFIA</div>
+        <div class="hd-body">
+          <div class="hd-item"><b>Habilidade central:</b> Compreender a organização do espaço geoeconômico global, as assimetrias na Divisão Internacional do Trabalho (DIT) e as dinâmicas territoriais de reprimarização da pauta exportadora.</div>
+        </div>
+      </div>
+      <div class="hd-card">
+        <div class="hd-head hd-head-fil">🔍 FILOSOFIA</div>
+        <div class="hd-body">
+          <div class="hd-item"><b>Habilidade central:</b> Refletir sobre a ética da governação, os modelos epistemológicos econômicos e os critérios morais de justiça distributiva e dignidade social em face do desenvolvimento produtivo.</div>
+        </div>
+      </div>
+      <div class="hd-card">
+        <div class="hd-head hd-head-soc">⚡ SOCIOLOGIA</div>
+        <div class="hd-body">
+          <div class="hd-item"><b>Habilidade central:</b> Investigar a estrutura de classes no Brasil, os processos de informalidade urbana, precarização laboral e a teoria da dependência estrutural na periferia do capitalismo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="pq">
+    <div id="stage-scroll">
+      <div class="stage" id="stage"></div>
+    </div>
+    <div id="qnav">
+      <button class="nav-btn" onclick="changeQ(-1)">◀ Anterior</button>
+      <div id="q-counter">Q 1 / 20</div>
+      <button class="nav-btn" id="btn-next" onclick="changeQ(1)">Próxima ▶</button>
+    </div>
+  </div>
+
+  <div class="panel" id="pg">
+    <div class="gab-wrap">
+      <div id="report-container"></div>
+      <div class="gab-filtros">
+        <button class="fbtn on" onclick="filtrarGab('all',this)">Todas</button>
+        <button class="fbtn" onclick="filtrarGab('ok',this)">✔ Acertos</button>
+        <button class="fbtn" onclick="filtrarGab('err',this)">✘ Erros</button>
+      </div>
+      <div id="gab-content"></div>
+    </div>
+  </div>
+</div>
+
+<div id="overlay">
+  <div class="overlay-box">
+    <h2>AVALIAÇÃO CONCLUÍDA</h2>
+    <span id="score-main">—/20</span>
+    <p id="score-pct"></p>
+    <div class="overlay-btns">
+      <button class="ob ob-gold" onclick="showResults()">Ver Gabarito Comentado 📊</button>
+      <button class="ob ob-out" onclick="document.getElementById('overlay').classList.remove('on')">Revisar Questões</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const T1 = "A Revolução Industrial, iniciada na Inglaterra no final do século XVIII, transformou radicalmente as estruturas produtivas, sociais e geopolíticas do mundo. Os países que industrializaram precocemente acumularam vantagens tecnológicas duradouras, elevaram os salários médios e diversificaram suas economias. Os que permaneceram exportando matérias-primas mantiveram estruturas produtivas mais vulneráveis às oscilações do mercado internacional.";
+const T2 = "O Brasil chegou tarde a essa transformação. A mudança de rota ocorreu a partir dos anos 1930, quando o colapso do setor cafeeiro forçou uma reorientação estratégica. O Estado passou a assumir papel central no processo de industrialização, criando empresas estratégicas (como a CSN e a Petrobras), protegendo setores nascentes e financiando a infraestrutura necessária ao crescimento fabril. Entre as décadas de 1950 e 1980, o Brasil alcançou taxas de crescimento industrial excepcionais.";
+const T3 = "A partir dos anos 1990, o Brasil iniciou um processo de desindustrialização — redução progressiva da participação da indústria no PIB e no emprego. O problema central é que essa desindustrialização ocorreu de forma prematura: o Brasil perdeu sua base fabril antes de atingir o nível de renda que, em países desenvolvidos, caracterizou a transição natural para economias de serviços sofisticados. Países de renda média que desindustrializam prematuramente tendem a se especializar em atividades de baixa produtividade, perpetuando uma armadilha estrutural que dificulta a convergência de renda com as nações mais desenvolvidas.";
+const T4 = "As consequências para o mercado de trabalho são diretas. A desindustrialização tende a gerar migração de trabalhadores para serviços de baixo valor agregado, frequentemente associados à informalidade e à ausência de proteção trabalhista, afectando desproporcionalmente trabalhadores sem ensino superior que dependiam das fábricas para acessar postos formais de qualidade.";
+const T5 = "A experiência de países como Coreia do Sul, Alemanha e China demonstra que a industrialização não é resultado espontâneo das forças de mercado, mas de escolhas deliberadas de política econômica sustentadas ao longo do tempo. (Dados do Infográfico: Participação da indústria no PIB no auge nos anos 1980: ~32% | Participação da indústria de transformação nos anos 2020: ~11% | Renda per capita ao desindustrializar: Brasil < US$ 10 mil vs Países ricos > US$ 20 mil).";
+
+const F_DOC = "Nassif, Bresser-Pereira e Feijó (2017) / Araújo, E. e Feijó, C. (Orgs.). Industrialização e desindustrialização no Brasil. Editora Appris, 2024.";
+
+const Questoes = [
+  {tlet:1,tnome:'Testlet 1 — Pioneirismo Global vs Vulnerabilidade',texto:T1,fonte:F_DOC,disc:'hist',desc:'EM-HIST-01',
+   e:'Com base na análise das trajetórias industriais de longo prazo descritas no texto, o pioneirismo das nações que se industrializaram precocemente conferiu-lhes uma vantagem histórica caracterizada pelo(a):',
+   o:['Monopólio absoluto sobre a exportação de grãos e recursos de subsistência.',
+      'Acúmulo duradouro de vantagens tecnológicas, diversificação de suas matrizes econômicas e elevação dos salários médios.',
+      'Subordinação imediata às oscilações financeiras ditadas pelos mercados agrícolas da periferia.',
+      'Desmonte programado de suas infraestruturas urbanas para priorizar o artesanato doméstico.',
+      'Dependência crônica de capitais vindos de economias agroexportadoras latino-americanas.'],
+   a:1,
+   f:'O texto indica de forma direta que os países de industrialização precoce acumularam vantagens tecnológicas permanentes, elevaram os salários médios e diversificaram suas estruturas produtivas.'},
+
+  {tlet:1,tnome:'Testlet 1 — Pioneirismo Global vs Vulnerabilidade',texto:T1,fonte:F_DOC,disc:'geo',desc:'EM-GEOGR-01',
+   e:'Geograficamente, a manutenção de estruturas voltadas exclusivamente para a exportação de recursos primários impõe um desafio crítico às nações não industrializadas. De acordo com o texto, esse desafio reside no(a):',
+   o:['Crescimento acelerado do mercado de bens de capital de alta tecnologia no campo.',
+      'Isolamento total e imunidade às variações de preços do mercado financeiro internacional.',
+      'Maior vulnerabilidade de suas estruturas produtivas locais frente às oscilações do mercado internacional.',
+      'Supervalorização estrutural de suas moedas locais em relação às divisas centrais.',
+      'Desaparecimento completo das rotas de escoamento marítimo intercontinental.'],
+   a:2,
+   f:'Conforme o texto-base, os países que permaneceram restritos à exportação de matérias-primas mantiveram-se severamente vulneráveis às flutuações e choques de preços no comércio global.'},
+
+  {tlet:1,tnome:'Testlet 1 — Pioneirismo Global vs Vulnerabilidade',texto:T1,fonte:F_DOC,disc:'fil',desc:'EM-FILOS-01',
+   e:'A divisão internacional entre nações que retêm capacidade tecnológica e nações primário-exportadoras evoca debates de filosofia política. Sob a ótica da justiça distributiva internacional, a especialização forçada em commodities agrícolas gera um dilema moral porque:',
+   o:['Trata a desigualdade material como uma determinação natural indelével e imutável dos ecossistemas periféricos.',
+      'Garante que as forças espontâneas de mercado distribuam as vantagens tecnológicas de forma perfeitamente equitativa.',
+      'Foca unicamente na preservação ambiental de subsistência, ignorando a sobrevivência das comunidades urbanas.',
+      'Gera assimetrias estruturais de riqueza que comprometem o desenvolvimento autônomo e as condições materiais de dignidade social desses povos.',
+      'Subordina os interesses comerciais das grandes potências industriais às decisões das assembleias camponesas.'],
+   a:3,
+   f:'A desigualdade estrutural de desenvolvimento tecnológico cerceia as precondições materiais básicas necessárias para que os povos atinjam autonomia política e dignidade social ampla.'},
+
+  {tlet:1,tnome:'Testlet 1 — Pioneirismo Global vs Vulnerabilidade',texto:T1,fonte:F_DOC,disc:'soc',desc:'EM-SOCIO-01',
+   e:'Sob a análise sociológica das estruturas produtivas, a consolidação de economias voltadas essencialmente para a exportação de bens primários condiciona a divisão social do trabalho interna dessas nações, promovendo o(a):',
+   o:['Pleno emprego estável em setores de pesquisa científica avançada.',
+      'Achatamento salarial crônico e menor diversificação de ocupações profissionais de alta qualificação técnica.',
+      'Fortalecimento político unânime de sindicatos industriais de base metalúrgica.',
+      'Desaparecimento completo de elites agrárias latifundiárias tradicionais.',
+      'Retorno voluntário e planejado das populações metropolitanas para a agricultura familiar.'],
+   a:1,
+   f:'A falta de uma base industrial diversificada limita a oferta de postos de trabalho de alta complexidade e qualificação, deprimindo os salários médios da base trabalhadora local.'},
+
+  {tlet:2,tnome:'Testlet 2 — Mudança Estratégica e Atuação do Estado (1930)',texto:T2,fonte:F_DOC,disc:'hist',desc:'EM-HIST-02',
+   e:'Historicamente, o processo de industrialização por substituição de importações no Brasil ganhou força nos anos 1930. O fator conjuntural crítico determinante para essa alteração de rota macroeconômica foi:',
+   o:['A assinatura de tratados de livre-comércio com a Inglaterra para a importação de tecidos e ferrovias.',
+      'O colapso do setor cafeeiro nacional, que forçou uma reorientação estratégica de capitais e planejamento para fora do modelo agrário puro.',
+      'A privatização em massa de empresas estratégicas controladas pelo governo imperial.',
+      'A autossuficiência imediata alcançada pelo mercado brasileiro no refino de derivados de petróleo.',
+      'A eclosão imediata da Revolução Gloriosa no porto de Santos.'],
+   a:1,
+   f:'O texto estabelece que a quebra ou colapso do setor cafeeiro (na esteira da crise de 1929) atuou como o motor histórico que obrigou o país a buscar uma reorientação estratégica industrial.'},
+
+  {tlet:2,tnome:'Testlet 2 — Mudança Estratégica e Atuação do Estado (1930)',texto:T2,fonte:F_DOC,disc:'geo',desc:'EM-GEOGR-02',
+   e:'A industrialização tardia alterou a organização do espaço geográfico brasileiro. De acordo com o texto, o mecanismo territorial utilizado para guiar essa nova centralidade urbana e fabril baseou-se na:',
+   o:['Desconcentração planejada e espontânea das plantas metalúrgicas pelas fronteiras da Amazônia.',
+      'Criação de redes exclusivas de agricultura familiar voltadas para o consumo interno e de subsistência.',
+      'Atuação central do Estado no financiamento da infraestrutura necessária ao crescimento fabril e proteção de setores nascentes.',
+      'Gestão direta de portos e ferrovias por fundos de investimento com sede na Ásia Oriental.',
+      'Proibição absoluta de fluxos migratórios do campo em direção às capitais estaduais.'],
+   a:2,
+   f:'O texto aponta explicitamente o papel do Estado no financiamento da infraestrutura física básica e na proteção aos setores nascentes para dar viabilidade territorial e econômica ao crescimento fabril.'},
+
+  {tlet:2,tnome:'Testlet 2 — Mudança Estratégica e Atuação do Estado (1930)',texto:T2,fonte:F_DOC,disc:'fil',desc:'EM-FILOS-02',
+   e:'A criação de companhias como a CSN e a Petrobras reflete uma visão sobre o papel regulador do Estado. Sob a ótica da filosofia política clássica, a primazia estatal sobre esses ativos estratégicos justifica-se teórica e moralmente pela:',
+   o:['Maximização dos lucros privados corporativos de curto prazo em mercados especulativos.',
+      'Busca do bem comum, soberania econômica e provisão de insumos industriais básicos para toda a coletividade nacional.',
+      'Manutenção de privilégios oligárquicos tradicionais associados à velha economia cafeeira.',
+      'Adoção estrita de diretrizes neoliberais focadas na total desestatização de serviços fundamentais.',
+      'Defesa do livre-mercado absoluto e ausência total de leis ou direitos de regulação.'],
+   a:1,
+   f:'A atuação em setores estratégicos de base (aço e energia) legitima-se pela necessidade de garantir a soberania nacional e as precondições materiais para o desenvolvimento coletivo amplo.'},
+
+  {tlet:2,tnome:'Testlet 2 — Mudança Estratégica e Atuação do Estado (1930)',texto:T2,fonte:F_DOC,disc:'soc',desc:'EM-SOCIO-02',
+   e:'A substituição de importações e o surto industrial vivenciado entre 1950 e 1980 alteraram profundamente a estrutura de classes no Brasil. Sociologicamente, esse processo teve como principal reflexo urbano o(a):',
+   o:['Desaparecimento completo do operariado fabril urbano devido à automação cibernética instantânea.',
+      'Consolidação de uma expressiva classe operária sindicalizada e a expansão de uma burocracia técnica e gerencial nas cidades.',
+      'Eradicação total de todas as formas de desigualdade de renda entre o campo e as metrópoles.',
+      'Retorno planejado de toda a burguesia mercantil para a produção artesanal têxtil caseira.',
+      'Subordinação total das associações de trabalhadores fabris aos interesses latifundiários do café.'],
+   a:1,
+   f:'O crescimento industrial exponencial descrito no texto expandiu as categorias operárias e técnicas organizadas, deslocando o eixo das lutas e pressões sociais das oligarquias rurais para os centros urbanos.'},
+
+  {tlet:3,tnome:'Testlet 3 — A Armadilha da Desindustrialização Prematura',texto:T3,fonte:F_DOC,disc:'hist',desc:'EM-HIST-03',
+   e:'A partir dos anos 1990, o Brasil experimentou uma redução de sua fatia industrial. De acordo com o texto, a principal gravidade histórica desse fenômeno reside no seu caráter \"prematuro\", o que significa que:',
+   o:['O fechamento de fábricas ocorreu após a eliminação de todas as formas de pobreza extrema.',
+      'O país perdeu sua base fabril antes de atingir o nível de renda característico da transição natural para serviços sofisticados nos países ricos.',
+      'A transição para postos altamente qualificados foi concluída de forma acelerada na década de 1930.',
+      'As forças livres de mercado sozinhas geraram uma convergência de renda imediata com os países centrais.',
+      'O Estado baniu as indústrias pesadas voluntariamente para proteger biomas agrícolas tradicionais.'],
+   a:1,
+   f:'A desindustrialização é precoce/prematura porque o Brasil encolheu seu parque fabril sem antes acumular o nível de renda per capita que, historicamente, marcou essa mudança nas nações desenvolvidas.'},
+
+  {tlet:3,tnome:'Testlet 3 — A Armadilha da Desindustrialização Prematura',texto:T3,fonte:F_DOC,disc:'geo',desc:'EM-GEOGR-03',
+   e:'Geograficamente, a perda precoce da base fabril em países de renda média gera distorções na inserção do território na economia planetária. Conforme o texto, esse processo empurra o espaço produtivo nacional para o(a):',
+   o:['Domínio soberano das cadeias de desenvolvimento de microcondutores e robótica avançada.',
+      'Especialização em atividades de baixa produtividade, perpetuando uma armadilha estrutural que dificulta a convergência de renda.',
+      'Isolamento total e autossuficiência absoluta em relação às redes logísticas globais de comércio.',
+      'Desconcentração homogênea e perfeita das indústrias de ponta por todas as regiões periféricas.',
+      'Fechamento imediato do setor de serviços informais urbanos por decretos governamentais.'],
+   a:1,
+   f:'O texto explicita que a desindustrialização precoce força o país a se especializar em atividades de baixa produtividade, criando uma armadilha estrutural que impede a convergência econômica.'},
+
+  {tlet:3,tnome:'Testlet 3 — A Armadilha da Desindustrialização Prematura',texto:T3,fonte:F_DOC,disc:'fil',desc:'EM-FILOS-03',
+   e:'A conceituação da desindustrialização como uma \"armadilha estrutural\", proposta por Nassif, Bresser-Pereira e Feijó, representa uma formulação epistemológica que se valida pela:',
+   o:['Construção de uma tese baseada unicamente em crenças morais imutáveis e determinismos climáticos.',
+      'Análise rigorosa de dados empíricos comparados que correlacionam evolução das estruturas de mercado, produtividade e renda per capita.',
+      'Adoção de dogmas econômicos imunes a testes estatísticos ou verificações com a realidade material.',
+      'Focalização exclusiva na estética externa das plantas industriais em detrimento de seus índices econômicos.',
+      'Negação completa de qualquer nexo causal entre políticas governamentais e dinâmicas de mercado.'],
+   a:1,
+   f:'A formulação teórica dos economistas citados constrói sua validade científica cruzando os dados empíricos de perda de peso fabril com os limiares de renda per capita históricos de desenvolvimento.'},
+
+  {tlet:3,tnome:'Testlet 3 — A Armadilha da Desindustrialização Prematura',texto:T3,fonte:F_DOC,disc:'soc',desc:'EM-SOCIO-03',
+   e:'Sob a ótica sociológica, o esvaziamento precoce do setor fabril impacta diretamente o equilíbrio de poder e as coalizões políticas internas de uma nação, uma vez que promove o(a):',
+   o:['Fortalecimento unânime da classe trabalhadora urbana frente aos grandes fundos de investimento estrangeiros.',
+      'Enfraquecimento político do operariado fabril organizado e o ganho de protagonismo de elites ligadas ao setor agrário-exportador e financeiro.',
+      'Eliminação completa dos conflitos distributivos na definição de taxas alfandegárias federais.',
+      'Absorção total de toda a massa trabalhadora desempregada em cargos executivos corporativos públicos.',
+      'Surgimento de uma sociedade plenamente igualitária e sem classes econômicas baseada no extrativismo.'],
+   a:1,
+   f:'O encolhimento da indústria reduz o peso econômico e a força política de representation dos sindicatos industriais e do operariado, fortalecendo as elites tradicionais exportadoras de matérias-primas.'},
+
+  {tlet:4,tnome:'Testlet 4 — Impactos Sociais no Mercado de Trabalho Urbano',texto:T4,fonte:F_DOC,disc:'hist',desc:'EM-HIST-04',
+   e:'A desestruturação do emprego industrial nas últimas décadas alterou o padrão de relações laborais consolidado ao longo do século XX. Historicamente, o fechamento continuado de postos nas fábricas interrompeu:',
+   o:['Um modelo tradicional baseado na total proibição do trabalho assalariado no território nacional.',
+      'Uma trajetória em que o setor industrial atuava como o principal motor de formalização, estabilidade sindical e proteção trabalhista regular de qualidade.',
+      'A expansão espontânea de cooperativas agrícolas familiares totalmente dedicadas à exportação de soja.',
+      'A estabilização automática dos salários informais urbanos pelos parâmetros da ONU.',
+      'A contratação exclusiva de trabalhadores com nível de pós-graduação técnica nas montadoras de base.'],
+   a:1,
+   f:'A indústria automobilística e de transformação foi, historicamente, a grande indutora da carteira assinada, da organização sindical forte e da expansão de direitos sociais regulamentados no país.'},
+
+  {tlet:4,tnome:'Testlet 4 — Impactos Sociais no Mercado de Trabalho Urbano',texto:T4,fonte:F_DOC,disc:'geo',desc:'EM-GEOGR-04',
+   e:'Do ponto de vista da geografia do trabalho, o encolhimento do setor manufatureiro nas regiões metropolitanas força o deslocamento da força de trabalho demitida em direção a setores urbanos marcados pelo(a):',
+   o:['Alto valor tecnológico agregado e centralização em tecnopolos estatais integrados.',
+      'Baixo valor agregado, pulverização informal nas redes urbanas e ausência de redes institucionais de amparo e proteção legal.',
+      'Retorno maciço e fluxos migratórios reversos contínuos em direção à colheita manual de cana e milho.',
+      'Segurança financeira absoluta e reajustes salariais indexados automaticamente ao Banco Mundial.',
+      'Especialização produtiva no desenvolvimento de softwares e redes complexas de inteligência artificial.'],
+   a:1,
+   f:'Os operários afetados pela desindustrialização acabam migrando para atividades de serviços de baixa produtividade, marcados pela informalidade urbana, precarização e total ausência de redes de proteção.'},
+
+  {tlet:4,tnome:'Testlet 4 — Impactos Sociais no Mercado de Trabalho Urbano',texto:T4,fonte:F_DOC,disc:'fil',desc:'EM-FILOS-04',
+   e:'O texto enfatiza que a perda de dinamismo fabril afeta \"desproporcionalmente trabalhadores sem ensino superior\". Sob uma perspectiva ética pautada no princípio da equidade e bem comum, essa dinâmica constitui uma injustiça social porque:',
+   o:['Retira das classes de maior renda o direito de usufruir livremente dos lucros gerados pelas forças cegas de mercado.',
+      'Exclui e penaliza de forma mais severa os estratos sociais já vulnerabilizados, cerceando suas chances reais de acesso a uma cidadania material estável.',
+      'Obriga o poder público a extinguir as redes de ensino médio para focar os recursos na abertura de cursos de pós-graduação de elite.',
+      'Comprova de forma científica que a escolaridade é uma variável irrelevante para a obtenção de remunerações formais dignas.',
+      'Subordina a dignidade humana ao cumprimento estrito de metas fiscais ditadas exclusivamente por fundos de caridade.'],
+   a:1,
+   f:'A quebra de postos estáveis que exigiam menor qualificação acadêmica aprofunda a desigualdade estrutural, retirando das classes populares a principal via de inserção formal de qualidade.'},
+
+  {tlet:4,tnome:'Testlet 4 — Impactos Sociais no Mercado de Trabalho Urbano',texto:T4,fonte:F_DOC,disc:'soc',desc:'EM-SOCIO-04',
+   e:'A transferência da força de trabalho das linhas de montagem fabris para serviços desregulamentados urbanos ilustra um processo contemporâneo da sociologia do trabalho caracterizado como:',
+   o:['Aburguesamento da classe operária por meio do empreendedorismo digital de alta renda.',
+      'Hipertrofia do setor de serviços e precarização do trabalho, expressa pela expansão da informalidade urbana e subemprego.',
+      'Institucionalização corporativa operária universal sob o controle centralizado do Ministério do Trabalho.',
+      'Fortalecimento da cidadania social marshalliana por meio de bônus previdenciários universais automáticos.',
+      'Eradicação definitiva de todas as formas de subemprego nas metrópoles latino-americanas.'],
+   a:1,
+   f:'A migração forçada para serviços de baixo valor agregado gera a hipertrofia precária desse setor, inflado por trabalhadores informais desprovidos de direitos de seguridade social ou estabilidade de renda.'},
+
+  {tlet:5,tnome:'Testlet 5 — Experiência Internacional e Escolhas Deliberadas de Política',texto:T5,fonte:F_DOC,disc:'hist',desc:'EM-HIST-05',
+   e:'O documento ressalta o exemplo de desenvolvimento industrial de potências como Coreia do Sul, Alemanha e China. Do ponto de vista histórico, a trajetória dessas nações contesta frontalmente a premissa de que o avanço fabril seja:',
+   o:['Fruto de um planejamento institucional rígido sustentado ao longo do tempo pelos governos.',
+      'Um resultado espontâneo e automático das forças livres de mercado atuando sem indução ou coordenação estratégica do Estado.',
+      'Financiado unicamente por doações cambiais voluntárias vindas de países periféricos.',
+      'Uma dinâmica econômica exclusiva de sociedades agrícolas baseadas no extrativismo mineral familiar.',
+      'Consequência inevitável e linear de isolamentos totais e autarquias alfandegárias eternas.'],
+   a:1,
+   f:'O encerramento do texto reforça que a industrialização não surge de forma espontânea nos mercados livres, mas sim como resultado de escolhas deliberadas de política econômica executadas e mantidas pelo Estado.'},
+
+  {tlet:5,tnome:'Testlet 5 — Experiência Internacional e Escolhas Deliberadas de Política',texto:T5,fonte:F_DOC,disc:'geo',desc:'EM-GEOGR-05',
+   e:'A queda drástica da participação industrial de ~32% (anos 1980) para ~11% (anos 2020) no Brasil contrasta com a manutenção de fortes parques manufatureiros na China e Alemanha. Sob a geografia de fluxos econômicos mundiais, essa diferença revela que:',
+   o:['O espaço geoeconômico brasileiro libertou-se de forma definitiva de todas as redes internacionais de importação de insumos complexos.',
+      'A falta de políticas fabris soberanas consolida a inserção subordinada do território nacional na divisão global do trabalho, especializando o país no fornecimento de commodities de baixo valor.',
+      'O território chinês abdicou de tecnologias complexas para focar exclusivamente na importação de grãos e carnes latino-americanas.',
+      'A divisão internacional do trabalho elimina as assimetrias geográficas entre as potências do centro e as economias da periferia de forma natural.',
+      'As economias centrais europeias registraram taxas de encolhimento produtivo idênticas às observadas na América Latina periférica.'],
+   a:1,
+   f:'A retração da participação da indústria de transformação expõe um processo geoeconômico de reprimarização, que recoloca o Brasil na condição de fornecedor de matérias-primas brutas e importador de alta tecnologia.'},
+
+  {tlet:5,tnome:'Testlet 5 — Experiência Internacional e Escolhas Deliberadas de Política',texto:T5,fonte:F_DOC,disc:'fil',desc:'EM-FILOS-05',
+   e:'A rejeição do laissez-faire espontâneo como motor suficiente para o desenvolvimento produtivo insere uma reflexão sobre a responsabilidade ética dos governantes. Sob a ótica da filosofia política, a omissão deliberada do Estado na condução econômica configura uma falha moral quando:',
+   o:['Garante que a livre concorrência elimine por completo todas as formas de desigualdade estrutural do planeta.',
+      'Abandona o bem-estar material e o destino laboral da coletividade às forças desreguladas do mercado, resultando em precarização social crônica.',
+      'Força a abertura de redes estatais de ensino técnico para todos os cidadãos em desvantagem escolar.',
+      'Subordina a eficiência técnica das indústrias nacionais aos interesses de preservação ecológica integral.',
+      'Permite que sindicatos operários assumam o controle total sobre as taxas de câmbio e de juros federais.'],
+   a:1,
+   f:'A governança econômica exige o compromisso ético do Estado na promoção do bem comum e da estabilidade material; omitir-se significa desproteger as classes trabalhadoras frente às volatilidades de mercado.'},
+
+  {tlet:5,tnome:'Testlet 5 — Experiência Internacional e Escolhas Deliberadas de Política',texto:T5,fonte:F_DOC,disc:'soc',desc:'EM-SOCIO-05',
+   e:'Ao correlacionar as evidências de renda per capita (Brasil < US$ 10 mil vs Países Ricos > US$ 20 mil ao desindustrializar), teóricos estruturalistas dão validade à armadilha do subdesenvolvimento. Sociologicamente, a aceitação passiva da perda do parque industrial em nações periféricas perpetua o fenômeno da:',
+   o:['Emancipação laboral plena e superação definitiva de todas as amarras do emprego fabril regulamentado.',
+      'Dependência estrutural, mantendo a inserção subordinada do país em atividades econômicas de baixa produtividade e transferência de riqueza para o centro.',
+      'Cooperação mútua igualitária que anula as assimetrias financeiras entre as matrizes corporativas e suas filiais.',
+      'Eradicação total do subemprego metropolitano por meio do avanço tecnológico autônomo do agronegócio mecanizado.',
+      'Formação de um capitalismo independente imune aos ciclos macroeconômicos e crises recessivas das potências globais.'],
+   a:1,
+   f:'O recuo industrial precoce cristaliza a dependência estrutural da nação periférica, que passa a depender de pacotes tecnológicos importados, operando com baixa produtividade e acentuando a extensão das desigualdades sociais.'}
+];
+
+const TOTAL = Questoes.length;
+let cur = 0;
+const resp = new Array(TOTAL).fill(null);
+
+const pillClass = {hist:'dp-hist', geo:'dp-geo', fil:'dp-fil', soc:'dp-soc'};
+const pillLabel = {hist:'História', geo:'Geografia', fil:'Filosofia', soc:'Sociologia'};
+const faixaClass = {hist:'tf-hist', geo:'tf-geo', fil:'tf-fil', soc:'tf-soc'};
+
+function calcTopbarH(){ return document.getElementById('topbar').offsetHeight; }
+function ajustarConteudo(){ document.getElementById('conteudo').style.top = calcTopbarH() + 'px'; }
+
+function iniciar(){
+  const nome = document.getElementById('nome-input').value.trim();
+  if(!nome){ alert('Por favor, digite seu nome completo para iniciar.'); return; }
+  document.getElementById('display-nome').textContent = 'ALUNO: ' + nome.toUpperCase();
+  document.getElementById('capa').style.display = 'none';
+  document.getElementById('topbar').style.display = 'flex';
+  document.getElementById('conteudo').style.display = 'block';
+  ajustarConteudo();
+  window.addEventListener('resize', ajustarConteudo);
+  render();
+  tab('q', document.getElementById('tab-q-btn'));
+}
+
+function render(){
+  const stage = document.getElementById('stage');
+  stage.innerHTML = '';
+  Questoes.forEach((q, i) => {
+    const d = document.createElement('div');
+    d.className = 'q-card' + (i === cur ? ' active' : '');
+    d.id = 'q' + i;
+
+    d.innerHTML =
+      '<div class="tlet-faixa ' + faixaClass[q.disc] + '">' +
+        '<span class="tlet-faixa-titulo">' + q.tnome + '</span>' +
+        '<span class="tlet-faixa-num">Questão ' + (i+1) + ' / 20</span>' +
+      '</div>' +
+      '<div class="texto-base-wrap">' +
+        '<div class="texto-base-label">📄 Texto-base compartilhado do testlet</div>' +
+        '<div class="trecho">' + q.texto + '</div>' +
+        '<div class="fonte"><b>Fonte:</b> ' + q.fonte + '</div>' +
+      '</div>' +
+      '<div class="q-body">' +
+        '<div class="q-header-line">' +
+          '<div class="q-badge">QUESTÃO ' + (i+1) + '</div>' +
+          '<span class="disc-pill ' + pillClass[q.disc] + '">' + pillLabel[q.disc] + '</span>' +
+          '<span class="desc-tag">' + q.desc + '</span>' +
+        '</div>' +
+        '<div class="enunciado">' + q.e + '</div>' +
+        '<div class="options">' +
+          q.o.map((op, oi) =>
+            '<div class="opt' + (resp[i] === oi ? ' selected' : '') +
+            '" onclick="pick(' + i + ',' + oi + ',this)">' +
+            '<b>' + String.fromCharCode(65+oi) + ')</b><span>' + op + '</span></div>'
+          ).join('') +
+        '</div>' +
+      '</div>';
+
+    stage.appendChild(d);
+  });
+  atualizarNav();
+}
+
+function pick(qi, oi, el){
+  resp[qi] = oi;
+  el.parentElement.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function changeQ(step){
+  const nx = cur + step;
+  if(nx >= 0 && nx < TOTAL){
+    document.getElementById('q' + cur).classList.remove('active');
+    cur = nx;
+    document.getElementById('q' + cur).classList.add('active');
+    document.getElementById('stage-scroll').scrollTop = 0;
+    atualizarNav();
+  } else if(nx === TOTAL){
+    finalizar();
+  }
+}
+
+function atualizarNav(){
+  const q = Questoes[cur];
+  document.getElementById('q-counter').textContent =
+    'Q ' + (cur+1) + ' / 20  ·  ' + pillLabel[q.disc] + '  ·  Bloco ' + q.tlet;
+  document.getElementById('btn-next').textContent = cur === TOTAL-1 ? 'Finalizar ✓' : 'Próxima ▶';
+}
+
+function finalizar(){
+  const sem = resp.filter(r => r === null).length;
+  if(sem > 0 && !confirm('Você deixou ' + sem + ' questão(ões) em branco. Tem certeza de que deseja finalizar o simulado?')) return;
+  let ac = 0;
+  Questoes.forEach((q,i) => { if(resp[i] === q.a) ac++; });
+  document.getElementById('score-main').textContent = ac + ' / 20';
+  document.getElementById('score-pct').textContent =
+    'Aproveitamento: ' + (ac/20*100).toFixed(1) + '%  ·  Nota Final: ' + (ac/20*10).toFixed(1).replace('.', ',');
+  document.getElementById('overlay').classList.add('on');
+}
+
+function showResults(){
+  document.getElementById('overlay').classList.remove('on');
+  document.getElementById('tab-g-btn').style.display = '';
+  const c = document.getElementById('gab-content');
+  const nome = document.getElementById('nome-input').value;
+  let ac = 0;
+  Questoes.forEach((q,i) => { if(resp[i] === q.a) ac++; });
+  const pct = (ac/20*100).toFixed(1);
+  const nota = (ac/20*10).toFixed(1).replace('.', ',');
+
+  const porTestlet = [0,0,0,0,0];
+  const acTestlet  = [0,0,0,0,0];
+  Questoes.forEach((q,i) => {
+    porTestlet[q.tlet-1]++;
+    if(resp[i] === q.a) acTestlet[q.tlet-1]++;
+  });
+
+  // Geração estruturada do cabeçalho com o ID fixo para captura da imagem
+  const repContainer = document.getElementById('report-container');
+  repContainer.innerHTML = `
+    <div class="gab-header" id="gab-header-card">
+      <h2 style="margin-bottom:6px;font-size:clamp(.95rem,3.5vw,1.2rem)">RELATÓRIO CONSOLIDADO DE DESEMPENHO</h2>
+      <p><b>ESTUDANTE:</b> ${nome.toUpperCase()}</p>
+      <p><b>ESTRUTURA:</b> 5 Blocos Temáticos (Testlets) &nbsp;|&nbsp; <b>MATRIZ:</b> Ciências Humanas ENEM / DC-GO</p>
+      <div class="stat-box">
+        <div class="stat-card"><span class="stat-val">${ac} / 20</span><span class="stat-label">Acertos Totais</span></div>
+        <div class="stat-card"><span class="stat-val">${pct}%</span><span class="stat-label">Aproveitamento</span></div>
+        <div class="stat-card"><span class="stat-val">${nota}</span><span class="stat-label">Nota (0,0 a 10,0)</span></div>
+      </div>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;">
+        ${[1,2,3,4,5].map(t => `
+          <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:7px 12px;font-size:.72rem;">
+            <b>Bloco ${t}:</b> ${acTestlet[t-1]} / ${porTestlet[t-1]} acertos
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="text-align:center; margin-bottom: 24px;">
+      <button class="btn-save-img" onclick="saveReportAsImage()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Salvar Relatório como Imagem (JPG)
+      </button>
+      <div class="save-msg" id="saveReportMsg"></div>
+    </div>
+  `;
+
+  c.innerHTML = '';
+  Questoes.forEach((q,i) => {
+    const ok = resp[i] === q.a;
+    const ra = resp[i] !== null ? String.fromCharCode(65+resp[i]) : 'Em branco';
+    const rc = String.fromCharCode(65+q.a);
+    const div = document.createElement('div');
+    div.className = 'gab-item';
+    div.dataset.res = ok ? 'ok' : 'err';
+    div.innerHTML =
+      '<span class="badge-res ' + (ok?'ok':'err') + '">' + (ok?'✔ ACERTO':'✘ ERRO') + '</span>' +
+      '<strong>Questão ' + (i+1) + '</strong> ' +
+      '<span class="disc-pill ' + pillClass[q.disc] + '" style="font-size:.6rem">' + pillLabel[q.disc] + '</span> ' +
+      '<span style="font-size:.65rem;color:#888">Bloco Temático ' + q.tlet + ' · ' + q.desc + '</span>' +
+      '<div class="resp-det ' + (ok?'ok':'err') + '">Sua resposta: <b>' + ra + '</b> &nbsp;|&nbsp; Gabarito Oficial: <b>' + rc + '</b></div>' +
+      '<div style="font-size:.82rem;color:#555;border-top:1px solid #eee;padding-top:8px;margin-top:8px;text-align:justify;"><b>Justificativa Pedagógica:</b> ' + q.f + '</div>';
+    c.appendChild(div);
+  });
+
+  tab('g', document.getElementById('tab-g-btn'));
+}
+
+// Função para capturar o card escuro de desempenho e exportar como JPG
+function saveReportAsImage() {
+  const card = document.getElementById('gab-header-card');
+  const msgEl = document.getElementById('saveReportMsg');
+  msgEl.textContent = 'Gerando arquivo de imagem...';
+  
+  html2canvas(card, {
+    scale: 2, // Garante alta definição para a leitura dos números e textos
+    backgroundColor: '#0D2B45', // Mantém o fundo azul-marinho idêntico ao original
+    useCORS: true,
+    logging: false
+  }).then(canvas => {
+    const link = document.createElement('a');
+    const nomeInput = document.getElementById('nome-input').value.trim();
+    const studentName = (nomeInput || 'resultado').replace(/\s+/g, '_').toLowerCase();
+    
+    link.download = `relatorio_enem_${studentName}.jpg`;
+    // Conversão explícita para image/jpeg
+    link.href = canvas.toDataURL('image/jpeg', 0.9); 
+    link.click();
+    
+    msgEl.textContent = '✓ Relatório salvo com sucesso!';
+    setTimeout(() => { msgEl.textContent = ''; }, 4000);
+  }).catch(() => {
+    msgEl.textContent = '⚠ Erro ao exportar. Verifique as permissões do navegador.';
+  });
+}
+
+function filtrarGab(tipo, btn){
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.gab-item').forEach(el => {
+    el.style.display = (tipo === 'all' || el.dataset.res === tipo) ? '' : 'none';
+  });
+}
+
+function tab(id, btn){
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('on'));
+  document.getElementById('p' + id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
+</body>
+</html>
