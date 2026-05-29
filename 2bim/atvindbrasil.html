@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industrialização e Desindustrialização no Brasil — Atividade Dissertativa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ferrugem:#9c3a1a;--teal:#1a6b54;--ouro:#b07d1a;
+  --escuro:#1a0e08;--medio:#5a5650;--claro:#faf6ef;
+  --sombra:0 4px 24px rgba(156,58,26,.10);--radius:12px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Serif 4",Georgia,serif;background:var(--claro);color:var(--escuro);line-height:1.7;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+
+/* ── CAPA ── */
+#capa{min-height:100vh;background:linear-gradient(145deg,#1a0e08 0%,#6b2510 45%,#9c3a1a 75%,#b07d1a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow:hidden}
+#capa::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='.03'%3E%3Crect x='0' y='0' width='40' height='2'/%3E%3Crect x='0' y='20' width='80' height='2'/%3E%3Crect x='0' y='40' width='40' height='2'/%3E%3Crect x='0' y='60' width='80' height='2'/%3E%3Crect x='0' y='0' width='2' height='40'/%3E%3Crect x='20' y='0' width='2' height='80'/%3E%3Crect x='40' y='0' width='2' height='40'/%3E%3Crect x='60' y='0' width='2' height='80'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cbox{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:48px 56px;max-width:640px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.cbox-titulo{font-family:"Playfair Display",serif;font-size:2rem;font-weight:900;color:white;margin-bottom:8px;line-height:1.2}
+.cbox-sub{font-size:.9rem;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:10px}
+.cbox-disc{background:var(--ferrugem);color:white;border-radius:40px;padding:6px 24px;display:inline-block;font-size:.9rem;font-weight:600;letter-spacing:.05em;margin-bottom:22px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.chip{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:.3rem .85rem;font-size:.77rem;font-weight:600;font-family:"JetBrains Mono",monospace}
+.campo-label{display:block;color:rgba(255,255,255,.8);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;text-align:left}
+.campo-nome{width:100%;padding:14px 18px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(255,255,255,.15);color:white;font-size:1.05rem;font-family:"Playfair Display",serif;outline:none;transition:border .2s;margin-bottom:22px}
+.campo-nome::placeholder{color:rgba(255,255,255,.45)}
+.campo-nome:focus{border-color:var(--ouro);background:rgba(255,255,255,.2)}
+.btn-start{padding:14px 48px;background:var(--ouro);color:white;border:none;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(176,125,26,.45);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;width:100%}
+.btn-start:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 32px rgba(176,125,26,.6)}
+.btn-start:disabled{opacity:.45;cursor:default}
+.capa-note{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.9rem}
+.seduc-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.07);padding:12px;text-align:center;color:rgba(255,255,255,.55);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── CONTEÚDO ── */
+#conteudo{display:none}
+
+/* ── HEADER ── */
+.hdr-top{background:linear-gradient(90deg,#6b2510 0%,var(--escuro) 100%);color:white;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
+.hdr-nome{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:rgba(255,255,255,.75)}
+.hdr-nome span{color:#f5c98a;font-weight:600}
+.hdr-prog{font-size:.78rem;color:rgba(255,255,255,.7);font-family:"JetBrains Mono",monospace}
+.hdr-prog span{color:#ffd700;font-weight:700}
+.bprog-wrap{height:4px;background:rgba(255,255,255,.15);position:sticky;top:48px;z-index:99}
+.bprog{height:4px;background:var(--ouro);transition:width .4s;width:0%}
+
+/* ── CONTAINER ── */
+.container{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+
+/* ── BLOCO TEXTOS ── */
+.textos-card{background:white;border-radius:var(--radius);padding:32px 40px;margin-bottom:28px;box-shadow:var(--sombra);border-top:4px solid var(--ferrugem)}
+.textos-title{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:900;color:var(--escuro);margin-bottom:6px}
+.textos-sub{font-size:.83rem;color:var(--medio);font-style:italic;margin-bottom:22px;line-height:1.5}
+.intro-p{font-size:.95rem;color:var(--escuro);line-height:1.75;margin-bottom:20px;text-align:justify}
+
+.secao-titulo{font-family:"Playfair Display",serif;font-size:1.05rem;font-weight:700;color:var(--ferrugem);margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid #f0e0d8}
+.texto-bloco{background:#fdf5f2;border-left:4px solid var(--ferrugem);border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:14px}
+.texto-bloco.teal{background:#f0f9f6;border-left-color:var(--teal)}
+.texto-bloco.ouro{background:#faf4e0;border-left-color:var(--ouro)}
+.texto-hdr{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;color:var(--ferrugem);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+.texto-hdr.teal{color:var(--teal)}
+.texto-hdr.ouro{color:#7a5500}
+.texto-corpo{font-size:.93rem;color:var(--escuro);line-height:1.8;margin-bottom:8px;text-align:justify}
+.texto-corpo em{font-style:italic;color:var(--medio)}
+.texto-destaque{background:#fdf0ec;border:1px solid #e8c8b8;border-radius:8px;padding:12px 18px;margin:10px 0;font-size:.88rem;color:#6b2510;line-height:1.7}
+.texto-destaque.teal{background:#ebf6f2;border-color:#a8d8c8;color:#0e4a38}
+.texto-destaque.ouro{background:#fdf6e0;border-color:#d8c070;color:#5a3c00}
+.vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.vocab-item{background:#f5f5f0;border-radius:8px;padding:10px 14px;font-size:.84rem}
+.vocab-termo{font-weight:700;color:var(--ferrugem);font-family:"JetBrains Mono",monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.divider{height:1px;background:linear-gradient(90deg,var(--ferrugem),transparent);margin:22px 0}
+
+/* ── TIMELINE ── */
+.timeline{margin:16px 0}
+.tl-item{display:grid;grid-template-columns:90px 20px 1fr;gap:0 14px;align-items:start;margin-bottom:14px}
+.tl-year{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--ferrugem);text-align:right;padding-top:3px}
+.tl-dot-col{display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--ferrugem);background:white;flex-shrink:0;position:relative;z-index:1;margin-top:4px}
+.tl-dot.filled{background:var(--ferrugem)}
+.tl-line{width:2px;flex:1;background:#e8d0c8;min-height:20px}
+.tl-content h4{font-family:"Playfair Display",serif;font-size:.95rem;font-weight:700;margin-bottom:3px;color:var(--escuro)}
+.tl-content p{font-size:.83rem;color:var(--medio);line-height:1.55;margin:0}
+
+/* ── DATA STRIP ── */
+.data-strip{background:var(--escuro);color:var(--claro);border-radius:8px;padding:1.4rem 1.8rem;margin:16px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.stat-block{text-align:center}
+.stat-num{font-family:"JetBrains Mono",monospace;font-size:1.8rem;font-weight:700;color:#f5c98a;display:block;line-height:1;margin-bottom:.3rem}
+.stat-label{font-size:.72rem;color:rgba(250,246,239,.65);line-height:1.4}
+
+/* ── QUESTÕES ── */
+.q-card{background:white;border-radius:var(--radius);padding:28px 36px;margin:16px 0;box-shadow:var(--sombra);border-top:4px solid var(--claro);transition:border-color .3s}
+.q-card.preenchida{border-top-color:var(--teal)}
+.q-num{font-family:"JetBrains Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--medio);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.q-badge{font-size:.65rem;background:var(--teal);color:white;border-radius:20px;padding:2px 10px;font-weight:700;display:none}
+.q-enunc{font-size:.97rem;color:var(--escuro);line-height:1.75;font-weight:600;margin-bottom:16px}
+.textarea-wrap{position:relative}
+.q-textarea{
+  width:100%;min-height:140px;padding:14px 16px;
+  border:2px solid #e0d8d0;border-radius:8px;
+  font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
+  line-height:1.7;color:var(--escuro);resize:vertical;
+  background:#fdfcfa;outline:none;transition:border .2s;
+  -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text
+}
+.q-textarea:focus{border-color:var(--ferrugem);background:white}
+.q-textarea.preenchida{border-color:var(--teal);background:#f5fdf9}
+.q-textarea:disabled{background:#f5f5f5;color:#aaa;cursor:not-allowed}
+.char-count{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#bbb;text-align:right;margin-top:4px;transition:color .2s}
+.char-count.ok{color:var(--teal)}
+.char-count.warn{color:#8a6010}
+
+/* ── AVISO ── */
+#alerta-incompleto{display:none;background:#fff3cd;border:2px solid #ffc107;border-radius:10px;padding:16px 22px;margin:20px 0;color:#7d5a00;font-weight:600;font-size:.9rem}
+
+/* ── BOTÃO ENVIAR ── */
+.btn-enviar-wrap{margin:32px 0 20px;display:flex;gap:14px;flex-wrap:wrap}
+.btn-enviar{padding:14px 44px;background:var(--ferrugem);color:white;border:none;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(156,58,26,.35);transition:all .2s;letter-spacing:.03em}
+.btn-enviar:hover{transform:translateY(-2px);background:#7a2a10}
+
+/* ── POPUP ── */
+#popup-resultado{display:none;position:fixed;inset:0;background:rgba(26,14,8,.85);z-index:8000;align-items:center;justify-content:center;padding:1rem}
+#popup-resultado.aberto{display:flex}
+.popup-box{background:white;border-radius:20px;padding:2.8rem 2.4rem 2.2rem;max-width:500px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.pop-ico{font-size:3rem;margin-bottom:.6rem}
+.popup-box h2{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--escuro);margin-bottom:.5rem}
+.popup-aluno{font-size:.85rem;color:var(--medio);margin-bottom:.4rem}
+.popup-resp{font-size:4rem;font-weight:900;line-height:1;font-family:"Playfair Display",serif;color:var(--teal)}
+.popup-resp span{font-size:1.4rem;color:var(--medio);font-weight:400}
+.popup-sub{font-size:.82rem;color:var(--medio);margin:.3rem 0 .9rem}
+.popup-msg{font-size:.95rem;font-weight:600;color:var(--ferrugem);margin:.3rem 0 1.4rem}
+.popup-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.pbtn-pdf{padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;border:none;background:var(--ferrugem);color:white;box-shadow:0 6px 20px rgba(156,58,26,.35);transition:all .2s}
+.pbtn-pdf:hover{transform:translateY(-2px);background:#7a2a10}
+.pbtn-restart{background:white;color:var(--teal);border:2px solid var(--teal);padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;transition:all .2s}
+.pbtn-restart:hover{background:var(--teal);color:white}
+
+/* ── PDF OVERLAY ── */
+#pdf-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:9999;display:flex;align-items:center;justify-content:center}
+.pdf-box{background:white;border-radius:16px;padding:44px 52px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35);max-width:380px;width:90%}
+.pdf-box .ico{font-size:2.8rem;margin-bottom:12px}
+.pdf-box h4{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;margin-bottom:8px;color:var(--escuro)}
+.pdf-box p{color:#666;font-size:.87rem;margin-bottom:4px}
+#pdf-prog-wrap{height:6px;background:#e8e8e8;border-radius:4px;margin-top:18px;overflow:hidden}
+#pdf-prog{height:6px;background:var(--ferrugem);border-radius:4px;width:0%;transition:width .3s}
+#pdf-prog-txt{font-size:.76rem;color:#888;margin-top:6px;font-family:"JetBrains Mono",monospace}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pdf-spin{width:40px;height:40px;border:4px solid #e8e8e8;border-top-color:var(--ferrugem);border-radius:50%;animation:spin .8s linear infinite;margin:14px auto 0}
+
+@media(max-width:640px){
+  .cbox{padding:30px 22px}
+  .cbox-titulo{font-size:1.6rem}
+  .container{padding:1rem 1rem 60px}
+  .textos-card,.q-card{padding:20px 16px}
+  .vocab-grid{grid-template-columns:1fr}
+  .data-strip{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ CAPA ══ -->
+<div id="capa">
+  <div class="cbox">
+    <div class="cbox-titulo">Do Vapor às<br>Fábricas Vazias:<br>Industrialização<br>no Brasil</div>
+    <div class="cbox-sub">História Econômica · Trabalho e Desenvolvimento</div>
+    <div class="cbox-disc">Ciências Humanas · História · 2ª Série do Ensino Médio</div>
+    <div class="chips">
+      <span class="chip">5 seções</span>
+      <span class="chip">10 questões</span>
+      <span class="chip">Dissertativa</span>
+      <span class="chip">PDF ao finalizar</span>
+    </div>
+    <label class="campo-label" for="cnome">Nome completo do aluno(a)</label>
+    <input type="text" id="cnome" class="campo-nome" placeholder="Digite seu nome completo aqui…"
+      autocomplete="off" oninput="chkNome()" onkeydown="if(event.key==='Enter')iniciar()">
+    <button class="btn-start" id="bstart" onclick="iniciar()" disabled>Iniciar Atividade →</button>
+    <p class="capa-note">Leia o texto com atenção e responda dissertativamente às 10 questões.</p>
+  </div>
+  <div class="seduc-bar">Colégio Estadual Rodolfo de Oliveira · Aparecida de Goiânia · 2026</div>
+</div>
+
+<!-- ══ CONTEÚDO ══ -->
+<div id="conteudo">
+  <div class="hdr-top">
+    <div class="hdr-nome">Aluno(a): <span id="hdr-nome">—</span></div>
+    <div class="hdr-prog">Respondidas: <span id="hdr-resp">0</span> / 10</div>
+  </div>
+  <div class="bprog-wrap"><div class="bprog" id="bprog"></div></div>
+
+  <div class="container">
+
+    <!-- ══ BLOCO DE TEXTO ══ -->
+    <div class="textos-card">
+      <div class="textos-title">Do Vapor às Fábricas Vazias: Industrialização e Desindustrialização no Brasil</div>
+      <div class="textos-sub">História Econômica · Trabalho e Desenvolvimento · 2ª Série do Ensino Médio</div>
+
+      <p class="intro-p">Imagine acordar num mundo em que tudo que você usa — a roupa, a panela, o sapato — foi feito à mão, por um artesão que levou horas para produzi-lo. Era assim antes de 1760. Então, na Inglaterra, uma série de invenções mudou radicalmente esse cenário. Leia o texto a seguir e responda às questões.</p>
+
+      <div class="divider"></div>
+
+      <!-- SEÇÃO 1 -->
+      <div class="secao-titulo">1. A Revolução Industrial: o mundo muda de marcha</div>
+      <div class="texto-bloco">
+        <div class="texto-hdr">A máquina a vapor e o surgimento das fábricas</div>
+        <div class="texto-corpo">A <strong>máquina a vapor</strong>, o tear mecânico e a fundição de ferro deram início à Revolução Industrial na Inglaterra. Em vez de depender dos músculos humanos, as fábricas passaram a usar energia da queima de carvão. O que um artesão produzia em uma semana passou a ser fabricado em horas. Com as máquinas, o trabalho mudou de natureza: o artesão que dominava todo o processo deu lugar ao operário especializado, que repetiria a mesma tarefa centenas de vezes por dia.</div>
+        <div class="texto-corpo">Cidades como Manchester e Birmingham explodiram em população. Crianças chegaram a trabalhar em minas e tecelagens. As condições eram duras, mas foi o começo de algo novo: o <em>salário regular</em>, a relação contratual de trabalho e o surgimento dos primeiros sindicatos.</div>
+      </div>
+      <div class="texto-destaque">
+        <strong>Adam Smith</strong> — em "A Riqueza das Nações" (1776) — descreveu como a divisão do trabalho numa fábrica de alfinetes multiplicava a produção ao especializar cada operário em uma única tarefa. Essa lógica da especialização é a base da produção industrial até hoje.
+      </div>
+      <div class="texto-corpo">Ao longo do século XIX, a industrialização chegou à França, Alemanha, Estados Unidos e, no século XX, ao Japão, Coreia do Sul e China. O padrão ficou claro: <em>os países que industrializavam aumentavam sua riqueza, criavam empregos de melhor qualidade e desenvolviam tecnologia própria.</em> Os que ficavam dependendo da exportação de matérias-primas continuavam mais pobres.</div>
+
+      <!-- SEÇÃO 2 -->
+      <div class="secao-titulo">2. O Brasil entra no jogo industrial</div>
+      <div class="texto-corpo">O Brasil chegou tarde à industrialização. Enquanto a Europa se modernizava, o país ainda dependia quase que exclusivamente da exportação de café — e antes disso, do açúcar e do ouro. Essa visão mudou a partir da crise de 1929, que derrubou o preço do café no mundo inteiro.</div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-year">1930s</span>
+          <div class="tl-dot-col"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h4>O Estado como motor industrial</h4>
+            <p>Getúlio Vargas aposta na industrialização como caminho para o desenvolvimento. Surgem as primeiras empresas estatais estratégicas (CSN, Petrobras). O governo protege a indústria nascente da concorrência estrangeira.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1950s</span>
+          <div class="tl-dot-col"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h4>"50 anos em 5" — JK</h4>
+            <p>Juscelino Kubitschek atrai montadoras estrangeiras (Volkswagen, Ford, GM) e constrói Brasília. O Brasil alcança crescimento industrial de 10% ao ano. Auge do modelo de <em>substituição de importações</em>.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1960–80s</span>
+          <div class="tl-dot-col"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h4>O "Milagre Econômico"</h4>
+            <p>Durante a ditadura militar, o Brasil cresce a 10% ao ano. A indústria chega a representar mais de 30% do PIB. São Paulo torna-se uma das maiores cidades industriais do mundo.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1990s</span>
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <h4>Abertura e competição</h4>
+            <p>O governo Collor abre a economia ao exterior. Muitas fábricas não conseguem competir com produtos importados. Começa um processo de reestruturação — e de demissões em massa.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2000–hoje</span>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <h4>Desindustrialização consolidada</h4>
+            <p>O peso da indústria no PIB cai de 30% para cerca de 11%. Serviços e agronegócio dominam. O debate sobre reindustrialização torna-se urgente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="data-strip">
+        <div class="stat-block">
+          <span class="stat-num">32%</span>
+          <span class="stat-label">participação da indústria no PIB brasileiro (auge, anos 1980)</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">~11%</span>
+          <span class="stat-label">participação atual da indústria de transformação no PIB</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">40</span>
+          <span class="stat-label">anos de queda continuada da participação industrial</span>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 3 -->
+      <div class="secao-titulo">3. O que é desindustrialização — e por que ela preocupa?</div>
+      <div class="texto-bloco teal">
+        <div class="texto-hdr teal">Desindustrialização prematura</div>
+        <div class="texto-corpo">Todos os países ricos passam, em algum momento, por desindustrialização natural: à medida que ficam mais ricos, os serviços crescem mais rápido que a indústria. Isso aconteceu com EUA, Alemanha e Reino Unido. O problema com o Brasil é que aqui a desindustrialização ocorreu <strong>cedo demais e antes de o país atingir um nível de renda elevado</strong>.</div>
+        <div class="texto-corpo">Ao contrário dos países desenvolvidos, que desindustrializaram "por cima" (evoluindo para serviços sofisticados), o Brasil desindustrializou "por baixo" — voltando a depender de commodities (soja, minério de ferro, petróleo) como principais fontes de renda.</div>
+      </div>
+      <div class="texto-destaque teal">
+        <strong>4 argumentos centrais da obra:</strong> (1) A indústria é especial — gera tecnologia e empregos de melhor qualidade; (2) A armadilha da renda média — países que perdem a indústria prematuramente tendem a ficar presos num nível médio de desenvolvimento; (3) O "custo Brasil" — juros altos, câmbio sobrevalorizado e carga tributária complexa encarecem a produção; (4) Política industrial importa — o Estado precisa ter papel ativo em setores estratégicos.
+      </div>
+
+      <!-- SEÇÃO 4 -->
+      <div class="secao-titulo">4. E o trabalhador? O que muda nas vidas de quem vive do trabalho</div>
+      <div class="texto-bloco">
+        <div class="texto-hdr">O que a indústria tende a oferecer</div>
+        <div class="texto-corpo">Empregos formais com carteira assinada; salários mais altos que em serviços similares; aprendizado técnico e qualificação; sindicatos e negociação coletiva; <strong>efeito multiplicador</strong>: cada emprego industrial gera 2 a 4 no entorno.</div>
+      </div>
+      <div class="texto-bloco ouro">
+        <div class="texto-hdr ouro">O que a desindustrialização precoce tende a gerar</div>
+        <div class="texto-corpo">Informalidade e trabalho por aplicativo; salários menores e maior rotatividade; crescimento dos serviços de baixo valor agregado; dependência de exportações de produtos primários; vulnerabilidade às oscilações do mercado de commodities.</div>
+      </div>
+      <div class="texto-corpo">Os autores mostram que a queda da indústria afeta de maneira mais intensa os trabalhadores sem ensino superior — exatamente aqueles que dependiam das fábricas para acessar empregos formais de melhor remuneração. Quando as fábricas fecham, essas pessoas migram para serviços simples (delivery, comércio, serviços domésticos), com salários mais baixos e sem os mesmos direitos.</div>
+      <div class="texto-corpo">O <strong>paradoxo do agronegócio</strong>: o Brasil é uma potência agrícola, mas o agronegócio moderno usa cada vez mais máquinas e gera poucos empregos diretos. Uma fazenda de soja com tratores GPS gera bem menos postos de trabalho que uma fábrica de calçados.</div>
+
+      <!-- SEÇÃO 5 -->
+      <div class="secao-titulo">5. O que fazer? As propostas da obra</div>
+      <div class="texto-bloco teal">
+        <div class="texto-hdr teal">Propostas de política econômica</div>
+        <div class="texto-corpo"><strong>Câmbio competitivo</strong> — um real desvalorizado torna os produtos brasileiros mais baratos no exterior (estratégia usada por Japão, China e Coreia do Sul). <strong>Juros menores</strong> — o Brasil tem historicamente uma das maiores taxas de juros reais do mundo, o que desestimula o investimento produtivo. <strong>Tecnologia e educação</strong> — investir em pesquisa e formação técnica para competir em produtos de maior valor. <strong>Política industrial ativa</strong> — o Estado deve identificar setores estratégicos, financiar inovação e criar condições para que empresas brasileiras exportem produtos industrializados.</div>
+      </div>
+      <div class="texto-destaque">
+        <strong>Conexão com o presente:</strong> o debate sobre reindustrialização voltou à cena global após a pandemia de COVID-19, quando o mundo percebeu o risco de depender demais de cadeias de produção concentradas na Ásia. No Brasil, a pergunta central é: <em>que tipo de economia queremos construir?</em> Uma que exporta grãos e importa tecnologia — ou uma que agrega valor, gera empregos qualificados e produz o próprio conhecimento que move o mundo?
+      </div>
+
+      <!-- VOCABULÁRIO -->
+      <div class="secao-titulo">6. Vocabulário Essencial</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="vocab-termo">PIB</div>Produto Interno Bruto — a soma de tudo que um país produz em um ano. Principal indicador do tamanho de uma economia.</div>
+        <div class="vocab-item"><div class="vocab-termo">Commodity</div>Produto primário (soja, minério de ferro, petróleo) vendido sem processamento, cujo preço é definido pelo mercado internacional.</div>
+        <div class="vocab-item"><div class="vocab-termo">Substituição de importações</div>Estratégia de produzir internamente o que antes se importava, protegendo a indústria nacional da concorrência estrangeira.</div>
+        <div class="vocab-item"><div class="vocab-termo">Valor agregado</div>Quanto de conhecimento, trabalho e tecnologia foi adicionado a um produto. Um celular tem muito mais valor agregado que o minério de ferro.</div>
+        <div class="vocab-item"><div class="vocab-termo">Câmbio</div>Preço do dólar em reais. Câmbio alto = real desvalorizado, produtos brasileiros ficam mais baratos no exterior.</div>
+        <div class="vocab-item"><div class="vocab-termo">Desindustrialização prematura</div>Quando um país perde sua base industrial antes de atingir o nível de renda que permitiria crescer por outras vias sofisticadas.</div>
+      </div>
+    </div>
+
+    <!-- ══ QUESTÕES ══ -->
+    <div id="alerta-incompleto">
+      ⚠️ Atividade incompleta. Faltam <strong id="qtd-faltando"></strong> resposta(s).
+      Responda todas as questões antes de finalizar.
+    </div>
+
+    <div id="questoes"></div>
+
+    <div class="btn-enviar-wrap">
+      <button class="btn-enviar" onclick="tentarFinalizar()">✓ Finalizar e ver resultado</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ POPUP RESULTADO ══ -->
+<div id="popup-resultado">
+  <div class="popup-box">
+    <div class="pop-ico" id="pop-ico">✍️</div>
+    <h2>Atividade Enviada!</h2>
+    <p class="popup-aluno" id="pop-aluno"></p>
+    <div class="popup-resp" id="pop-resp"></div>
+    <p class="popup-sub" id="pop-sub"></p>
+    <p class="popup-msg" id="pop-msg"></p>
+    <div class="popup-btns">
+      <button class="pbtn-pdf" onclick="fecharPopupEBaixar()">📥 Baixar PDF das respostas</button>
+      <button class="pbtn-restart" onclick="location.reload()">↺ Reiniciar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL_Q = 10;
+const MIN_CHARS = 60;
+let nome = '';
+let respondidas = 0;
+
+const QUESTOES = [
+  {
+    num: 1,
+    enunc: 'O que foi a Revolução Industrial e por que ela é considerada um divisor de águas na história da humanidade? Explique como a máquina a vapor transformou as relações de trabalho e a organização da sociedade.'
+  },
+  {
+    num: 2,
+    enunc: 'Por que os países que se industrializaram tornaram-se mais ricos do que os que permaneceram dependentes da exportação de matérias-primas? Utilize exemplos do texto para justificar sua resposta.'
+  },
+  {
+    num: 3,
+    enunc: 'Explique o modelo de "substituição de importações" adotado pelo Brasil a partir dos anos 1930. Qual foi o papel do Estado e de líderes como Getúlio Vargas e Juscelino Kubitschek nesse processo?'
+  },
+  {
+    num: 4,
+    enunc: 'O texto apresenta uma linha do tempo da industrialização brasileira. Identifique e explique duas fases dessa trajetória, destacando os principais acontecimentos econômicos e políticos de cada período.'
+  },
+  {
+    num: 5,
+    enunc: 'O que é "desindustrialização prematura"? Por que os autores da obra argumentam que esse fenômeno é especialmente prejudicial para o Brasil, ao contrário da desindustrialização ocorrida em países como EUA e Alemanha?'
+  },
+  {
+    num: 6,
+    enunc: 'O texto apresenta quatro argumentos centrais para defender a importância da indústria. Escolha dois deles e desenvolva sua explicação, relacionando-os à realidade brasileira atual.'
+  },
+  {
+    num: 7,
+    enunc: 'Como a desindustrialização afeta a vida dos trabalhadores brasileiros, especialmente os sem ensino superior? Compare as condições de trabalho oferecidas pela indústria com as geradas pelo processo de desindustrialização precoce.'
+  },
+  {
+    num: 8,
+    enunc: 'O texto aponta um "paradoxo do agronegócio". O que é esse paradoxo e por que os autores consideram arriscado para o Brasil depender apenas do agronegócio para o seu desenvolvimento econômico?'
+  },
+  {
+    num: 9,
+    enunc: 'Quais são as principais propostas da obra para enfrentar a desindustrialização brasileira? Explique pelo menos duas delas e discuta se você considera que essas medidas seriam viáveis na realidade do Brasil de hoje.'
+  },
+  {
+    num: 10,
+    enunc: 'Com base em todo o texto, elabore uma reflexão crítica: você acredita que o Brasil deveria investir em reindustrialização ou apostar em outros setores como agronegócio e serviços? Justifique sua resposta com argumentos históricos e econômicos presentes na leitura.'
+  }
+];
+
+function chkNome() {
+  const v = document.getElementById('cnome').value.trim();
+  document.getElementById('bstart').disabled = v.length < 3;
+}
+
+function iniciar() {
+  nome = document.getElementById('cnome').value.trim();
+  if (nome.length < 3) return;
+  document.getElementById('capa').style.display = 'none';
+  document.getElementById('conteudo').style.display = 'block';
+  document.getElementById('hdr-nome').textContent = nome;
+  buildQ();
+}
+
+function buildQ() {
+  const ct = document.getElementById('questoes');
+  QUESTOES.forEach(q => {
+    ct.innerHTML += `
+      <div class="q-card" id="qcard-${q.num}">
+        <div class="q-num">
+          Questão ${q.num}
+          <span class="q-badge" id="badge-${q.num}">✓ respondida</span>
+        </div>
+        <div class="q-enunc">${q.enunc}</div>
+        <div class="textarea-wrap">
+          <textarea
+            class="q-textarea"
+            id="resp-${q.num}"
+            placeholder="Escreva sua resposta aqui…"
+            oninput="onType(${q.num})"
+            onpaste="return false"
+            oncontextmenu="return false"
+            ondrop="return false"
+          ></textarea>
+          <div class="char-count" id="cc-${q.num}">0 / ${MIN_CHARS} caracteres mínimos</div>
+        </div>
+      </div>`;
+  });
+}
+
+function onType(num) {
+  const ta = document.getElementById('resp-' + num);
+  const cc = document.getElementById('cc-' + num);
+  const card = document.getElementById('qcard-' + num);
+  const badge = document.getElementById('badge-' + num);
+  const len = ta.value.length;
+
+  cc.textContent = len + ' caracteres' + (len < MIN_CHARS ? ' (mínimo: ' + MIN_CHARS + ')' : ' ✓');
+  if (len >= MIN_CHARS) {
+    cc.className = 'char-count ok';
+    ta.classList.add('preenchida');
+    card.classList.add('preenchida');
+    badge.style.display = 'inline-block';
+  } else {
+    cc.className = len > 30 ? 'char-count warn' : 'char-count';
+    ta.classList.remove('preenchida');
+    card.classList.remove('preenchida');
+    badge.style.display = 'none';
+  }
+
+  let count = 0;
+  QUESTOES.forEach(q => {
+    const v = document.getElementById('resp-' + q.num).value;
+    if (v.length >= MIN_CHARS) count++;
+  });
+  respondidas = count;
+  document.getElementById('hdr-resp').textContent = count;
+  document.getElementById('bprog').style.width = Math.round(count / TOTAL_Q * 100) + '%';
+}
+
+function tentarFinalizar() {
+  const faltam = [];
+  QUESTOES.forEach(q => {
+    const v = document.getElementById('resp-' + q.num).value;
+    if (v.length < MIN_CHARS) faltam.push(q.num);
+  });
+
+  if (faltam.length > 0) {
+    document.getElementById('qtd-faltando').textContent = faltam.length;
+    const al = document.getElementById('alerta-incompleto');
+    al.style.display = 'block';
+    al.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      const el = document.getElementById('qcard-' + faltam[0]);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 600);
+    return;
+  }
+
+  document.getElementById('alerta-incompleto').style.display = 'none';
+  QUESTOES.forEach(q => {
+    document.getElementById('resp-' + q.num).disabled = true;
+  });
+
+  document.getElementById('pop-aluno').innerHTML = 'Aluno(a): <strong>' + nome + '</strong>';
+  document.getElementById('pop-resp').innerHTML = '10<span>/10</span>';
+  document.getElementById('pop-sub').textContent = 'Todas as questões respondidas';
+  document.getElementById('pop-msg').textContent = 'Baixe o PDF para guardar suas respostas.';
+  setTimeout(() => {
+    document.getElementById('popup-resultado').classList.add('aberto');
+  }, 300);
+}
+
+function fecharPopupEBaixar() {
+  document.getElementById('popup-resultado').classList.remove('aberto');
+  setTimeout(() => gerarPDF(), 350);
+}
+
+document.getElementById('popup-resultado').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('aberto');
+});
+
+// ── GERAR PDF com html2canvas ──
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function gerarPDF() {
+  const overlay = document.createElement('div');
+  overlay.id = 'pdf-overlay';
+  overlay.innerHTML = `<div class="pdf-box">
+    <div class="ico">📄</div>
+    <h4>Gerando PDF…</h4>
+    <p>Renderizando texto e respostas.</p>
+    <p>Aguarde alguns instantes.</p>
+    <div class="pdf-spin"></div>
+    <div id="pdf-prog-wrap"><div id="pdf-prog"></div></div>
+    <div id="pdf-prog-txt">0%</div>
+  </div>`;
+  document.body.appendChild(overlay);
+  await sleep(80);
+
+  const setP = (pct, msg) => {
+    const pp = document.getElementById('pdf-prog');
+    const pt = document.getElementById('pdf-prog-txt');
+    if (pp) pp.style.width = pct + '%';
+    if (pt) pt.textContent = msg || pct + '%';
+  };
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+    const PW = pdf.internal.pageSize.getWidth();
+    const PH = pdf.internal.pageSize.getHeight();
+    const ML = 28;
+    const CW = PW - ML * 2;
+    let y = ML;
+
+    const addImg = async (el) => {
+      const canvas = await html2canvas(el, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0, windowWidth: 900 });
+      const imgW = CW;
+      const imgH = (canvas.height / canvas.width) * imgW;
+      const dataUrl = canvas.toDataURL('image/jpeg', .93);
+      const avail = PH - ML * 2;
+
+      if (imgH <= avail) {
+        if (y + imgH > PH - ML) { pdf.addPage(); y = ML; }
+        pdf.addImage(dataUrl, 'JPEG', ML, y, imgW, imgH);
+        y += imgH + 8;
+      } else {
+        const pxPerPdfPt = canvas.width / imgW;
+        let srcY = 0;
+        while (srcY < canvas.height) {
+          const availPt = PH - y - ML;
+          const sliceH_pt = Math.min(availPt, avail);
+          const sliceH_px = Math.round(sliceH_pt * pxPerPdfPt);
+          const actualH_px = Math.min(sliceH_px, canvas.height - srcY);
+          const tmp = document.createElement('canvas');
+          tmp.width = canvas.width;
+          tmp.height = actualH_px;
+          tmp.getContext('2d').drawImage(canvas, 0, srcY, canvas.width, actualH_px, 0, 0, canvas.width, actualH_px);
+          const sliceUrl = tmp.toDataURL('image/jpeg', .93);
+          const slicePt = (actualH_px / canvas.width) * imgW;
+          pdf.addImage(sliceUrl, 'JPEG', ML, y, imgW, slicePt);
+          srcY += actualH_px;
+          y += slicePt;
+          if (srcY < canvas.height) { pdf.addPage(); y = ML; }
+        }
+        y += 8;
+      }
+    };
+
+    // ── CAPA ──
+    setP(5, 'Preparando capa…'); await sleep(50);
+    const now = new Date();
+    const dtStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+    const coverEl = document.createElement('div');
+    coverEl.style.cssText = 'width:860px;font-family:Arial,sans-serif;overflow:hidden;position:absolute;left:-9999px;top:0;border-radius:0';
+    coverEl.innerHTML = `
+      <div style="background:linear-gradient(135deg,#1a0e08 0%,#6b2510 50%,#b07d1a 100%);padding:32px 48px 28px;color:white">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.7;font-weight:700;margin-bottom:6px">Ciências Humanas · História · 2ª Série do Ensino Médio</div>
+        <div style="font-size:26px;font-weight:900;line-height:1.2;margin-bottom:5px">Do Vapor às Fábricas Vazias: Industrialização e Desindustrialização no Brasil</div>
+        <div style="font-size:13px;opacity:.8;font-style:italic">História Econômica · Trabalho e Desenvolvimento · Atividade Dissertativa · 10 questões</div>
+      </div>
+      <div style="background:#f4f2ef;padding:22px 48px 26px;border-bottom:3px solid #d8c8b0">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#9c3a1a;font-weight:700;margin-bottom:5px">Aluno(a)</div>
+        <div style="font-size:20px;font-weight:700;color:#1a0e08;border-bottom:2.5px solid #9c3a1a;padding-bottom:6px;display:inline-block;margin-bottom:16px">${nome}</div>
+        <div style="display:flex;gap:14px">
+          <div style="background:white;border-radius:8px;padding:12px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:100px">
+            <div style="font-size:22px;font-weight:900;color:#1a6b54">10/10</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Questões</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:12px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:100px">
+            <div style="font-size:16px;font-weight:900;color:#9c3a1a">Dissertativa</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Tipo</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:12px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:140px">
+            <div style="font-size:13px;font-weight:700;color:#333">${dtStr}</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Enviado em</div>
+          </div>
+        </div>
+        <div style="font-size:9px;color:#bbb;margin-top:14px">Colégio Estadual Rodolfo de Oliveira · Aparecida de Goiânia · 2026</div>
+      </div>`;
+    document.body.appendChild(coverEl);
+    await sleep(60);
+    await addImg(coverEl);
+    document.body.removeChild(coverEl);
+
+    // ── TEXTO DE BASE ──
+    setP(12, 'Renderizando texto…'); await sleep(30);
+    const textsEl = document.createElement('div');
+    textsEl.style.cssText = 'width:860px;font-family:Arial,sans-serif;background:white;padding:22px 32px 26px;position:absolute;left:-9999px;top:0';
+
+    textsEl.innerHTML = `
+      <div style="border-bottom:3px solid #9c3a1a;padding-bottom:10px;margin-bottom:16px">
+        <div style="font-size:11px;color:#9c3a1a;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px">Texto de Base</div>
+        <div style="font-size:18px;font-weight:900;color:#1a0e08">Do Vapor às Fábricas Vazias: Industrialização e Desindustrialização no Brasil</div>
+        <div style="font-size:12px;color:#777;font-style:italic">História Econômica · Trabalho e Desenvolvimento</div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:#9c3a1a;margin:10px 0 6px;border-bottom:1.5px solid #f0d8d0;padding-bottom:4px">Parte 1 — A Revolução Industrial</div>
+      <div style="background:#fdf5f2;border-left:4px solid #9c3a1a;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:10px">
+        <div style="font-size:11px;color:#1a0e08;line-height:1.7;text-align:justify">A máquina a vapor, o tear mecânico e a fundição de ferro (Inglaterra, séc. XVIII) inauguraram a produção fabril. O artesão deu lugar ao operário especializado. A industrialização espalhou-se para França, Alemanha, EUA e, no séc. XX, Japão, Coreia do Sul e China. Padrão claro: quem industrializou ficou mais rico; quem ficou na exportação de matérias-primas ficou mais pobre.</div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:#1a6b54;margin:10px 0 6px;border-bottom:1.5px solid #c0e0d8;padding-bottom:4px">Parte 2 — O Brasil e a industrialização (1930–1990)</div>
+      <div style="background:#f0f9f6;border-left:4px solid #1a6b54;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:10px">
+        <div style="font-size:11px;color:#1a0e08;line-height:1.7;text-align:justify">1930s — Vargas aposta na industrialização; surgem CSN e Petrobras. 1950s — JK: "50 anos em 5", auge da substituição de importações, montadoras estrangeiras. 1960–80s — "Milagre Econômico": indústria chega a 32% do PIB, São Paulo vira polo industrial. 1990s — abertura de Collor: fábricas não competem com importados, início da desindustrialização. 2000–hoje: indústria cai para ~11% do PIB.</div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:#7a5500;margin:10px 0 6px;border-bottom:1.5px solid #d8c070;padding-bottom:4px">Parte 3 — Desindustrialização prematura e seus impactos</div>
+      <div style="background:#faf4e0;border-left:4px solid #b07d1a;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:10px">
+        <div style="font-size:11px;color:#1a0e08;line-height:1.7;text-align:justify">O Brasil desindustrializou "por baixo" — voltou a depender de commodities antes de enriquecer. Impacto no trabalho: a indústria gerava empregos formais, salários maiores e efeito multiplicador (1 emprego industrial gera 2 a 4 no entorno). A desindustrialização gera informalidade, trabalho por aplicativo e baixos salários. O agronegócio, embora forte exportador, usa máquinas e gera poucos empregos diretos. Propostas: câmbio competitivo, juros menores, política industrial ativa e investimento em tecnologia e educação.</div>
+      </div>`;
+    document.body.appendChild(textsEl);
+    await sleep(60);
+    await addImg(textsEl);
+    document.body.removeChild(textsEl);
+
+    // ── COMENTÁRIOS DO PROFESSOR ──
+    const COMENTARIOS = [
+      `A Revolução Industrial (Inglaterra, a partir de 1760) foi um divisor de águas porque substituiu a produção artesanal pela produção mecanizada em fábricas. A máquina a vapor — movida a carvão — multiplicou a produtividade: o que um artesão produzia em uma semana passou a ser fabricado em horas. As relações de trabalho mudaram radicalmente: surgiu o operário assalariado, especializado em uma tarefa repetitiva, em contraste com o artesão que dominava todo o processo. Cidades cresceram explosivamente, surgiu o movimento operário, os primeiros sindicatos e as primeiras leis trabalhistas. Em termos globais, a industrialização foi o principal fator de enriquecimento das nações.`,
+      `Os países industrializados ficaram mais ricos porque a produção industrial (1) gera valor agregado — transforma matéria-prima em produto de maior valor; (2) cria empregos formais e com salários mais altos; (3) estimula inovação tecnológica; (4) tem efeito multiplicador sobre outros setores. Os países que permaneceram exportadores de matérias-primas ficaram mais vulneráveis às oscilações de preço no mercado internacional e não acumularam tecnologia própria. O próprio Brasil é exemplo: enquanto dependeu do café, permaneceu subdesenvolvido; quando industrializou (1930–1980), cresceu aceleradamente.`,
+      `A substituição de importações era uma estratégia de produzir internamente o que antes se comprava de outros países, protegendo a indústria nacional com tarifas alfandegárias e subsídios estatais. O papel do Estado foi central: Vargas criou empresas estratégicas como a CSN (siderurgia, 1941) e impulsionou a Petrobras. JK ("50 anos em 5") atraiu montadoras multinacionais (Volkswagen, Ford, GM), construiu Brasília e alcançou 10% de crescimento industrial ao ano. Esse modelo permitiu ao Brasil construir uma das maiores bases industriais do mundo em desenvolvimento entre 1930 e 1980.`,
+      `O aluno deve identificar e explicar pelo menos duas fases. Exemplos esperados: (a) Anos 1930–50 (Vargas/JK): industrialização acelerada, substituição de importações, papel central do Estado, crescimento de 10% ao ano; (b) Anos 1960–80 (Ditadura/"Milagre"): indústria atinge 32% do PIB, São Paulo torna-se polo industrial, ABC paulista como símbolo do operariado; (c) Anos 1990 (Abertura/Collor): concorrência com importados, demissões em massa, início da desindustrialização; (d) 2000–hoje: queda para ~11% do PIB, consolidação da dependência de commodities.`,
+      `Desindustrialização prematura ocorre quando um país perde sua base industrial antes de atingir um nível elevado de renda e desenvolvimento. Nos países ricos (EUA, Alemanha), a desindustrialização foi natural e "por cima": ocorreu depois de o país já ser rico e pôde ser substituída por serviços sofisticados (finanças, tecnologia, saúde avançada). No Brasil, o processo ocorreu "por baixo": a indústria encolheu antes de o país se tornar rico, e o que cresceu foram commodities e serviços de baixo valor, não serviços de alta tecnologia. Isso significa que o Brasil perdeu uma etapa essencial do desenvolvimento.`,
+      `Os quatro argumentos são: (1) A indústria é especial — gera tecnologia, encadeamentos para outros setores e empregos de melhor qualidade; (2) A armadilha da renda média — sem indústria, o Brasil pode ficar preso num nível médio de desenvolvimento; (3) O "custo Brasil" — juros altos, câmbio sobrevalorizado e carga tributária complexa encarecem a produção nacional; (4) Política industrial importa — os países que industrializaram com sucesso (Japão, Coreia do Sul, China) usaram o Estado ativamente. O aluno deve escolher dois e relacioná-los à realidade do Brasil atual com exemplos concretos.`,
+      `A desindustrialização afeta sobretudo os trabalhadores sem ensino superior, que dependiam da indústria para acessar empregos formais bem remunerados. Comparação: a indústria oferecia carteira assinada, salários maiores, FGTS, plano de saúde, qualificação técnica e representação sindical. Com a desindustrialização, esses trabalhadores migraram para serviços simples: delivery, comércio, serviços domésticos — com salários mais baixos, sem benefícios e com maior instabilidade. A informalidade e o trabalho por aplicativo são consequências diretas desse processo. Isso aprofunda a desigualdade social.`,
+      `O paradoxo do agronegócio: o Brasil é uma das maiores potências agrícolas do mundo (soja, carne, celulose, petróleo), o que parece ser um ponto forte. Mas o agronegócio moderno é altamente mecanizado — usa tratores, colheitadeiras GPS e drones — e gera poucos empregos diretos por hectare cultivado. Uma fazenda de soja de grande escala gera muito menos postos de trabalho que uma fábrica de calçados ou eletrônicos de porte similar. Além disso, o preço das commodities é volátil e determinado externamente. Depender apenas do agronegócio significa aceitar essa volatilidade e abrir mão da geração de empregos que o país precisa.`,
+      `As principais propostas são: (1) Câmbio competitivo — manter o real desvalorizado para tornar os produtos brasileiros mais baratos no exterior (usada por Japão, China e Coreia do Sul); (2) Juros menores — o Brasil tem uma das maiores taxas de juros reais do mundo, o que encarece o crédito para investimento produtivo; (3) Tecnologia e educação — investir em pesquisa, inovação e formação técnica para produtos de maior valor agregado; (4) Política industrial ativa — o Estado deve identificar setores estratégicos e financiar inovação. O aluno deve discutir a viabilidade dessas medidas considerando os desafios atuais (inflação, dívida pública, desindustrialização consolidada).`,
+      `Resposta pessoal — espera-se que o aluno apresente argumentos históricos e econômicos. Possíveis perspectivas: A favor da reindustrialização: a história mostra que países ricos se desenvolveram via indústria; a indústria gera mais empregos de qualidade e tecnologia; o Brasil tem capacidade instalada que pode ser recuperada. A favor do agronegócio/serviços: o Brasil tem vantagens comparativas no agronegócio; a reindustrialização pode ser cara e lenta; os serviços de tecnologia (fintechs, startups) são o futuro. O aluno deve fundamentar sua posição com pelo menos dois argumentos históricos e econômicos concretos do texto, podendo discordar das perspectivas dominantes desde que apresente justificativa coerente.`
+    ];
+
+    // ── QUESTÕES + RESPOSTAS ──
+    for (let i = 0; i < QUESTOES.length; i++) {
+      const q = QUESTOES[i];
+      const resp = document.getElementById('resp-' + q.num).value;
+      const coment = COMENTARIOS[i];
+      setP(20 + Math.round(i / QUESTOES.length * 70), 'Questão ' + q.num + ' de 10…');
+      await sleep(25);
+
+      const qEl = document.createElement('div');
+      qEl.style.cssText = 'width:860px;font-family:Arial,sans-serif;background:white;overflow:hidden;border:1px solid #e8d8d0;border-radius:10px;position:absolute;left:-9999px;top:0';
+      qEl.innerHTML = `
+        <div style="background:linear-gradient(90deg,#6b2510,#4a1808);padding:12px 22px;display:flex;justify-content:space-between;align-items:center">
+          <span style="color:white;font-weight:700;font-size:13px;letter-spacing:.8px">QUESTÃO ${q.num} DE 10</span>
+          <span style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:10px;padding:3px 12px;border-radius:20px;font-weight:600">Dissertativa</span>
+        </div>
+        <div style="padding:20px 24px 16px;background:#fdfdfd">
+          <div style="font-size:13.5px;font-weight:700;color:#1a0e08;line-height:1.75;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #eee">${q.enunc}</div>
+          
+          <div style="margin-bottom:14px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <div style="width:4px;height:16px;background:#9c3a1a;border-radius:2px"></div>
+              <div style="font-size:10px;font-weight:700;color:#9c3a1a;text-transform:uppercase;letter-spacing:1.5px">Resposta do Aluno(a)</div>
+            </div>
+            <div style="background:#fdf5f2;border:1.5px solid #e8c8b8;border-radius:8px;padding:14px 18px;min-height:70px">
+              <div style="font-size:12.5px;color:#1a0e08;line-height:1.85;white-space:pre-wrap">${resp}</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <div style="width:4px;height:16px;background:#1a6b54;border-radius:2px"></div>
+              <div style="font-size:10px;font-weight:700;color:#0e4a38;text-transform:uppercase;letter-spacing:1.5px">Comentário do Professor</div>
+            </div>
+            <div style="background:#f0f9f6;border:1.5px solid #a8d8c8;border-radius:8px;padding:14px 18px">
+              <div style="font-size:12.5px;color:#1a2e1a;line-height:1.85">${coment}</div>
+            </div>
+          </div>
+        </div>`;
+      document.body.appendChild(qEl);
+      await sleep(25);
+      await addImg(qEl);
+      document.body.removeChild(qEl);
+    }
+
+    // ── RODAPÉ ──
+    setP(95, 'Finalizando…'); await sleep(30);
+    const totalPages = pdf.getNumberOfPages();
+    for (let p = 1; p <= totalPages; p++) {
+      pdf.setPage(p);
+      const fEl = document.createElement('div');
+      fEl.style.cssText = `width:${Math.round(PW)}px;height:22px;background:#faf6ef;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:10px;color:#888;font-family:Arial,sans-serif;position:absolute;left:-9999px;top:0`;
+      fEl.innerHTML = `<span>Industrialização e Desindustrialização no Brasil · ${nome}</span><span>Página ${p} de ${totalPages}</span>`;
+      document.body.appendChild(fEl);
+      const fc = await html2canvas(fEl, { scale: 2, logging: false, backgroundColor: '#faf6ef' });
+      document.body.removeChild(fEl);
+      const fUrl = fc.toDataURL('image/jpeg', .9);
+      const fH = (fc.height / fc.width) * PW;
+      pdf.setFillColor(250, 246, 239);
+      pdf.rect(0, PH - fH, PW, fH, 'F');
+      pdf.addImage(fUrl, 'JPEG', 0, PH - fH, PW, fH);
+    }
+
+    setP(100, 'Salvando…'); await sleep(200);
+    const safeName = nome.replace(/[^a-zA-Z0-9_\-]/g, '_');
+    pdf.save('Industrializacao_Brasil_' + safeName + '.pdf');
+
+  } catch (err) {
+    console.error(err);
+    alert('Erro ao gerar PDF: ' + err.message);
+  } finally {
+    const ov = document.getElementById('pdf-overlay');
+    if (ov) document.body.removeChild(ov);
+  }
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
