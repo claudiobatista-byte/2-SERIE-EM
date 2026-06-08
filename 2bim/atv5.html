@@ -3,575 +3,726 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revisa Goiás – 2ª Série | História | Revolução Francesa</title>
+<title>Revolução Francesa e seus Legados Políticos</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--verde:#4a9e3f;--roxo:#8B0000;--laranja:#e67e22;--cinza-escuro:#1a1a2e;--cinza-medio:#4a4a6a;--cinza-claro:#f0f0f8;--branco:#fafafa;--sombra:0 4px 24px rgba(139,0,0,.12);--radius:12px}
+:root{
+  --azul:#8B0000;--teal:#4a9e3f;--laranja:#e67e22;--vermelho:#c0392b;
+  --escuro:#1a1a2e;--medio:#4a4a6a;--claro:#f0f0f8;
+  --sombra:0 4px 24px rgba(139,0,0,.12);--radius:12px
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Source Serif 4",Georgia,serif;background:var(--cinza-claro);color:var(--cinza-escuro);line-height:1.7;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
+body{font-family:"Source Serif 4",Georgia,serif;background:var(--claro);color:var(--escuro);line-height:1.7;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 #capa{min-height:100vh;background:linear-gradient(145deg,#1a1a2e 0%,#8B0000 55%,#4a4a6a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow:hidden}
 #capa::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.capa-logo-area{display:flex;align-items:center;gap:18px;margin-bottom:32px}
-.capa-logo-circle{width:80px;height:80px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.3)}
-.capa-titulo-revisa{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;color:white;line-height:1;text-shadow:0 2px 16px rgba(0,0,0,.4)}
-.capa-subtitulo-revisa{font-family:"Source Serif 4",serif;font-size:1rem;color:rgba(255,255,255,.75);font-style:italic}
-.capa-box{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:48px 56px;max-width:640px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.capa-serie{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:900;color:white;margin-bottom:8px}
-.capa-disciplina{background:var(--roxo);color:white;border-radius:40px;padding:8px 28px;display:inline-block;font-size:1rem;font-weight:600;letter-spacing:.05em;margin-bottom:28px}
-.capa-bimestre{font-family:"JetBrains Mono",monospace;font-size:1.4rem;color:rgba(255,255,255,.9);background:rgba(255,255,255,.1);border-radius:8px;padding:12px 24px;margin-bottom:36px;letter-spacing:.08em}
-.campo-nome-area label{display:block;color:rgba(255,255,255,.8);font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
-.campo-nome{width:100%;padding:16px 20px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(255,255,255,.15);color:white;font-size:1.15rem;font-family:"Playfair Display",serif;outline:none;transition:border .2s;user-select:text;-webkit-user-select:text}
+.cbox{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:48px 56px;max-width:640px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.cbox-titulo{font-family:"Playfair Display",serif;font-size:2rem;font-weight:900;color:white;margin-bottom:8px;line-height:1.2}
+.cbox-sub{font-size:.9rem;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:10px}
+.cbox-disc{background:var(--azul);color:white;border-radius:40px;padding:6px 24px;display:inline-block;font-size:.88rem;font-weight:600;letter-spacing:.04em;margin-bottom:22px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.chip{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:.3rem .85rem;font-size:.77rem;font-weight:600;font-family:"JetBrains Mono",monospace}
+.campo-label{display:block;color:rgba(255,255,255,.8);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;text-align:left}
+.campo-nome{width:100%;padding:14px 18px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(255,255,255,.15);color:white;font-size:1.05rem;font-family:"Playfair Display",serif;outline:none;transition:border .2s;margin-bottom:22px}
 .campo-nome::placeholder{color:rgba(255,255,255,.45)}
-.campo-nome:focus{border-color:var(--verde);background:rgba(255,255,255,.2)}
-.btn-comecar{margin-top:28px;padding:16px 48px;background:var(--roxo);color:white;border:none;border-radius:50px;font-size:1.1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(139,0,0,.4);transition:transform .2s,box-shadow .2s;letter-spacing:.04em}
-.btn-comecar:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(139,0,0,.5)}
-.erro-nome{color:#ffcdd2;font-size:.82rem;margin-top:8px;display:none}
-.seduc-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.07);padding:14px;text-align:center;color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.campo-nome:focus{border-color:var(--teal);background:rgba(255,255,255,.2)}
+.btn-start{padding:14px 48px;background:var(--azul);color:white;border:none;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(139,0,0,.4);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;width:100%}
+.btn-start:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 32px rgba(139,0,0,.5)}
+.btn-start:disabled{opacity:.45;cursor:default}
+.capa-note{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.9rem}
+.seduc-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.07);padding:12px;text-align:center;color:rgba(255,255,255,.55);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
 #conteudo{display:none}
-.container{max-width:960px;margin:0 auto;padding:0 20px 60px}
-.header-top{background:linear-gradient(90deg,var(--roxo) 0%,var(--cinza-escuro) 100%);color:white;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
-.header-nome-aluno{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:rgba(255,255,255,.75)}
-.header-nome-aluno span{color:#ffc0c0;font-weight:600}
-.progresso-geral{font-size:.8rem;color:rgba(255,255,255,.7);font-family:"JetBrains Mono",monospace}
-#progresso-count{color:#ffd700;font-weight:700}
-.barra-prog-wrap{height:4px;background:rgba(255,255,255,.15);position:sticky;top:52px;z-index:99}
-.barra-prog{height:4px;background:var(--roxo);transition:width .4s;width:0%}
-.secao-texto{background:white;border-radius:var(--radius);padding:40px 48px;margin:32px 0;box-shadow:var(--sombra);border-left:5px solid var(--roxo)}
-.secao-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--roxo);margin-bottom:16px;font-weight:600}
-.secao-titulo{font-family:"Playfair Display",serif;font-size:1.6rem;font-weight:700;color:var(--cinza-escuro);margin-bottom:20px;line-height:1.3}
-.secao-texto p{margin-bottom:14px;font-size:.97rem}
-.secao-texto strong{color:var(--roxo)}
-.secao-texto h3{font-family:"Playfair Display",serif;font-size:1.15rem;margin:22px 0 10px;color:#333}
-.tabela-hist{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
-.tabela-hist th{background:var(--roxo);color:white;padding:10px 14px;text-align:left}
-.tabela-hist td{padding:9px 14px;border-bottom:1px solid #e0e0ee}
+.hdr-top{background:linear-gradient(90deg,var(--azul) 0%,var(--escuro) 100%);color:white;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
+.hdr-nome{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:rgba(255,255,255,.75)}
+.hdr-nome span{color:#ffc0c0;font-weight:600}
+.hdr-prog{font-size:.78rem;color:rgba(255,255,255,.7);font-family:"JetBrains Mono",monospace}
+.hdr-prog span{color:#ffd700;font-weight:700}
+.bprog-wrap{height:4px;background:rgba(255,255,255,.15);position:sticky;top:48px;z-index:99}
+.bprog{height:4px;background:var(--azul);transition:width .4s;width:0%}
+.container{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+/* ── BLOCOS DE TEXTO / FONTE ── */
+.fonte-card{background:white;border-radius:var(--radius);padding:28px 36px;margin-bottom:0;box-shadow:var(--sombra);border-top:4px solid var(--azul)}
+.fonte-titulo{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:900;color:var(--escuro);margin-bottom:4px}
+.fonte-hdr{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.fonte-corpo{font-size:.9rem;color:var(--escuro);line-height:1.8;text-align:justify;margin-bottom:8px}
+.fonte-corpo em{font-style:italic;color:var(--medio)}
+.fonte-cit{font-size:.86rem;color:var(--medio);font-style:italic;border-left:3px solid var(--teal);padding-left:12px;margin:10px 0}
+.fonte-ref{font-size:.69rem;color:#999;font-style:italic;display:block;margin-top:10px;line-height:1.6}
+.tabela-hist{width:100%;border-collapse:collapse;margin:14px 0;font-size:.86rem}
+.tabela-hist th{background:var(--azul);color:white;padding:9px 14px;text-align:left}
+.tabela-hist td{padding:8px 14px;border-bottom:1px solid #e0e0ee}
 .tabela-hist tr:nth-child(even) td{background:#f8f5ff}
-.atividades-header{background:linear-gradient(135deg,var(--roxo),var(--cinza-escuro));color:white;border-radius:var(--radius);padding:24px 36px;margin:36px 0 24px;display:flex;align-items:center;gap:16px}
-.atividades-header h2{font-family:"Playfair Display",serif;font-size:1.5rem}
-.questao{background:white;border-radius:var(--radius);padding:32px 40px;margin:20px 0;box-shadow:var(--sombra);border-top:4px solid var(--cinza-claro);transition:border-color .3s}
-.questao.respondida{border-top-color:var(--verde)}
-.questao.errada{border-top-color:#e74c3c}
-.questao-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--cinza-medio);margin-bottom:10px}
-.questao-num .badge{background:var(--roxo);color:white;padding:2px 10px;border-radius:20px;font-size:.75rem;margin-left:8px}
-.questao-enunciado{font-size:.98rem;margin-bottom:20px;color:var(--cinza-escuro);line-height:1.7}
-.opcoes{display:flex;flex-direction:column;gap:10px}
-.opcao{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-radius:8px;border:2px solid #e8e8f0;cursor:pointer;transition:all .2s;font-size:.93rem;background:var(--cinza-claro)}
-.opcao:hover:not(.bloqueada){border-color:var(--roxo);background:#fff0f0}
-.opcao .letra{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.85rem;color:var(--roxo);min-width:22px;padding-top:1px}
-.opcao.correta{border-color:var(--verde);background:#edfaeb}
-.opcao.correta .letra{color:var(--verde)}
-.opcao.errada-sel{border-color:#e74c3c;background:#fdecea}
-.opcao.errada-sel .letra{color:#e74c3c}
-.opcao.bloqueada{cursor:default;opacity:.75}
-.feedback-quiz{margin-top:16px;padding:14px 18px;border-radius:8px;font-size:.88rem;display:none;font-weight:600}
-.feedback-quiz.acerto{background:#edfaeb;color:#2d7a27;display:block}
-.feedback-quiz.erro{background:#fdecea;color:#c0392b;display:block}
-.campo-discursivo{width:100%;min-height:140px;padding:16px 18px;border:2px solid #e8e8f0;border-radius:8px;font-family:"Source Serif 4",serif;font-size:.95rem;line-height:1.7;color:var(--cinza-escuro);background:var(--cinza-claro);resize:vertical;outline:none;transition:border-color .2s;user-select:text;-webkit-user-select:text}
-.campo-discursivo:focus{border-color:var(--roxo);background:white}
-.campo-discursivo.preenchida{border-color:var(--verde);background:#fafffa}
-.aviso-paste{font-size:.73rem;color:var(--cinza-medio);margin-top:5px;font-family:"JetBrains Mono",monospace}
-.aviso-paste::before{content:"⚠ "}
-.citacao-box{background:#fff5f5;border-left:4px solid var(--roxo);border-radius:0 8px 8px 0;padding:18px 22px;margin:16px 0;font-style:italic;font-size:.9rem;color:var(--cinza-medio)}
-#alerta-incompleto{display:none;background:#fff3cd;border:2px solid #ffc107;border-radius:10px;padding:20px 28px;margin:24px 0;color:#7d5a00;font-weight:600}
-.acoes-finais{display:flex;gap:16px;margin:40px 0 20px;flex-wrap:wrap}
-.btn-imprimir,.btn-feedback{padding:16px 36px;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;border:none;transition:all .2s;letter-spacing:.03em}
-.btn-imprimir{background:var(--roxo);color:white;box-shadow:0 6px 20px rgba(139,0,0,.35)}
-.btn-imprimir:hover{transform:translateY(-2px);background:#6b0000}
-.btn-feedback{background:white;color:var(--verde);border:2px solid var(--verde);box-shadow:0 4px 14px rgba(74,158,63,.15)}
-.btn-feedback:hover{background:var(--verde);color:white}
-#modal-feedback{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
-#modal-feedback.aberto{display:flex}
-.modal-box{background:white;border-radius:16px;padding:40px;max-width:720px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);margin:auto}
-.modal-box h3{font-family:"Playfair Display",serif;font-size:1.5rem;margin-bottom:20px;color:var(--cinza-escuro)}
-.modal-resultado{background:var(--cinza-claro);border-radius:8px;padding:20px;margin-bottom:20px}
-.resultado-linha{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e0e0ee;font-size:.9rem}
-.resultado-linha:last-child{border-bottom:none}
-.resultado-val{font-weight:700;font-family:"JetBrains Mono",monospace}
-.resultado-val.verde{color:var(--verde)}
-.resultado-val.vermelho{color:#e74c3c}
-.secao-fb{margin:20px 0;border:1px solid #e8e8f0;border-radius:10px;overflow:hidden}
-.secao-fb-titulo{background:var(--cinza-claro);padding:12px 18px;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e8e8f0}
-.item-fb{padding:14px 18px;border-bottom:1px solid #f0f0f8;font-size:.88rem}
-.item-fb:last-child{border-bottom:none}
-.item-fb .qnum{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--roxo);font-size:.8rem;margin-bottom:6px}
-.item-fb .resp-aluno{background:#f8f8ff;border-left:3px solid var(--roxo);padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0;font-size:.87rem;white-space:pre-wrap;word-break:break-word}
-.item-fb .gabarito-correcao{background:#edfaeb;border-left:3px solid var(--verde);padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0;font-size:.87rem;color:#1a5c16}
-.item-fb .status-acerto{color:var(--verde);font-weight:700}
-.item-fb .status-erro{color:#e74c3c;font-weight:700}
-.item-fb .nao-resp{color:#e67e22;font-style:italic}
-.btn-fechar-modal{margin-top:24px;padding:12px 32px;background:var(--cinza-escuro);color:white;border:none;border-radius:30px;cursor:pointer;font-family:"Source Serif 4",serif;font-size:.95rem}
-.print-capa{display:none}
-
-/* Estilos adicionais para o Toast de Aviso Dinâmico */
-.toast-seguranca{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:rgba(231,76,60,0.98);color:white;padding:14px 28px;border-radius:50px;font-family:"JetBrains Mono",monospace;font-size:0.85rem;font-weight:600;box-shadow:0 8px 32px rgba(231,76,60,0.4);z-index:99999;transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),opacity 0.3s;opacity:0;display:flex;align-items:center;gap:10px;pointer-events:none;border:1px solid rgba(255,255,255,0.2)}
-.toast-seguranca.visivel{transform:translateX(-50%) translateY(0);opacity:1}
-
-@media print{
-  .header-top,.barra-prog-wrap,.btn-imprimir,.btn-feedback,.acoes-finais,#alerta-incompleto,#modal-feedback,.aviso-paste,.toast-seguranca{display:none!important}
-  body{background:white;font-size:10.5pt;user-select:text!important;-webkit-user-select:text!important}
-  .secao-texto,.questao{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin:12px 0}
-  #capa{display:none}
-  #conteudo{display:block!important}
-  .container{padding:0}
-  .print-capa{display:block;text-align:center;padding:24px 0 16px;border-bottom:3px double #333;margin-bottom:20px}
-  .opcao.correta{border:2px solid #2d7a27!important;background:#edfaeb!important}
-  .opcao.errada-sel{border:2px solid #e74c3c!important;background:#fdecea!important}
-  .feedback-quiz{display:block!important}
-}
-@media(max-width:680px){
-  .secao-texto{padding:22px 18px}
-  .questao{padding:22px 18px}
-  .capa-box{padding:30px 22px}
-  .capa-titulo-revisa{font-size:2.1rem}
-  .modal-box{padding:24px 18px}
+.divider{height:1px;background:linear-gradient(90deg,var(--azul),transparent);margin:18px 0}
+/* ── BLOCO CONJUNTO ── */
+.bloco-grupo{background:white;border-radius:var(--radius);box-shadow:var(--sombra);margin-bottom:28px;overflow:hidden}
+.bloco-fonte{border-top:4px solid var(--azul);padding:28px 36px 22px}
+.bloco-questoes{border-top:2px solid var(--claro)}
+/* ── SEÇÃO ── */
+.sec-head{display:flex;align-items:center;gap:14px;margin:32px 0 0}
+.sec-head .sec-tag{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;background:var(--azul);color:white;border-radius:20px;padding:5px 14px;letter-spacing:.1em;white-space:nowrap}
+.sec-head .sec-txt{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700;color:var(--escuro)}
+.sec-head .sec-line{flex:1;height:2px;background:linear-gradient(90deg,var(--azul),transparent)}
+/* ── QUESTÕES ── */
+.q-card{background:white;padding:22px 32px;margin:0;transition:border-color .3s}
+.q-card.respondida{background:#f7fbff}
+.q-card.acerto{background:#f0fdf7}
+.q-card.erro{background:#fdf2f2}
+.q-card.preenchida{background:#f7fbff}
+.q-card+.q-card{border-top:1px solid #eeeef5}
+.q-num{font-family:"JetBrains Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--medio);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.q-badge{font-size:.65rem;color:white;border-radius:20px;padding:2px 10px;font-weight:700;display:none}
+.q-badge.b-ok{background:var(--teal);display:inline-block}
+.q-badge.b-no{background:var(--vermelho);display:inline-block}
+.q-badge.b-fill{background:var(--teal)}
+.q-enunc{font-size:.95rem;color:var(--escuro);line-height:1.7;font-weight:600;margin-bottom:14px}
+/* ── ALTERNATIVAS ── */
+.opt{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border:2px solid #e3e0ef;border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;background:#fdfdff}
+.opt:hover{border-color:var(--azul);background:#fff5f5}
+.opt.sel{border-color:var(--azul);background:#fdecea}
+.opt.correta{border-color:var(--teal);background:#e9faf3}
+.opt.errada{border-color:var(--vermelho);background:#fdeeee}
+.opt.travada{cursor:default}
+.opt.travada:hover{border-color:#e3e0ef;background:#fdfdff}
+.opt.travada.sel:hover{border-color:var(--azul);background:#fdecea}
+.opt.travada.correta:hover{border-color:var(--teal);background:#e9faf3}
+.opt.travada.errada:hover{border-color:var(--vermelho);background:#fdeeee}
+.opt-letra{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--claro);color:var(--medio);font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.sel .opt-letra{background:var(--azul);color:white}
+.opt.correta .opt-letra{background:var(--teal);color:white}
+.opt.errada .opt-letra{background:var(--vermelho);color:white}
+.opt-txt{font-size:.9rem;color:var(--escuro);line-height:1.6;padding-top:2px}
+.opt-mark{margin-left:auto;font-size:1rem;align-self:center;display:none}
+/* ── DISSERTATIVA ── */
+.textarea-wrap{position:relative}
+.q-textarea{width:100%;min-height:130px;padding:14px 16px;border:2px solid #e0ddf0;border-radius:8px;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;line-height:1.7;color:var(--escuro);resize:vertical;background:#fdfdff;outline:none;transition:border .2s;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;-webkit-touch-callout:none}
+.q-textarea:focus{border-color:var(--azul);background:white}
+.q-textarea.preenchida{border-color:var(--teal);background:#fafff8}
+.q-textarea:disabled{background:#f5f5f5;color:#aaa;cursor:not-allowed}
+.char-count{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#bbb;text-align:right;margin-top:4px;transition:color .2s}
+.char-count.ok{color:var(--teal)}
+.char-count.warn{color:var(--laranja)}
+#alerta-incompleto{display:none;background:#fff3cd;border:2px solid #ffc107;border-radius:10px;padding:16px 22px;margin:20px 0;color:#7d5a00;font-weight:600;font-size:.9rem}
+.btn-enviar-wrap{margin:32px 0 20px;display:flex;gap:14px;flex-wrap:wrap}
+.btn-enviar{padding:14px 44px;background:var(--azul);color:white;border:none;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(139,0,0,.35);transition:all .2s;letter-spacing:.03em}
+.btn-enviar:hover{transform:translateY(-2px);background:#6b0000}
+#popup-resultado{display:none;position:fixed;inset:0;background:rgba(26,26,46,.85);z-index:8000;align-items:center;justify-content:center;padding:1rem}
+#popup-resultado.aberto{display:flex}
+.popup-box{background:white;border-radius:20px;padding:2.6rem 2.4rem 2rem;max-width:500px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.pop-ico{font-size:3rem;margin-bottom:.6rem}
+.popup-box h2{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--escuro);margin-bottom:.5rem}
+.popup-aluno{font-size:.85rem;color:var(--medio);margin-bottom:.4rem}
+.popup-resp{font-size:3.6rem;font-weight:900;line-height:1;font-family:"Playfair Display",serif;color:var(--teal)}
+.popup-resp span{font-size:1.4rem;color:var(--medio);font-weight:400}
+.popup-sub{font-size:.82rem;color:var(--medio);margin:.3rem 0 .5rem}
+.popup-diss{font-size:.78rem;color:var(--medio);margin:.1rem 0 .9rem}
+.popup-msg{font-size:.95rem;font-weight:600;color:var(--azul);margin:.3rem 0 1.4rem}
+.popup-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.pbtn-pdf{padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;border:none;background:var(--azul);color:white;box-shadow:0 6px 20px rgba(139,0,0,.35);transition:all .2s}
+.pbtn-pdf:hover{transform:translateY(-2px);background:#6b0000}
+.pbtn-restart{background:white;color:var(--teal);border:2px solid var(--teal);padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;transition:all .2s}
+.pbtn-restart:hover{background:var(--teal);color:white}
+#pdf-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:9999;display:flex;align-items:center;justify-content:center}
+.pdf-box{background:white;border-radius:16px;padding:44px 52px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35);max-width:380px;width:90%}
+.pdf-box .ico{font-size:2.8rem;margin-bottom:12px}
+.pdf-box h4{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;margin-bottom:8px;color:var(--escuro)}
+.pdf-box p{color:#666;font-size:.87rem;margin-bottom:4px}
+#pdf-prog-wrap{height:6px;background:#e8e8f0;border-radius:4px;margin-top:18px;overflow:hidden}
+#pdf-prog{height:6px;background:var(--azul);border-radius:4px;width:0%;transition:width .3s}
+#pdf-prog-txt{font-size:.76rem;color:#888;margin-top:6px;font-family:"JetBrains Mono",monospace}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pdf-spin{width:40px;height:40px;border:4px solid #e8e8f0;border-top-color:var(--azul);border-radius:50%;animation:spin .8s linear infinite;margin:14px auto 0}
+#toast-colar{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--vermelho);color:#fff;font-family:"Source Serif 4",serif;font-size:.85rem;font-weight:600;padding:12px 22px;border-radius:30px;box-shadow:0 8px 28px rgba(214,69,69,.4);z-index:9500;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:90vw;text-align:center}
+#toast-colar.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:640px){
+  .cbox{padding:30px 22px}.cbox-titulo{font-size:1.6rem}
+  .container{padding:1rem 1rem 60px}
+  .bloco-fonte,.q-card{padding:18px 16px}
+  .sec-head .sec-txt{font-size:1rem}
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
-<div id="toast-aviso" class="toast-seguranca">⚠️ Ação bloqueada! Cópia, colagem ou seleção não são permitidas nesta atividade.</div>
-
-<section id="capa">
-  <div class="capa-logo-area">
-    <div class="capa-logo-circle">
-      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-        <circle cx="30" cy="30" r="28" stroke="#8B0000" stroke-width="3"/>
-        <path d="M18 38 L28 18 L38 38" stroke="#e67e22" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <path d="M14 42 L46 42" stroke="#4a9e3f" stroke-width="3" stroke-linecap="round"/>
-        <path d="M40 28 L46 18" stroke="#e67e22" stroke-width="3.5" stroke-linecap="round"/>
-      </svg>
+<!-- CAPA -->
+<div id="capa">
+  <div class="cbox">
+    <div class="cbox-titulo">Revolução Francesa<br>e seus Legados<br>Políticos</div>
+    <div class="cbox-sub">Iluminismo · Direita e Esquerda · Estado Moderno · Brasil Contemporâneo</div>
+    <div class="cbox-disc">Ciências Humanas · História · 2ª Série do Ensino Médio</div>
+    <div class="chips">
+      <span class="chip">Texto-base</span>
+      <span class="chip">Tabela + Citação</span>
+      <span class="chip">5 objetivas</span>
+      <span class="chip">5 dissertativas</span>
+      <span class="chip">PDF ao finalizar</span>
     </div>
-    <div>
-      <div class="capa-titulo-revisa">TEMA 4.1 - Revolução Francesa - Uma introdução</div>
-      <div class="capa-subtitulo-revisa">Recompondo e ampliando aprendizagens…</div>
-    </div>
+    <label class="campo-label" for="cnome">Nome completo do aluno(a)</label>
+    <input type="text" id="cnome" class="campo-nome" placeholder="Digite seu nome completo aqui…"
+      autocomplete="off" oninput="chkNome()" onkeydown="if(event.key==='Enter')iniciar()">
+    <button class="btn-start" id="bstart" onclick="iniciar()" disabled>Iniciar Atividade →</button>
+    <p class="capa-note">Leia o texto de base antes de responder. Mínimo de 80 caracteres por dissertativa.</p>
   </div>
-  <div class="capa-box">
-    <div class="capa-serie">2ª SÉRIE</div>
-    <div class="capa-disciplina">Ciências Humanas e Sociais Aplicadas · História</div>
-    <div class="capa-bimestre">GO-EMCHS201D</div>
-    <div class="campo-nome-area">
-      <label for="nome-aluno">Nome completo do(a) aluno(a)</label>
-      <input type="text" id="nome-aluno" class="campo-nome" placeholder="Digite seu nome completo aqui…" autocomplete="off">
-      <div class="erro-nome" id="erro-nome">Por favor, digite seu nome para continuar.</div>
-    </div>
-    <button class="btn-comecar" onclick="iniciar()">Iniciar Atividade →</button>
-  </div>
-  <div class="seduc-bar">SEDUC · Secretaria de Estado da Educação de Goiás · Colégio Estadual Rodolfo de Oliveira</div>
-</section>
+  <div class="seduc-bar">Colégio Estadual Rodolfo de Oliveira · SEDUC-GO · 2026</div>
+</div>
 
+<!-- CONTEÚDO -->
 <div id="conteudo">
-  <div class="header-top">
-    <div class="header-nome-aluno">Aluno(a): <span id="header-nome">—</span></div>
-    <div class="progresso-geral">Respondidas: <span id="progresso-count">0</span> / 9</div>
+  <div class="hdr-top">
+    <div class="hdr-nome">Aluno(a): <span id="hdr-nome">—</span></div>
+    <div class="hdr-prog">Respondidas: <span id="hdr-resp">0</span> / 10</div>
   </div>
-  <div class="barra-prog-wrap"><div class="barra-prog" id="barra-prog"></div></div>
+  <div class="bprog-wrap"><div class="bprog" id="bprog"></div></div>
 
   <div class="container">
-    <div class="print-capa">
-      <h1 style="font-family:serif;font-size:2rem">Revisa Goiás – 2ª Série | História</h1>
-      <p style="font-size:1.1rem;margin-top:6px">GO-EMCHS201D</p>
-      <p style="margin-top:14px;font-size:1.2rem">Aluno(a): <strong id="print-nome"></strong></p>
+    <div id="alerta-incompleto">⚠️ Faltam <strong id="qtd-faltando"></strong> resposta(s). Responda tudo antes de finalizar.</div>
+
+    <!-- ══════════════════════════════════
+         TEXTO DE BASE
+    ══════════════════════════════════ -->
+    <div class="sec-head" style="margin-bottom:12px">
+      <span class="sec-tag">TEXTO BASE</span>
+      <span class="sec-txt">Revolução Francesa e Legados Políticos</span>
+      <span class="sec-line"></span>
     </div>
 
-    <div class="secao-texto">
-      <div class="secao-label">📖 Texto de Base</div>
-      <div class="secao-titulo">Revolução Francesa e seus Legados Políticos</div>
+    <div class="bloco-grupo">
+      <div class="bloco-fonte">
+        <div class="fonte-hdr">📖 Texto de Base · Ciências Humanas e Sociais Aplicadas — História</div>
+        <div class="fonte-corpo">
+          <strong>A política do presente tem raízes no passado.</strong> Os termos <em>direita</em> e <em>esquerda</em> nasceram literalmente na Revolução Francesa de 1789: na Assembleia Nacional Constituinte, os deputados que defendiam a monarquia e os privilégios da nobreza sentavam-se à direita do presidente; os que lutavam por igualdade, república e fim dos privilégios ocupavam a esquerda. Esse arranjo espacial tornou-se uma metáfora política que atravessa mais de 230 anos e chega ao Brasil do século XXI.
+        </div>
 
-      <p><strong>A política do presente tem raízes no passado.</strong> Os termos <strong>direita</strong> e <strong>esquerda</strong> nasceram literalmente na Revolução Francesa de 1789: na Assembleia Nacional Constituinte, os deputados que defendiam a monarquia e os privilégios da nobreza sentavam-se à direita do presidente; os que lutavam por igualdade, república e fim dos privilégios ocupavam a esquerda. Esse arranjo espacial tornou-se uma metáfora política que atravessa mais de 230 anos e chega ao Brasil do século XXI.</p>
+        <table class="tabela-hist">
+          <thead><tr><th>Lado</th><th>Quem sentava ali</th><th>O que defendiam</th></tr></thead>
+          <tbody>
+            <tr><td><strong>À direita</strong></td><td>Nobreza, clero, aristocracia</td><td>Manutenção dos privilégios, monarquia, ordem tradicional</td></tr>
+            <tr><td><strong>À esquerda</strong></td><td>Burguesia revolucionária, jacobinos, sans-culottes</td><td>Mudanças sociais, igualdade, fim dos privilégios, república</td></tr>
+          </tbody>
+        </table>
 
-      <table class="tabela-hist">
-        <thead><tr><th>Lado</th><th>Quem sentava ali</th><th>O que defendiam</th></tr></thead>
-        <tbody>
-          <tr><td><strong>À direita</strong></td><td>Nobreza, clero, aristocracia</td><td>Manutenção dos privilégios, monarquia, ordem tradicional</td></tr>
-          <tr><td><strong>À esquerda</strong></td><td>Burguesia revolucionária, jacobinos, sans-culottes</td><td>Mudanças sociais, igualdade, fim dos privilégios, república</td></tr>
-        </tbody>
-      </table>
-
-      <h3>O Iluminismo: berço intelectual das ideias modernas</h3>
-      <p>O <strong>Iluminismo (séculos XVII–XVIII)</strong> forneceu o arsenal intelectual da Revolução. <strong>Locke</strong> defendeu os direitos individuais (vida, liberdade e propriedade); <strong>Montesquieu</strong>, a separação dos poderes; <strong>Rousseau</strong>, a soberania popular; <strong>Voltaire</strong>, o Estado laico e a liberdade de imprensa. Quando movimentos contemporâneos negam a ciência, atacam a imprensa ou defendem o fim do Estado laico, estão confrontando diretamente esse legado.</p>
-
-      <h3>O Estado Moderno e o Projeto Burguês</h3>
-      <p>A Revolução inaugurou o <strong>Estado moderno</strong> — baseado em Constituição, cidadania e direitos humanos —, substituindo o State absolutista ("L'État, c'est moi" — Luís XIV). Foi também uma <strong>revolução burguesa</strong>: a burguesia queria livre comércio, propriedade privada e igualdade jurídica, consolidando o <strong>liberalismo clássico</strong> (Adam Smith, 1776) — DNA da direita econômica até hoje. Porém, o capitalismo industrial gerado por esse modelo criou desigualdades brutais, fazendo surgir o socialismo, o marxismo e o anarquismo no século XIX — o DNA da esquerda moderna, que defende a intervenção do Estado para garantir direitos sociais.</p>
-
-      <h3>A Atualização no Brasil Contemporâneo</h3>
-      <p>No <strong>Brasil contemporâneo</strong>, essas tensões reaparecem. A polarização PT × PSDB dos anos 2000, aprofundada com a crise política de 2016 (impeachment de Dilma Rousseff), culminou na eleição de 2022 entre Lula e Bolsonaro — a mais acirrada desde a redemocratização. Movimentos de extrema-direita passaram a defender pautas antidemocráticas (como o retorno do AI-5), atacando pilares iluministas como o Estado laico, a ciência e a liberdade de imprensa.</p>
-
-      <div class="citacao-box">
-        "A política brasileira de 2022 não é um fenômeno isolado. Ela é o desdobramento, no século XXI e no Brasil, de disputas que começaram em 1789, na França. Quando discutimos hoje o papel do Estado, os direitos humanos, a liberdade de imprensa, a laicidade e a democracia, estamos atualizando, em nosso tempo e em nosso país, as questões fundamentais que a Revolução Francesa colocou para o mundo moderno. <strong>Por isso, estudar a Revolução Francesa não é olhar para o passado — é entender o presente.</strong>"
+        <div class="divider"></div>
+        <div class="fonte-corpo">
+          O <strong>Iluminismo (séculos XVII–XVIII)</strong> forneceu o arsenal intelectual da Revolução. <strong>Locke</strong> defendeu os direitos individuais (vida, liberdade e propriedade); <strong>Montesquieu</strong>, a separação dos poderes; <strong>Rousseau</strong>, a soberania popular; <strong>Voltaire</strong>, o Estado laico e a liberdade de imprensa. Quando movimentos contemporâneos negam a ciência, atacam a imprensa ou defendem o fim do Estado laico, estão confrontando diretamente esse legado.
+        </div>
+        <div class="divider"></div>
+        <div class="fonte-corpo">
+          A Revolução inaugurou o <strong>Estado moderno</strong> — baseado em Constituição, cidadania e direitos humanos —, substituindo o Estado absolutista. Foi também uma <strong>revolução burguesa</strong>: a burguesia queria livre comércio, propriedade privada e igualdade jurídica, consolidando o <strong>liberalismo clássico</strong> (Adam Smith, 1776) — DNA da direita econômica até hoje. Porém, o capitalismo industrial gerado por essa revolução criou desigualdades brutais, fazendo surgir o socialismo, o marxismo e o anarquismo no século XIX — DNA da esquerda moderna, que defende a intervenção do Estado para garantir direitos sociais.
+        </div>
+        <div class="divider"></div>
+        <div class="fonte-corpo">
+          No <strong>Brasil contemporâneo</strong>, essas tensões reaparecem. A polarização PT × PSDB dos anos 2000, aprofundada com a crise política de 2016 (impeachment de Dilma Rousseff), culminou na eleição de 2022 entre Lula e Bolsonaro — a mais acirrada desde a redemocratização. Movimentos de extrema-direita passaram a defender pautas antidemocráticas (como o retorno do AI-5), atacando pilares iluministas como o Estado laico, a ciência e a liberdade de imprensa.
+        </div>
+        <div class="fonte-cit">
+          "A política brasileira de 2022 não é um fenômeno isolado. Ela é o desdobramento, no século XXI e no Brasil, de disputas que começaram em 1789, na França. Quando discutimos hoje o papel do Estado, os direitos humanos, a liberdade de imprensa, a laicidade e a democracia, estamos atualizando, em nosso tempo e em nosso país, as questões fundamentais que a Revolução Francesa colocou para o mundo moderno. <strong>Por isso, estudar a Revolução Francesa não é olhar para o passado — é entender o presente.</strong>"
+        </div>
+        <span class="fonte-ref">FONTE: SER protagonista — Ciências Humanas e Sociais Aplicadas: História. Org.: SM Educação. 1. ed. São Paulo: Edições SM, 2024.</span>
       </div>
-
-      <p style="font-size:.82rem;color:#888;margin-top:20px;">FONTE: SER protagonista — Ciências Humanas e Sociais Aplicadas: História. Org.: SM Educação. 1. ed. São Paulo: Edições SM, 2024.</p>
     </div>
 
-    <div class="atividades-header">
-      <span style="font-size:2rem">✍️</span>
-      <div>
-        <div style="font-size:.75rem;opacity:.7;text-transform:uppercase;letter-spacing:.12em">Revolução Francesa e Legados Políticos</div>
-        <h2>Atividades (Questões 1 a 9)</h2>
-      </div>
+    <!-- ══════════════════════════════════
+         PARTE 1 — QUESTÕES OBJETIVAS
+    ══════════════════════════════════ -->
+    <div class="sec-head" style="margin-bottom:12px">
+      <span class="sec-tag">PARTE 1</span>
+      <span class="sec-txt">Questões Objetivas</span>
+      <span class="sec-line"></span>
     </div>
 
-    <div class="questao" id="q1" data-tipo="objetiva" data-gabarito="C" data-num="1">
-      <div class="questao-num">Questão 1 <span class="badge">ENEM 2011 – adaptada</span></div>
-      <div class="questao-enunciado">
-        <p>Em 1789, deputados da Assembleia Nacional Constituinte francesa passaram a se organizar fisicamente no plenário: os defensores da ordem monárquica e dos privilégios sentavam-se à direita do presidente; os que defendiam mudanças sociais e o fim dos privilégios, à esquerda.</p>
-        <p style="margin-top:10px">Com base nessa origem histórica, assinale a alternativa que melhor caracteriza o significado original dos termos <em>direita</em> e <em>esquerda</em> no espectro político:</p>
-      </div>
-      <div class="opcoes">
-        <div class="opcao" onclick="responderObjetiva('q1','A',this)"><span class="letra">A</span> Direita representa o progresso econômico; esquerda, a tradição cultural.</div>
-        <div class="opcao" onclick="responderObjetiva('q1','B',this)"><span class="letra">B</span> Direita defende a intervenção estatal na economia; esquerda, a liberdade de mercado.</div>
-        <div class="opcao" onclick="responderObjetiva('q1','C',this)"><span class="letra">C</span> Direita simboliza a conservação da ordem existente; esquerda, a transformação da ordem existente.</div>
-        <div class="opcao" onclick="responderObjetiva('q1','D',this)"><span class="letra">D</span> Direita representa os interesses dos trabalhadores; esquerda, os interesses da burguesia.</div>
-        <div class="opcao" onclick="responderObjetiva('q1','E',this)"><span class="letra">E</span> Direita defende a laicidade do Estado; esquerda, a aliança entre Igreja e poder político.</div>
-      </div>
-      <div class="feedback-quiz" id="fb-q1"></div>
+    <div class="bloco-grupo">
+      <div class="bloco-questoes" id="questoes-obj"></div>
     </div>
 
-    <div class="questao" id="q2" data-tipo="objetiva" data-gabarito="B" data-num="2">
-      <div class="questao-num">Questão 2 <span class="badge">Objetiva</span></div>
-      <div class="questao-enunciado">O texto afirma que Voltaire defendeu, no século XVIII, dois pilares fundamentais da democracia moderna — o Estado laico e a liberdade de imprensa. Considerando que setores da extrema-direita contemporânea atacam exatamente esses dois pilares, qual é a conclusão mais adequada?</div>
-      <div class="opcoes">
-        <div class="opcao" onclick="responderObjetiva('q2','A',this)"><span class="letra">A</span> A extrema-direita contemporânea representa uma evolução natural do pensamento iluminista.</div>
-        <div class="opcao" onclick="responderObjetiva('q2','B',this)"><span class="letra">B</span> Ao atacar esses pilares, a extrema-direita contemporânea confronta o próprio legado que tornou possível a democracia moderna.</div>
-        <div class="opcao" onclick="responderObjetiva('q2','C',this)"><span class="letra">C</span> O Iluminismo defendia a aliança entre Estado e Igreja como base da ordem social.</div>
-        <div class="opcao" onclick="responderObjetiva('q2','D',this)"><span class="letra">D</span> A liberdade de imprensa e o Estado laico são conquistas exclusivas do século XX, sem relação com o Iluminismo.</div>
-        <div class="opcao" onclick="responderObjetiva('q2','E',this)"><span class="letra">E</span> As ideias iluministas só se aplicam ao contexto europeu e não têm relevância para a política brasileira.</div>
-      </div>
-      <div class="feedback-quiz" id="fb-q2"></div>
+    <!-- ══════════════════════════════════
+         PARTE 2 — QUESTÕES DISSERTATIVAS
+    ══════════════════════════════════ -->
+    <div class="sec-head" style="margin-bottom:12px;margin-top:28px">
+      <span class="sec-tag">PARTE 2</span>
+      <span class="sec-txt">Questões Dissertativas</span>
+      <span class="sec-line"></span>
     </div>
 
-    <div class="questao" id="q3" data-tipo="objetiva" data-gabarito="D" data-num="3">
-      <div class="questao-num">Questão 3 <span class="badge">ENEM 2019 – adaptada</span></div>
-      <div class="questao-enunciado">
-        <p>O liberalismo clássico, sistematizado por Adam Smith em <em>A Riqueza das Nações</em> (1776), defendia o livre mercado, a mínima intervenção do Estado na economia e a liberdade de iniciativa. No entanto, o capitalismo industrial gerado por esse modelo produziu condições de trabalho extremamente precárias e concentração de riqueza, dando origem ao marxismo e ao socialismo no século XIX.</p>
-        <p style="margin-top:10px">Essa tensão histórica entre liberalismo e socialismo está na origem da distinção política entre direita e esquerda. No contexto brasileiro atual, essa tensão se manifesta quando:</p>
-      </div>
-      <div class="opcoes">
-        <div class="opcao" onclick="responderObjetiva('q3','A',this)"><span class="letra">A</span> partidos de direita e esquerda se unem em torno da pauta de controle da imprensa.</div>
-        <div class="opcao" onclick="responderObjetiva('q3','B',this)"><span class="letra">B</span> o debate sobre direitos humanos é restrito aos partidos de esquerda.</div>
-        <div class="opcao" onclick="responderObjetiva('q3','C',this)"><span class="letra">C</span> a esquerda defende a livre iniciativa e a direita propõe políticas redistributivas.</div>
-        <div class="opcao" onclick="responderObjetiva('q3','D',this)"><span class="letra">D</span> a direita valoriza a livre iniciativa e o mercado, enquanto a esquerda defende a intervenção do Estado para garantir direitos sociais.</div>
-        <div class="opcao" onclick="responderObjetiva('q3','E',this)"><span class="letra">E</span> ambos os campos políticos defendem a eliminação dos partidos como forma de superar a polarização.</div>
-      </div>
-      <div class="feedback-quiz" id="fb-q3"></div>
+    <div class="bloco-grupo">
+      <div class="bloco-questoes" id="questoes-diss"></div>
     </div>
 
-    <div class="questao" id="q4" data-tipo="objetiva" data-gabarito="A" data-num="4">
-      <div class="questao-num">Questão 4 <span class="badge">Objetiva</span></div>
-      <div class="questao-enunciado">O texto relaciona os debates políticos do Brasil de 2022 às tensões inauguradas pela Revolução Francesa de 1789. Assinale a alternativa que identifica corretamente uma dessas continuidades históricas:</div>
-      <div class="opcoes">
-        <div class="opcao" onclick="responderObjetiva('q4','A',this)"><span class="letra">A</span> A defesa do retorno do AI-5 corresponde, no Brasil contemporâneo, à posição dos que sentavam à direita na Assembleia Constituinte de 1789, por significar a preservação de uma ordem de exceção em detrimento das garantias constitucionais.</div>
-        <div class="opcao" onclick="responderObjetiva('q4','B',this)"><span class="letra">B</span> A polarização PT × PSDB equivale à disputa entre jacobinos e girondinos, pois ambos os partidos defendem a revolução social radical.</div>
-        <div class="opcao" onclick="responderObjetiva('q4','C',this)"><span class="letra">C</span> O impeachment de Dilma Rousseff representa uma ruptura total com o legado da Revolução Francesa, inaugurando uma nova forma de política sem precedentes históricos.</div>
-        <div class="opcao" onclick="responderObjetiva('q4','D',this)"><span class="letra">D</span> A Revolução Francesa estabeleceu definitivamente o liberalismo econômico como único modelo político legítimo, eliminando as disputas ideológicas posteriores.</div>
-        <div class="opcao" onclick="responderObjetiva('q4','E',this)"><span class="letra">E</span> O Iluminismo foi uma corrente filosófica exclusivamente francesa, sem influência sobre os processos políticos da América Latina.</div>
-      </div>
-      <div class="feedback-quiz" id="fb-q4"></div>
-    </div>
-
-    <div class="questao" id="q5" data-tipo="discursiva" data-num="5">
-      <div class="questao-num">Questão 5 <span class="badge">Dissertativa</span></div>
-      <div class="questao-enunciado">A Revolução Francesa criou o Estado moderno em contraposição ao Estado absolutista. Considerando essa ruptura e o contexto político brasileiro atual, explique por que a defesa de pautas antidemocráticas — como o retorno do AI-5 — representa, na prática, um retrocesso ao modelo pré-revolucionário. Utilize os conceitos de <em>soberania popular</em>, <em>Constituição</em> e <em>separação dos poderes</em> em sua resposta.</div>
-      <textarea class="campo-discursivo" id="resp-q5" placeholder="Escreva sua resposta aqui…" oninput="marcarDiscursiva('q5',this)"></textarea>
-      <div class="aviso-paste">Copiar e colar não é permitido neste campo.</div>
-    </div>
-
-    <div class="questao" id="q6" data-tipo="discursiva" data-num="6">
-      <div class="questao-num">Questão 6 <span class="badge">Dissertativa</span></div>
-      <div class="questao-enunciado">O liberalismo clássico do século XVIII gerou, ao mesmo tempo, a liberdade econômica e as desigualdades que deram origem ao socialismo. Analise essa <em>contradição interna do projeto burguês</em> e relacione-a ao debate contemporâneo sobre o papel do Estado: de que forma as posições de direita e esquerda no Brasil atual reproduzem essa tensão histórica?</div>
-      <textarea class="campo-discursivo" id="resp-q6" placeholder="Escreva sua resposta aqui…" oninput="marcarDiscursiva('q6',this)"></textarea>
-      <div class="aviso-paste">Copiar e colar não é permitido neste campo.</div>
-    </div>
-
-    <div class="questao" id="q7" data-tipo="discursiva" data-num="7">
-      <div class="questao-num">Questão 7 <span class="badge">Dissertativa</span></div>
-      <div class="questao-enunciado">O texto afirma que direita e esquerda não são "donas exclusivas" de determinadas pautas. Com base nessa afirmação, <em>critique a simplificação político-ideológica</em> gerada pela polarização PT × PSDB/PL no Brasil, argumentando sobre os riscos que essa simplificação representa para a democracia.</div>
-      <textarea class="campo-discursivo" id="resp-q7" placeholder="Escreva sua resposta aqui…" oninput="marcarDiscursiva('q7',this)"></textarea>
-      <div class="aviso-paste">Copiar e colar não é permitido neste campo.</div>
-    </div>
-
-    <div class="questao" id="q8" data-tipo="discursiva" data-num="8">
-      <div class="questao-num">Questão 8 <span class="badge">Dissertativa</span></div>
-      <div class="questao-enunciado">Voltaire defendeu o Estado laico e a liberdade de imprensa no século XVIII. Considerando que setores da extrema-direita contemporânea atacam exatamente esses dois pilares, <em>disserte sobre a relação entre Iluminismo e democracia</em>: por que o enfraquecimento desses valores pode ser entendido como uma ameaça à ordem democrática moderna?</div>
-      <textarea class="campo-discursivo" id="resp-q8" placeholder="Escreva sua resposta aqui…" oninput="marcarDiscursiva('q8',this)"></textarea>
-      <div class="aviso-paste">Copiar e colar não é permitido neste campo.</div>
-    </div>
-
-    <div class="questao" id="q9" data-tipo="discursiva" data-num="9">
-      <div class="questao-num">Questão 9 <span class="badge">Dissertativa · Alta Proficiência</span></div>
-      <div class="questao-enunciado">"A política brasileira de 2022 não é um fenômeno isolado — ela é o desdobramento, no século XXI e no Brasil, de disputas que começaram em 1789." <em>Avalie criticamente essa afirmação</em>: em que medida é válido comparar contextos históricos tão distintos? Quais são os limites e as potencialidades do uso da história como chave de interpretação do presente?</div>
-      <textarea class="campo-discursivo" id="resp-q9" style="min-height:180px" placeholder="Escreva sua resposta aqui…" oninput="marcarDiscursiva('q9',this)"></textarea>
-      <div class="aviso-paste">Copiar e colar não é permitido neste campo.</div>
-    </div>
-
-    <div id="alerta-incompleto">⚠️ Você ainda não respondeu todas as questões. Faltam <strong id="qtd-faltando"></strong> questão(ões). Role a página e complete antes de salvar.</div>
-
-    <div class="acoes-finais">
-      <button class="btn-imprimir" onclick="tentarSalvarPDF()">📄 Salvar Atividade em PDF</button>
-      <button class="btn-feedback" onclick="abrirFeedback()">📊 Ver Feedback e Correção</button>
+    <!-- ENVIAR -->
+    <div class="btn-enviar-wrap">
+      <button class="btn-enviar" onclick="verificar()">✅ Finalizar e Ver Resultado</button>
     </div>
   </div>
 </div>
 
-<div id="modal-feedback">
-  <div class="modal-box">
-    <h3>📊 Feedback Completo e Correção</h3>
-    <div class="modal-resultado" id="resultado-resumo"></div>
-    <div id="feedback-detalhado"></div>
-    <button class="btn-fechar-modal" onclick="fecharFeedback()">✕ Fechar</button>
+<!-- POPUP RESULTADO -->
+<div id="popup-resultado">
+  <div class="popup-box">
+    <div class="pop-ico" id="pop-ico">🏆</div>
+    <h2>Atividade Finalizada!</h2>
+    <div class="popup-aluno" id="pop-aluno"></div>
+    <div class="popup-resp" id="pop-resp">0<span>/5</span></div>
+    <div class="popup-sub" id="pop-sub"></div>
+    <div class="popup-diss" id="pop-diss"></div>
+    <div class="popup-msg" id="pop-msg"></div>
+    <div class="popup-btns">
+      <button class="pbtn-pdf" onclick="fecharPopupEBaixar()">📄 Baixar PDF Corrigido</button>
+      <button class="pbtn-restart" onclick="document.getElementById('popup-resultado').classList.remove('aberto')">Fechar</button>
+    </div>
   </div>
 </div>
 
 <script>
-const TOTAL = 9;
-const GABARITOS = {q1:'C', q2:'B', q3:'D', q4:'A'};
+const LETRAS = ['A','B','C','D','E'];
+const MIN_CHARS = 80;
+let nome = '';
+const respMC = {};
 
-const CORRECCOES = {
-  q1:'Resposta correta: C — A origem dos termos na Assembleia de 1789 é direta: à direita sentavam os defensores da ordem existente (monarquia, privilégios); à esquerda, os que queriam transformar a ordem (igualdade, república). Esse é o núcleo conceitual que atravessa 230 anos e estrutura a política contemporânea.',
-  q2:'Resposta correta: B — Voltaire e o Iluminismo fundaram os pilares do Estado democrático moderno: laicidade e liberdade de imprensa. Quando a extrema-direita ataca esses valores, reproduz o obscurantismo pré-iluminista e ameaça as bases da própria democracia que o Iluminismo construiu.',
-  q3:'Resposta correta: D — O liberalismo clássico (Adam Smith) defende livre iniciativa e mínima intervenção estatal — DNA histórico da direita econômica. O socialismo, surgido como crítica ao liberalismo, defende intervenção estatal para garantir direitos sociais — DNA histórico da esquerda. Essa tensão, nascida no século XVIII–XIX, estrutura o debate político brasileiro atual.',
-  q4:'Resposta correta: A — O AI-5 suspendeu a Constituição, fechou o Congresso e eliminou a separação dos poderes — estrutura análoga ao Estado absolutista pré-revolucionário. Defender seu retorno significa negar a soberania popular e os fundamentos do Estado moderno inaugurado em 1789.',
-  q5:'O aluno deve articular três eixos: (1) No Estado absolutista, o poder era concentrado no rei, sem limites jurídicos. A Revolução Francesa criou o Estado moderno ao estabelecer a Constituição como limite ao poder e a soberania popular como fundamento da legitimidade política. (2) O AI-5 (1968) suspendeu direitos constitucionais, fechou o Congresso e eliminou a separação dos poderes — estrutura análoga ao absolutismo pré-1789. Defender seu retorno significa negar os fundamentos do Estado constitucional. (3) O aluno deve concluir que a separação dos poderes (Montesquieu) e a soberania popular (Rousseau) são conquistas iluministas incorporadas ao Estado moderno como garantias contra o arbítrio.',
-  q6:'O aluno deve demonstrar que o liberalismo clássico (Adam Smith) prometia igualdade jurídica formal — todos iguais perante a lei —, mas não igualdade econômica real. A liberdade de mercado gerou concentração de riqueza e precárias condições de trabalho no século XIX, fazendo surgir as críticas socialistas (Marx, Engels). No Brasil atual, a tensão se reproduz: a direita (PL, PSDB) tende a valorizar a livre iniciativa e a mínima intervenção do Estado na economia, herdando o liberalismo clássico; a esquerda (PT) defende políticas redistributivas e o Estado de bem-estar social, herdando a crítica socialista. O aluno deve evidenciar que esse debate tem 250 anos de história.',
-  q7:'O aluno deve identificar dois equívocos: (1) A falsa impressão de que o cenário político se resumia a dois partidos, ignorando a pluralidade. (2) A associação exclusiva de pautas a um campo — como se direitos humanos fossem "pauta de esquerda" ou empreendedorismo fosse "pauta de direita". Essa simplificação é perigosa para a democracia porque polariza artificialmente a sociedade, impede alianças políticas necessárias, facilita a ascensão de discursos radicais e dificulta o pensamento crítico dos eleitores.',
-  q8:'O aluno deve estabelecer que o Iluminismo não é apenas um período histórico, mas o conjunto de valores fundantes da democracia moderna: razão, liberdade de expressão, secularismo e ciência. O Estado laico garante que decisões políticas não sejam pautadas por dogmas religiosos — essencial para proteger minorias. A liberdade de imprensa é o mecanismo que permite à sociedade fiscalizar o poder. A resposta de alto nível indicará que movimentos que negam a ciência e atacam a imprensa reproduzem o obscurantismo que o Iluminismo veio combater.',
-  q9:'Esta questão exige sofisticação historiográfica. O aluno deve apresentar TANTO as potencialidades QUANTO os limites. Potencialidades: as categorias de direita/esquerda têm origem direta em 1789; os debates sobre papel do Estado, direitos individuais versus sociais, laicidade e democracia são continuidades históricas reais. Limites: os contextos são radicalmente diferentes — França do século XVIII era uma monarquia absolutista pré-capitalista; o Brasil de 2022 é uma república capitalista periférica do Sul Global, marcada por colonialismo, escravidão e desigualdade estrutural que não existiam no modelo europeu. O aluno de alta proficiência deve concluir que a afirmação é válida como instrumento analítico para identificar padrões recorrentes, mas não pode ser aplicada mecanicamente — a história fornece chaves de interpretação, não receitas prontas.'
+// ── DISSERTATIVAS ──────────────────────────────────────────────────────────────
+const DISS_QUESTOES = [
+  { num:'d1', enunc:'A Revolução Francesa criou o Estado moderno em contraposição ao Estado absolutista. Considerando essa ruptura e o contexto político brasileiro atual, explique por que a defesa de pautas antidemocráticas — como o retorno do AI-5 — representa, na prática, um retrocesso ao modelo pré-revolucionário. Utilize os conceitos de <em>soberania popular</em>, <em>Constituição</em> e <em>separação dos poderes</em> em sua resposta.' },
+  { num:'d2', enunc:'O liberalismo clássico do século XVIII gerou, ao mesmo tempo, a liberdade econômica e as desigualdades que deram origem ao socialismo. Analise essa <em>contradição interna do projeto burguês</em> e relacione-a ao debate contemporâneo sobre o papel do Estado: de que forma as posições de direita e esquerda no Brasil atual reproduzem essa tensão histórica?' },
+  { num:'d3', enunc:'O texto afirma que direita e esquerda não são "donas exclusivas" de determinadas pautas. Com base nessa afirmação, <em>critique a simplificação político-ideológica</em> gerada pela polarização PT × PSDB/PL no Brasil, argumentando sobre os riscos que essa simplificação representa para a democracia.' },
+  { num:'d4', enunc:'Voltaire defendeu o Estado laico e a liberdade de imprensa no século XVIII. Considerando que setores da extrema-direita contemporânea atacam exatamente esses dois pilares, <em>disserte sobre a relação entre Iluminismo e democracia</em>: por que o enfraquecimento desses valores pode ser entendido como uma ameaça à ordem democrática moderna?' },
+  { num:'d5', enunc:'"A política brasileira de 2022 não é um fenômeno isolado — ela é o desdobramento, no século XXI e no Brasil, de disputas que começaram em 1789." <em>Avalie criticamente essa afirmação</em>: em que medida é válido comparar contextos históricos tão distintos? Quais são os limites e as potencialidades do uso da história como chave de interpretação do presente?' }
+];
+
+const COMENTARIOS_D = {
+  d1: 'O aluno deve articular três eixos: (1) No Estado absolutista, o poder era concentrado no rei, sem limites jurídicos. A Revolução Francesa criou o Estado moderno ao estabelecer a Constituição como limite ao poder e a soberania popular como fundamento da legitimidade política. (2) O AI-5 (1968) suspendeu direitos constitucionais, fechou o Congresso e eliminou a separação dos poderes — estrutura análoga ao absolutismo pré-1789. Defender seu retorno significa negar os fundamentos do Estado constitucional. (3) O aluno deve concluir que a separação dos poderes (Montesquieu) e a soberania popular (Rousseau) são conquistas iluministas incorporadas ao Estado moderno como garantias contra o arbítrio.',
+  d2: 'O aluno deve demonstrar que o liberalismo clássico (Adam Smith) prometia igualdade jurídica formal, mas não igualdade econômica real. A liberdade de mercado gerou concentração de riqueza e precárias condições de trabalho no século XIX, fazendo surgir as críticas socialistas (Marx, Engels). No Brasil atual, a tensão se reproduz: a direita tende a valorizar a livre iniciativa e a mínima intervenção do Estado na economia, herdando o liberalismo clássico; a esquerda defende políticas redistributivas e o Estado de bem-estar social, herdando a crítica socialista.',
+  d3: 'O aluno deve identificar dois equívocos: (1) A falsa impressão de que o cenário político se resumia a dois partidos, ignorando a pluralidade. (2) A associação exclusiva de pautas a um campo — como se direitos humanos fossem "pauta de esquerda" ou empreendedorismo fosse "pauta de direita". Essa simplificação é perigosa porque polariza artificialmente a sociedade, impede alianças políticas necessárias, facilita a ascensão de discursos radicais e dificulta o pensamento crítico dos eleitores.',
+  d4: 'O aluno deve estabelecer que o Iluminismo não é apenas um período histórico, mas o conjunto de valores fundantes da democracia moderna: razão, liberdade de expressão, secularismo e ciência. O Estado laico garante que decisões políticas não sejam pautadas por dogmas religiosos — essencial para proteger minorias. A liberdade de imprensa é o mecanismo que permite à sociedade fiscalizar o poder. A resposta de alto nível indicará que movimentos que negam a ciência e atacam a imprensa reproduzem o obscurantismo que o Iluminismo veio combater.',
+  d5: 'Esta questão exige sofisticação historiográfica. O aluno deve apresentar TANTO as potencialidades QUANTO os limites. Potencialidades: as categorias de direita/esquerda têm origem direta em 1789; os debates sobre papel do Estado, direitos individuais versus sociais, laicidade e democracia são continuidades históricas reais. Limites: os contextos são radicalmente diferentes — França do século XVIII era uma monarquia absolutista pré-capitalista; o Brasil de 2022 é uma república capitalista periférica do Sul Global, marcada por colonialismo, escravidão e desigualdade estrutural. O aluno de alta proficiência deve concluir que a afirmação é válida como instrumento analítico para identificar padrões recorrentes, mas não pode ser aplicada mecanicamente.'
 };
 
-let nomeAluno='';
-const respostas={};
+// ── OBJETIVAS ──────────────────────────────────────────────────────────────────
+// Gabarito: C, B, D, A, E — sem repetição consecutiva, todas as letras representadas
+const QUIZ = [
+  { num:1,
+    enunc:'Em 1789, deputados da Assembleia Nacional Constituinte francesa passaram a se organizar fisicamente no plenário: os defensores da ordem monárquica sentavam-se à direita do presidente; os que defendiam mudanças sociais, à esquerda. Qual alternativa melhor caracteriza o significado original dessas posições no espectro político?',
+    alts:[
+      'Direita representa o progresso econômico; esquerda, a tradição cultural e religiosa da sociedade europeia.',
+      'Direita defende a intervenção estatal na economia como forma de garantir a igualdade entre os cidadãos.',
+      'Direita simboliza a conservação da ordem existente; esquerda, a transformação da ordem existente.',
+      'Direita representa os interesses dos trabalhadores urbanos; esquerda, os interesses da nobreza fundiária.',
+      'Direita defende a laicidade do Estado; esquerda, a aliança entre Igreja e poder político monárquico.'
+    ], correta:2,
+    coment:'A origem dos termos na Assembleia de 1789 é direta: à direita sentavam os defensores da ordem existente (monarquia, privilégios); à esquerda, os que queriam transformar essa ordem (igualdade, república). Esse é o núcleo conceitual que estrutura a política contemporânea.'
+  },
+  { num:2,
+    enunc:'O texto afirma que Voltaire defendeu, no século XVIII, dois pilares fundamentais da democracia moderna — o Estado laico e a liberdade de imprensa. Considerando que setores da extrema-direita contemporânea atacam exatamente esses dois pilares, qual é a conclusão mais adequada?',
+    alts:[
+      'A extrema-direita contemporânea representa uma evolução natural e progressiva do pensamento iluminista europeu.',
+      'Ao atacar esses pilares, a extrema-direita contemporânea confronta o próprio legado que tornou possível a democracia moderna.',
+      'O Iluminismo defendia a aliança entre Estado e Igreja como base necessária da ordem social e política.',
+      'A liberdade de imprensa e o Estado laico são conquistas exclusivas do século XX, sem relação com o Iluminismo.',
+      'As ideias iluministas só se aplicam ao contexto europeu e não têm relevância para a política brasileira.'
+    ], correta:1,
+    coment:'Voltaire e o Iluminismo fundaram os pilares do Estado democrático moderno: laicidade e liberdade de imprensa. Quando a extrema-direita ataca esses valores, reproduz o obscurantismo pré-iluminista e ameaça as bases da própria democracia que o Iluminismo construiu.'
+  },
+  { num:3,
+    enunc:'O liberalismo clássico (Adam Smith, 1776) defendia o livre mercado e a mínima intervenção do Estado. Contudo, o capitalismo industrial gerou condições de trabalho precárias e concentração de riqueza, dando origem ao socialismo e ao marxismo no século XIX. Essa tensão histórica entre liberalismo e socialismo se manifesta no contexto brasileiro atual quando:',
+    alts:[
+      'Partidos de direita e esquerda se unem em torno da pauta de controle estatal da imprensa e das redes sociais.',
+      'O debate sobre direitos humanos é restrito exclusivamente aos partidos e movimentos de esquerda no Brasil.',
+      'A esquerda defende a livre iniciativa e o mercado, enquanto a direita propõe políticas redistributivas de renda.',
+      'A direita valoriza a livre iniciativa e o mercado, enquanto a esquerda defende a intervenção do Estado para garantir direitos sociais.',
+      'Ambos os campos políticos defendem a eliminação dos partidos como forma de superar a polarização eleitoral.'
+    ], correta:3,
+    coment:'A direita econômica herda o liberalismo clássico de Adam Smith (livre mercado, mínima intervenção estatal), enquanto a esquerda herda a crítica socialista ao liberalismo, defendendo políticas redistributivas e o Estado de bem-estar social. Essa tensão de 250 anos estrutura o debate político brasileiro atual.'
+  },
+  { num:4,
+    enunc:'O texto relaciona os debates políticos do Brasil de 2022 às tensões inauguradas pela Revolução Francesa de 1789. Assinale a alternativa que identifica corretamente uma dessas continuidades históricas:',
+    alts:[
+      'A defesa do retorno do AI-5 corresponde, no Brasil contemporâneo, à posição dos que sentavam à direita na Assembleia de 1789, por significar a preservação de uma ordem de exceção em detrimento das garantias constitucionais.',
+      'A polarização PT × PSDB equivale à disputa entre jacobinos e girondinos, pois ambos os partidos defendem a revolução social radical e o fim da propriedade privada.',
+      'O impeachment de Dilma Rousseff representa uma ruptura total com o legado da Revolução Francesa, inaugurando uma nova forma de política sem precedentes históricos.',
+      'A Revolução Francesa estabeleceu definitivamente o liberalismo econômico como único modelo político legítimo, eliminando as disputas ideológicas posteriores.',
+      'O Iluminismo foi uma corrente filosófica exclusivamente francesa, sem influência sobre os processos políticos da América Latina e do Brasil.'
+    ], correta:0,
+    coment:'O AI-5 suspendeu a Constituição, fechou o Congresso e eliminou a separação dos poderes — estrutura análoga ao Estado absolutista pré-revolucionário. Defender seu retorno significa negar a soberania popular e os fundamentos do Estado moderno inaugurado em 1789.'
+  },
+  { num:5,
+    enunc:'"A política brasileira de 2022 não é um fenômeno isolado. Ela é o desdobramento, no século XXI e no Brasil, de disputas que começaram em 1789." Qual afirmação melhor avalia criticamente essa comparação histórica?',
+    alts:[
+      'A comparação é totalmente inválida, pois Brasil e França possuem histórias e culturas completamente distintas, sem qualquer ponto de contato.',
+      'A comparação é plenamente válida e pode ser aplicada de forma mecânica, pois as disputas políticas são idênticas nos dois contextos históricos.',
+      'A comparação é válida apenas para os aspectos econômicos, sendo irrelevante para compreender questões políticas e culturais do Brasil atual.',
+      'A comparação é válida como instrumento analítico para identificar padrões recorrentes, mas não pode ser aplicada mecanicamente, pois os contextos históricos têm diferenças estruturais fundamentais.',
+      'A comparação demonstra que o Brasil de 2022 é uma repetição exata da França de 1789, tornando possível prever com precisão os desdobramentos políticos futuros.'
+    ], correta:3,
+    coment:'A afirmação é válida como instrumento analítico — as categorias de direita/esquerda, os debates sobre papel do Estado e democracia têm raízes históricas comuns —, mas não pode ser aplicada mecanicamente: a França de 1789 era uma monarquia absolutista pré-capitalista; o Brasil de 2022 é uma república capitalista periférica marcada por colonialismo e escravidão. A história fornece chaves de interpretação, não receitas prontas.'
+  }
+];
+
+// ── TODAS AS DISSERTATIVAS (para o PDF) ──
+const TODAS_DISS = DISS_QUESTOES;
+
+function chkNome(){
+  const v = document.getElementById('cnome').value.trim();
+  document.getElementById('bstart').disabled = v.length < 3;
+}
 
 function iniciar(){
-  nomeAluno=document.getElementById('nome-aluno').value.trim();
-  const err=document.getElementById('erro-nome');
-  if(!nomeAluno){err.style.display='block';document.getElementById('nome-aluno').focus();return;}
-  err.style.display='none';
-  document.getElementById('capa').style.display='none';
-  document.getElementById('conteudo').style.display='block';
-  document.getElementById('header-nome').textContent=nomeAluno;
-  document.getElementById('print-nome').textContent=nomeAluno;
-  atualizarProgresso();
-  window.scrollTo(0,0);
+  nome = document.getElementById('cnome').value.trim();
+  if (nome.length < 3) return;
+  document.getElementById('capa').style.display = 'none';
+  document.getElementById('conteudo').style.display = 'block';
+  document.getElementById('hdr-nome').textContent = nome;
+  buildDiss();
+  buildObj();
+  protegerTextareas();
 }
 
-function responderObjetiva(qId,letra,elem){
-  const q=document.getElementById(qId);
-  if(q.dataset.respondida==='1')return;
-  q.dataset.respondida='1';
-  const gab=GABARITOS[qId];
-  q.querySelectorAll('.opcao').forEach(o=>o.classList.add('bloqueada'));
-  const fb=document.getElementById('fb-'+qId);
-  if(letra===gab){
-    elem.classList.add('correta');
-    fb.textContent='✅ Correto! Boa resposta.';
-    fb.className='feedback-quiz acerto';
-    q.classList.add('respondida');
-    respostas[qId]={tipo:'objetiva',escolha:letra,gabarito:gab,acertou:true};
-  }else{
-    elem.classList.add('errada-sel');
-    q.querySelectorAll('.opcao').forEach(o=>{if(o.querySelector('.letra').textContent.trim()===gab)o.classList.add('correta');});
-    fb.textContent='❌ Incorreto. A resposta correta é a alternativa '+gab+'.';
-    fb.className='feedback-quiz erro';
-    q.classList.add('errada');
-    respostas[qId]={tipo:'objetiva',escolha:letra,gabarito:gab,acertou:false};
+function buildDiss(){
+  const ct = document.getElementById('questoes-diss');
+  DISS_QUESTOES.forEach((q, idx) => {
+    ct.innerHTML += `
+      <div class="q-card" id="qcard-${q.num}">
+        <div class="q-num">Questão ${idx+6} <span class="q-badge b-fill" id="badge-${q.num}" style="display:none">✓ respondida</span></div>
+        <div class="q-enunc">${q.enunc}</div>
+        <div class="textarea-wrap">
+          <textarea class="q-textarea" id="resp-${q.num}" placeholder="Escreva sua resposta aqui…" oninput="onType('${q.num}')"></textarea>
+          <div class="char-count" id="cc-${q.num}">0 / ${MIN_CHARS} caracteres mínimos</div>
+        </div>
+      </div>`;
+  });
+}
+
+function buildObj(){
+  const ct = document.getElementById('questoes-obj');
+  QUIZ.forEach(q => {
+    const opts = q.alts.map((a,i)=>`
+      <div class="opt" id="opt-${q.num}-${i}" onclick="marcar(${q.num},${i})">
+        <div class="opt-letra">${LETRAS[i]}</div>
+        <div class="opt-txt">${a}</div>
+        <div class="opt-mark" id="mark-${q.num}-${i}"></div>
+      </div>`).join('');
+    ct.innerHTML += `
+      <div class="q-card" id="qcard-obj-${q.num}" style="${q.num>1?'border-top:1px solid #eeeef5':''}">
+        <div class="q-num">Questão ${q.num} <span class="q-badge" id="badge-obj-${q.num}"></span></div>
+        <div class="q-enunc">${q.enunc}</div>
+        ${opts}
+      </div>`;
+  });
+}
+
+function protegerTextareas(){
+  const tiposColar = ['insertFromPaste','insertFromPasteAsQuotation','insertFromDrop','insertFromYank'];
+  function flashAviso(){
+    let t = document.getElementById('toast-colar');
+    if(!t){t=document.createElement('div');t.id='toast-colar';t.textContent='⚠️ Colar está desativado. Digite sua resposta.';document.body.appendChild(t);}
+    t.classList.add('show');clearTimeout(window.__toastT);window.__toastT=setTimeout(()=>t.classList.remove('show'),1800);
+  }
+  document.querySelectorAll('.q-textarea').forEach(c=>{
+    c.dataset.prev = c.value||'';
+    ['paste','copy','cut','drop','dragstart','dragover','dragenter','contextmenu'].forEach(ev=>{
+      c.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();return false;});
+    });
+    c.addEventListener('beforeinput',e=>{
+      if(tiposColar.includes(e.inputType)){e.preventDefault();flashAviso();}
+      if(e.inputType==='insertReplacementText') return;
+    });
+    c.addEventListener('input',e=>{
+      if(e.inputType&&tiposColar.includes(e.inputType)){
+        c.value=c.dataset.prev||'';flashAviso();
+        onType(c.id.replace('resp-',''));return;
+      }
+      const prev=c.dataset.prev||'';
+      if(c.value.length-prev.length>=25){c.value=prev;flashAviso();return;}
+      c.dataset.prev=c.value;
+    });
+  });
+}
+
+function onType(num){
+  const ta = document.getElementById('resp-'+num);
+  const cc = document.getElementById('cc-'+num);
+  const card = document.getElementById('qcard-'+num);
+  const badge = document.getElementById('badge-'+num);
+  const len = ta ? ta.value.length : 0;
+  if(cc){
+    cc.textContent = len+' / '+MIN_CHARS+' caracteres mínimos';
+    cc.className = 'char-count'+(len>=MIN_CHARS?' ok':len>40?' warn':'');
+  }
+  if(card && badge){
+    if(len>=MIN_CHARS){
+      card.classList.add('preenchida');
+      badge.style.display='inline-block';
+    } else {
+      card.classList.remove('preenchida');
+      badge.style.display='none';
+    }
   }
   atualizarProgresso();
 }
 
-function marcarDiscursiva(qId,campo){
-  const q=document.getElementById(qId);
-  const v=campo.value.trim();
-  if(v.length>=15){
-    q.dataset.respondida='1';campo.classList.add('preenchida');q.classList.add('respondida');
-    respostas[qId]={tipo:'discursiva',texto:v};
-  }else{
-    delete q.dataset.respondida;campo.classList.remove('preenchida');q.classList.remove('respondida');delete respostas[qId];
-  }
+function marcar(qNum, idx){
+  const card = document.getElementById('qcard-obj-'+qNum);
+  if(card && card.dataset.travado) return;
+  LETRAS.forEach((_,i)=>{
+    document.getElementById('opt-'+qNum+'-'+i)?.classList.remove('sel');
+  });
+  document.getElementById('opt-'+qNum+'-'+idx)?.classList.add('sel');
+  respMC[qNum] = idx;
+  const badge = document.getElementById('badge-obj-'+qNum);
+  if(badge){badge.textContent='● selecionada';badge.className='q-badge b-fill';badge.style.display='inline-block';}
   atualizarProgresso();
 }
 
 function atualizarProgresso(){
-  const c=document.querySelectorAll('.questao[data-respondida="1"]').length;
-  document.getElementById('progresso-count').textContent=c;
-  document.getElementById('barra-prog').style.width=(c/TOTAL*100)+'%';
-}
-function totalRespondidas(){return document.querySelectorAll('.questao[data-respondida="1"]').length;}
-
-function tentarSalvarPDF(){
-  const f=TOTAL-totalRespondidas();
-  const al=document.getElementById('alerta-incompleto');
-  if(f>0){document.getElementById('qtd-faltando').textContent=f;al.style.display='block';al.scrollIntoView({behavior:'smooth',block:'center'});return;}
-  al.style.display='none';
-  window.print();
-}
-
-function abrirFeedback(){
-  const todasQ=document.querySelectorAll('.questao');
-  const obj=Object.values(respostas).filter(r=>r.tipo==='objetiva');
-  const ac=obj.filter(r=>r.acertou).length;
-  const er=obj.filter(r=>!r.acertou).length;
-  const disc=Object.values(respostas).filter(r=>r.tipo==='discursiva').length;
-  const nr=TOTAL-totalRespondidas();
-  document.getElementById('resultado-resumo').innerHTML=`
-    <div class="resultado-linha"><span>Aluno(a)</span><span class="resultado-val">${nomeAluno}</span></div>
-    <div class="resultado-linha"><span>Total de questões</span><span class="resultado-val">${TOTAL}</span></div>
-    <div class="resultado-linha"><span>Questões respondidas</span><span class="resultado-val">${totalRespondidas()}</span></div>
-    <div class="resultado-linha"><span>Objetivas corretas</span><span class="resultado-val verde">${ac} / ${Object.keys(GABARITOS).length}</span></div>
-    <div class="resultado-linha"><span>Objetivas incorretas</span><span class="resultado-val vermelho">${er}</span></div>
-    <div class="resultado-linha"><span>Dissertativas respondidas</span><span class="resultado-val">${disc}</span></div>
-    ${nr>0?'<div class="resultado-linha"><span>Não respondidas</span><span class="resultado-val vermelho">'+nr+'</span></div>':''}`;
-  let html='';
-  todasQ.forEach(q=>{
-    const qId=q.id,num=q.dataset.num,tipo=q.dataset.tipo,r=respostas[qId],cor=CORRECCOES[qId]||'';
-    html+='<div class="secao-fb">';
-    if(tipo==='objetiva'){
-      const st=!r?'nao-resp':(r.acertou?'status-acerto':'status-erro');
-      const stTxt=!r?'— Não respondida':(r.acertou?'✅ Correto':'❌ Incorreto');
-      html+=`<div class="secao-fb-titulo"><span class="qnum">Q${num}</span> Objetiva <span class="${st}" style="margin-left:auto">${stTxt}</span></div>`;
-      html+='<div class="item-fb">';
-      if(r){html+=`<div class="qnum">Sua resposta: ${r.escolha}</div>`;if(!r.acertou)html+=`<div class="qnum" style="color:#e74c3c">Gabarito: ${r.gabarito}</div>`;}
-      else html+='<div class="nao-resp">Questão não respondida.</div>';
-      if(cor)html+=`<div class="gabarito-correcao" style="margin-top:8px"><strong>📝 Comentário:</strong><br>${cor}</div>`;
-      html+='</div>';
-    }else{
-      const resp=!!r;
-      html+=`<div class="secao-fb-titulo"><span class="qnum">Q${num}</span> Dissertativa <span style="margin-left:auto;font-size:.8rem;color:${resp?'var(--verde)':'#e67e22'}">${resp?'✅ Respondida':'⚠️ Não respondida'}</span></div>`;
-      html+='<div class="item-fb">';
-      if(r&&r.texto)html+=`<div class="qnum">Sua resposta:</div><div class="resp-aluno">${esc(r.texto)}</div>`;
-      else html+='<div class="nao-resp">Questão não respondida.</div>';
-      if(cor)html+=`<div class="gabarito-correcao" style="margin-top:8px"><strong>✏️ Resposta esperada / Comentário do professor:</strong><br>${cor}</div>`;
-      html+='</div>';
-    }
-    html+='</div>';
+  let c = 0;
+  DISS_QUESTOES.forEach(q=>{
+    const ta=document.getElementById('resp-'+q.num);
+    if(ta && ta.value.trim().length>=MIN_CHARS) c++;
   });
-  document.getElementById('feedback-detalhado').innerHTML=html;
-  document.getElementById('modal-feedback').classList.add('aberto');
+  QUIZ.forEach(q=>{ if(respMC[q.num]!==undefined) c++; });
+  document.getElementById('hdr-resp').textContent = c;
+  document.getElementById('bprog').style.width = (c/10*100)+'%';
 }
 
-function fecharFeedback(){document.getElementById('modal-feedback').classList.remove('aberto');}
-function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');}
-
-document.getElementById('modal-feedback').addEventListener('click',function(e){if(e.target===this)fecharFeedback();});
-
-// ═════════════════════════════════════════════════════════════════════════════
-//  SISTEMA DE SEGURANÇA E BLOQUEIO DE COPIA/PASTE INTEGRADO (Padrão Index)
-// ═════════════════════════════════════════════════════════════════════════════
-
-let toastTimer;
-function mostrarAviso() {
-  const toast = document.getElementById('toast-aviso');
-  if (toast) {
-    clearTimeout(toastTimer);
-    toast.classList.add('visivel');
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('visivel');
-    }, 2500);
+function verificar(){
+  // checar completo
+  let faltam = 0;
+  DISS_QUESTOES.forEach(q=>{
+    const ta=document.getElementById('resp-'+q.num);
+    if(!ta||ta.value.trim().length<MIN_CHARS) faltam++;
+  });
+  QUIZ.forEach(q=>{ if(respMC[q.num]===undefined) faltam++; });
+  if(faltam>0){
+    const al=document.getElementById('alerta-incompleto');
+    document.getElementById('qtd-faltando').textContent=faltam;
+    al.style.display='block';
+    al.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
   }
+  document.getElementById('alerta-incompleto').style.display='none';
+
+  // corrigir objetivas
+  let acertos = 0;
+  QUIZ.forEach(q=>{
+    const escolha = respMC[q.num];
+    const acertou = escolha === q.correta;
+    if(acertou) acertos++;
+    const card = document.getElementById('qcard-obj-'+q.num);
+    if(card) card.dataset.travado = '1';
+    LETRAS.forEach((_,i)=>{
+      const opt = document.getElementById('opt-'+q.num+'-'+i);
+      if(!opt) return;
+      opt.classList.add('travada');
+      if(i===q.correta) opt.classList.add('correta');
+      else if(i===escolha) opt.classList.add('errada');
+      const mark = document.getElementById('mark-'+q.num+'-'+i);
+      if(mark){ mark.style.display='block'; mark.textContent = i===q.correta?'✓':(i===escolha?'✗':''); }
+    });
+    const badge = document.getElementById('badge-obj-'+q.num);
+    if(badge){ badge.textContent=acertou?'✓ Acertou':'✗ Errou'; badge.className='q-badge '+(acertou?'b-ok':'b-no'); }
+    if(card){ card.classList.remove('respondida'); card.classList.add(acertou?'acerto':'erro'); }
+  });
+  TODAS_DISS.forEach(q=>{
+    const el=document.getElementById('resp-'+q.num);
+    if(el) el.disabled=true;
+  });
+
+  window.__acertos = acertos;
+  const pct = Math.round(acertos/5*100);
+  document.getElementById('pop-aluno').innerHTML = 'Aluno(a): <strong>'+nome+'</strong>';
+  document.getElementById('pop-resp').innerHTML = acertos+'<span>/5</span>';
+  document.getElementById('pop-sub').textContent = 'Objetivas — aproveitamento: '+pct+'%';
+  document.getElementById('pop-diss').textContent = '5 questões dissertativas registradas para correção do professor.';
+  let msg, ico;
+  if(pct>=80){ msg='Excelente desempenho nas objetivas!'; ico='🏆'; }
+  else if(pct>=60){ msg='Bom trabalho — revise os pontos que errou.'; ico='🎯'; }
+  else if(pct>=40){ msg='Atenção: retome o texto de apoio.'; ico='📚'; }
+  else { msg='Vamos revisar o conteúdo com calma.'; ico='📖'; }
+  document.getElementById('pop-ico').textContent = ico;
+  document.getElementById('pop-msg').textContent = msg;
+  setTimeout(()=>{ document.getElementById('popup-resultado').classList.add('aberto'); }, 300);
 }
 
-// Bloqueio do menu de contexto (clique com botão direito)
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-  mostrarAviso();
-  return false;
+function fecharPopupEBaixar(){
+  document.getElementById('popup-resultado').classList.remove('aberto');
+  setTimeout(()=>gerarPDF(), 350);
+}
+document.getElementById('popup-resultado').addEventListener('click', function(e){
+  if(e.target===this) this.classList.remove('aberto');
 });
 
-// Bloqueio geral de cópia (Ctrl+C, Ctrl+X) em toda a página
-document.addEventListener('copy', e => {
-  e.preventDefault();
-  mostrarAviso();
-  return false;
-});
-document.addEventListener('cut', e => {
-  e.preventDefault();
-  mostrarAviso();
-  return false;
-});
+// ── GERAR PDF ──────────────────────────────────────────────────────────────────
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); }
 
-// Bloqueio de colagem (Paste) e arrastar/soltar nos campos dissertativos e gerais
-document.addEventListener('paste', e => {
-  e.preventDefault();
-  mostrarAviso();
-  return false;
-});
-document.addEventListener('drop', e => {
-  e.preventDefault();
-  mostrarAviso();
-  return false;
-});
+async function gerarPDF(){
+  const overlay = document.createElement('div');
+  overlay.id = 'pdf-overlay';
+  overlay.innerHTML = `<div class="pdf-box"><div class="ico">📄</div><h4>Gerando PDF…</h4><p>Aguarde alguns instantes.</p><div class="pdf-spin"></div><div id="pdf-prog-wrap"><div id="pdf-prog"></div></div><div id="pdf-prog-txt">0%</div></div>`;
+  document.body.appendChild(overlay);
+  await sleep(80);
+  const setP=(pct,msg)=>{const pp=document.getElementById('pdf-prog'),pt=document.getElementById('pdf-prog-txt');if(pp)pp.style.width=pct+'%';if(pt)pt.textContent=msg||pct+'%';};
 
-// Monitoramento de Atalhos do Teclado (Prevenção de Inspeção e Cópia)
-document.addEventListener('keydown', e => {
-  // Impede Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+U (Ver Código Fonte) e Ctrl+S
-  if (e.ctrlKey && ['c', 'v', 'x', 'u', 's'].includes(e.key.toLowerCase())) {
-    e.preventDefault();
-    mostrarAviso();
-    return false;
-  }
-  // Impede Cmd+C, Cmd+V, Cmd+X, Cmd+U, Cmd+S no Mac
-  if (e.metaKey && ['c', 'v', 'x', 'u', 's'].includes(e.key.toLowerCase())) {
-    e.preventDefault();
-    mostrarAviso();
-    return false;
-  }
-  // Impede F12 (Inspecionar Elemento) e Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
-  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase()))) {
-    e.preventDefault();
-    mostrarAviso();
-    return false;
-  }
-});
+  try{
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:'portrait',unit:'px',format:'a4',hotfixes:['px_scaling']});
+    const PW=pdf.internal.pageSize.getWidth(), PH=pdf.internal.pageSize.getHeight();
+    const ML=28, CW=PW-ML*2; let y=ML;
 
-// ═════════════════════════════════════════════════════════════════════════════
-//  BLINDAGEM ULTRA CONTRA ÁREA DE TRANSFERÊNCIA MOBILE (GBOARD/SWIFTKEY)
-// ═════════════════════════════════════════════════════════════════════════════
-document.addEventListener("DOMContentLoaded", function() {
-  const camposDiscursivos = document.querySelectorAll(".campo-discursivo");
-
-  camposDiscursivos.forEach(textarea => {
-    let textoAnterior = textarea.value;
-
-    // Registra o estado atual da caixa imediatamente antes da injeção física do caractere
-    textarea.addEventListener("keydown", function() {
-      textoAnterior = textarea.value;
-    });
-
-    // Intercepta preventivamente no motor de renderização mobile o comando nativo do Gboard
-    textarea.addEventListener("beforeinput", function(e) {
-      if (e.inputType === "insertFromPaste") {
-        e.preventDefault();
-        mostrarAviso();
-      }
-    });
-
-    // Monitoramento matemático delta (Novo comprimento vs Comprimento anterior)
-    textarea.addEventListener("input", function(e) {
-      let textoAtual = textarea.value;
-      let deltaCaracteres = textoAtual.length - textoAnterior.length;
-
-      // Se o aluno injetou mais de 2 letras simultaneamente através do balão da área de transferência
-      if (deltaCaracteres > 2 || e.inputType === "insertFromPaste") {
-        textarea.value = ""; // Limpa a resposta instantaneamente
-        textoAnterior = "";
-        
-        // Dispara o alerta padrão da página para notificar o aluno
-        mostrarAviso();
-        
-        // Força a remoção do estado 'respondida' no motor original da atividade
-        const qBox = textarea.closest(".questao");
-        if (qBox) {
-          qBox.removeAttribute("data-respondida");
-          qBox.classList.remove("respondida");
-          delete respostas[qBox.id];
-          atualizarProgresso();
+    const addImg=async(el)=>{
+      const canvas=await html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:'#ffffff',scrollX:0,scrollY:0,windowWidth:900});
+      const imgW=CW, imgH=(canvas.height/canvas.width)*imgW;
+      const dataUrl=canvas.toDataURL('image/jpeg',.92), avail=PH-ML*2;
+      if(imgH<=avail){
+        if(y+imgH>PH-ML){pdf.addPage();y=ML;}
+        pdf.addImage(dataUrl,'JPEG',ML,y,imgW,imgH);y+=imgH+8;
+      } else {
+        const pxPerPdfPt=canvas.width/imgW;let srcY=0;
+        while(srcY<canvas.height){
+          const availPt=PH-y-ML,sliceH_pt=Math.min(availPt,avail);
+          const sliceH_px=Math.round(sliceH_pt*pxPerPdfPt),actualH_px=Math.min(sliceH_px,canvas.height-srcY);
+          const tmp=document.createElement('canvas');tmp.width=canvas.width;tmp.height=actualH_px;
+          tmp.getContext('2d').drawImage(canvas,0,srcY,canvas.width,actualH_px,0,0,canvas.width,actualH_px);
+          const sliceUrl=tmp.toDataURL('image/jpeg',.92),slicePt=(actualH_px/canvas.width)*imgW;
+          pdf.addImage(sliceUrl,'JPEG',ML,y,imgW,slicePt);
+          srcY+=actualH_px;y+=slicePt;
+          if(srcY<canvas.height){pdf.addPage();y=ML;}
         }
-        return;
+        y+=8;
       }
-      textoAnterior = textoAtual;
-    });
-  });
-});
+    };
+
+    const band=async(tag,txt)=>{
+      const b=document.createElement('div');
+      b.style.cssText='width:860px;font-family:Arial,sans-serif;position:absolute;left:-9999px;top:0';
+      b.innerHTML=`<div style="background:linear-gradient(90deg,#8B0000,#1a1a2e);border-radius:8px;padding:12px 22px;display:flex;align-items:center;gap:12px"><span style="background:rgba(255,255,255,.2);color:#fff;font-weight:700;font-size:12px;letter-spacing:1px;border-radius:20px;padding:3px 12px">${tag}</span><span style="color:#fff;font-size:15px;font-weight:700">${txt}</span></div>`;
+      document.body.appendChild(b);await sleep(20);await addImg(b);document.body.removeChild(b);
+    };
+
+    const acertos=window.__acertos||0, pct=Math.round(acertos/5*100);
+    const now=new Date();
+    const dtStr=now.toLocaleDateString('pt-BR')+' às '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+
+    // CAPA PDF
+    setP(4,'Preparando capa…');await sleep(40);
+    const coverEl=document.createElement('div');
+    coverEl.style.cssText='width:860px;font-family:Arial,sans-serif;overflow:hidden;position:absolute;left:-9999px;top:0';
+    coverEl.innerHTML=`
+      <div style="background:linear-gradient(135deg,#1a1a2e 0%,#8B0000 60%,#4a4a6a 100%);padding:32px 48px 28px;color:white">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.7;font-weight:700;margin-bottom:6px">Ciências Humanas · História · 2ª Série do Ensino Médio</div>
+        <div style="font-size:26px;font-weight:900;line-height:1.2;margin-bottom:5px">Revolução Francesa e seus Legados Políticos</div>
+        <div style="font-size:13px;opacity:.8;font-style:italic">Iluminismo · Direita e Esquerda · Estado Moderno · Brasil Contemporâneo · 5 objetivas + 5 dissertativas</div>
+      </div>
+      <div style="background:#f5f5fa;padding:22px 48px 26px;border-bottom:3px solid #e0d8f0">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#8B0000;font-weight:700;margin-bottom:5px">Aluno(a)</div>
+        <div style="font-size:20px;font-weight:700;color:#1a1a2e;border-bottom:2.5px solid #8B0000;padding-bottom:6px;display:inline-block;margin-bottom:16px">${nome}</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="background:white;border-radius:8px;padding:12px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:84px">
+            <div style="font-size:22px;font-weight:900;color:#4a9e3f">${acertos}/5</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Objetivas</div></div>
+          <div style="background:white;border-radius:8px;padding:12px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:84px">
+            <div style="font-size:22px;font-weight:900;color:#8B0000">${pct}%</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Aproveitamento</div></div>
+          <div style="background:white;border-radius:8px;padding:12px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:84px">
+            <div style="font-size:22px;font-weight:900;color:#e67e22">5</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Dissertativas</div></div>
+          <div style="background:white;border-radius:8px;padding:12px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:140px">
+            <div style="font-size:13px;font-weight:700;color:#333">${dtStr}</div>
+            <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px">Enviado em</div></div>
+        </div>
+        <div style="font-size:9px;color:#bbb;margin-top:14px">Colégio Estadual Rodolfo de Oliveira · SEDUC-GO · 2026</div>
+      </div>`;
+    document.body.appendChild(coverEl);await sleep(60);await addImg(coverEl);document.body.removeChild(coverEl);
+
+    // DISSERTATIVAS
+    await band('DISSERTATIVAS','Questões Dissertativas — Respostas e Orientações');
+    let dk=0;
+    for(const q of TODAS_DISS){
+      const resp=document.getElementById('resp-'+q.num)?.value||'';
+      const coment=COMENTARIOS_D[q.num]||'';
+      setP(8+Math.round(dk/TODAS_DISS.length*50),'Dissertativa '+(dk+1)+'/5…');await sleep(12);
+      const qEl=document.createElement('div');
+      qEl.style.cssText='width:860px;font-family:Arial,sans-serif;background:white;overflow:hidden;border:1px solid #e0ddf0;border-radius:10px;position:absolute;left:-9999px;top:0';
+      qEl.innerHTML=`
+        <div style="background:linear-gradient(90deg,#8B0000,#6b0000);padding:10px 22px;display:flex;justify-content:space-between;align-items:center">
+          <span style="color:white;font-weight:700;font-size:13px;letter-spacing:.8px">QUESTÃO ${String(dk+6)}</span>
+          <span style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:11px;padding:3px 12px;border-radius:20px;font-weight:600">Dissertativa</span></div>
+        <div style="padding:18px 24px 16px;background:#fdfdff">
+          <div style="font-size:13px;font-weight:700;color:#1a1a2e;line-height:1.6;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #eee">${q.enunc.replace(/<em>/g,'<i>').replace(/<\/em>/g,'</i>').replace(/<strong>/g,'<b>').replace(/<\/strong>/g,'</b>')}</div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px">
+              <div style="width:4px;height:15px;background:#8B0000;border-radius:2px"></div>
+              <div style="font-size:10px;font-weight:700;color:#8B0000;text-transform:uppercase;letter-spacing:1.5px">Resposta do Aluno(a)</div></div>
+            <div style="background:#fff5f5;border:1.5px solid #e8a0a0;border-radius:8px;padding:13px 16px;min-height:50px">
+              <div style="font-size:12.5px;color:#1a1a2e;line-height:1.8;white-space:pre-wrap">${esc(resp)}</div></div>
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px">
+              <div style="width:4px;height:15px;background:#4a9e3f;border-radius:2px"></div>
+              <div style="font-size:10px;font-weight:700;color:#2d7a27;text-transform:uppercase;letter-spacing:1.5px">Orientação do Professor</div></div>
+            <div style="background:#edfaeb;border:1.5px solid #8ed8a0;border-radius:8px;padding:13px 16px">
+              <div style="font-size:12.5px;color:#0d2530;line-height:1.8">${coment}</div></div>
+          </div>
+        </div>`;
+      document.body.appendChild(qEl);await sleep(12);await addImg(qEl);document.body.removeChild(qEl);
+      dk++;
+    }
+
+    // OBJETIVAS
+    await band('OBJETIVAS','Questões Objetivas — Gabarito Comentado');
+    for(let k=0;k<QUIZ.length;k++){
+      const q=QUIZ[k],escolha=respMC[q.num],acertou=escolha===q.correta;
+      setP(60+Math.round(k/QUIZ.length*34),'Objetiva '+(k+1)+'/5…');await sleep(12);
+      const altsHTML=q.alts.map((a,i)=>{
+        let bg='#fdfdff',bd='#e3e0ef',cor='#2d2d4a',tag='';
+        if(i===q.correta){bg='#edfaeb';bd='#8ed8a0';cor='#0d2530';tag='<span style="color:#2d7a27;font-weight:700"> ✓ correta</span>';}
+        if(i===escolha&&!acertou){bg='#fdeeee';bd='#e3a3a3';cor='#7a1f1f';tag='<span style="color:#c0392b;font-weight:700"> ✗ sua resposta</span>';}
+        else if(i===escolha&&acertou){tag='<span style="color:#2d7a27;font-weight:700"> ← sua resposta</span>';}
+        return `<div style="display:flex;gap:9px;align-items:flex-start;background:${bg};border:1px solid ${bd};border-radius:6px;padding:8px 12px;margin-bottom:6px"><div style="flex:0 0 auto;font-weight:700;color:#8B0000;font-size:12px">${LETRAS[i]})</div><div style="font-size:12px;color:${cor};line-height:1.55">${a}${tag}</div></div>`;
+      }).join('');
+      const headBg=acertou?'linear-gradient(90deg,#4a9e3f,#2d7a27)':'linear-gradient(90deg,#c0392b,#922b21)';
+      const qEl=document.createElement('div');
+      qEl.style.cssText='width:860px;font-family:Arial,sans-serif;background:white;overflow:hidden;border:1px solid #e0ddf0;border-radius:10px;position:absolute;left:-9999px;top:0';
+      qEl.innerHTML=`
+        <div style="background:${headBg};padding:10px 22px;display:flex;justify-content:space-between;align-items:center">
+          <span style="color:white;font-weight:700;font-size:13px;letter-spacing:.8px">QUESTÃO ${q.num}</span>
+          <span style="background:rgba(255,255,255,.2);color:white;font-size:11px;padding:3px 12px;border-radius:20px;font-weight:700">${acertou?'ACERTOU':'ERROU'}</span></div>
+        <div style="padding:16px 24px 14px;background:#fdfdff">
+          <div style="font-size:13px;font-weight:700;color:#1a1a2e;line-height:1.6;margin-bottom:12px">${q.enunc}</div>
+          ${altsHTML}
+          <div style="margin-top:10px;background:#edfaeb;border:1px solid #8ed8a0;border-radius:6px;padding:10px 14px">
+            <span style="font-size:10px;font-weight:700;color:#2d7a27;text-transform:uppercase;letter-spacing:1px">Gabarito: ${LETRAS[q.correta]} · </span>
+            <span style="font-size:12px;color:#0d2530;line-height:1.6">${q.coment}</span></div>
+        </div>`;
+      document.body.appendChild(qEl);await sleep(12);await addImg(qEl);document.body.removeChild(qEl);
+    }
+
+    // RODAPÉ EM TODAS AS PÁGINAS
+    setP(96,'Finalizando…');await sleep(30);
+    const totalPages=pdf.getNumberOfPages();
+    for(let p=1;p<=totalPages;p++){
+      pdf.setPage(p);
+      const fEl=document.createElement('div');
+      fEl.style.cssText=`width:${Math.round(CW)}px;height:22px;background:#f5f5fa;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:10px;color:#888;font-family:Arial,sans-serif;position:absolute;left:-9999px;top:0`;
+      fEl.innerHTML=`<span>Revolução Francesa e Legados Políticos · ${nome} · Objetivas: ${acertos}/5</span><span>Página ${p} de ${totalPages}</span>`;
+      document.body.appendChild(fEl);
+      const fc=await html2canvas(fEl,{scale:2,logging:false,backgroundColor:'#f5f5fa'});
+      document.body.removeChild(fEl);
+      const fUrl=fc.toDataURL('image/jpeg',.9),fH=(fc.height/fc.width)*CW;
+      pdf.setFillColor(245,245,250);pdf.rect(ML,PH-fH,CW,fH,'F');
+      pdf.addImage(fUrl,'JPEG',ML,PH-fH,CW,fH);
+    }
+    setP(100,'Salvando…');await sleep(200);
+    const safeName=nome.replace(/[^a-zA-Z0-9_\-]/g,'_');
+    pdf.save('Revolucao_Francesa_'+safeName+'.pdf');
+
+  } catch(err){
+    console.error(err);
+    alert('Erro ao gerar PDF: '+err.message);
+  } finally {
+    const ov=document.getElementById('pdf-overlay');
+    if(ov) document.body.removeChild(ov);
+  }
+}
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 </html>
