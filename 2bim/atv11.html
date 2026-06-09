@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revolução Francesa e seus Impactos — 20 Questões</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --roxo:#6b2fa0;--verde:#4a9e3f;--laranja:#e67e22;
+  --escuro:#1a1a2e;--medio:#4a4a6a;--claro:#f0f0f8;--branco:#fafafa;
+  --sombra:0 4px 24px rgba(107,47,160,.12);--radius:12px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Serif 4",Georgia,serif;background:var(--claro);color:var(--escuro);line-height:1.7}
+
+/* ── CAPA ── */
+#capa{min-height:100vh;background:linear-gradient(145deg,#1a1a2e 0%,#6b2fa0 55%,#4a9e3f 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow:hidden}
+#capa::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cbox{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:48px 56px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.cbox-titulo{font-family:"Playfair Display",serif;font-size:2.1rem;font-weight:900;color:white;margin-bottom:8px;line-height:1.2}
+.cbox-sub{font-size:.9rem;color:rgba(255,255,255,.75);font-style:italic;margin-bottom:10px}
+.cbox-disc{background:var(--verde);color:white;border-radius:40px;padding:6px 24px;display:inline-block;font-size:.9rem;font-weight:600;letter-spacing:.05em;margin-bottom:22px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.chip{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:.3rem .85rem;font-size:.77rem;font-weight:600;font-family:"JetBrains Mono",monospace}
+.campo-label{display:block;color:rgba(255,255,255,.8);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;text-align:left}
+.campo-nome{width:100%;padding:14px 18px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(255,255,255,.15);color:white;font-size:1.1rem;font-family:"Playfair Display",serif;outline:none;transition:border .2s;margin-bottom:22px}
+.campo-nome::placeholder{color:rgba(255,255,255,.45)}
+.campo-nome:focus{border-color:var(--verde);background:rgba(255,255,255,.2)}
+.btn-start{padding:14px 48px;background:var(--verde);color:white;border:none;border-radius:50px;font-size:1rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(74,158,63,.4);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;width:100%}
+.btn-start:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,158,63,.5)}
+.btn-start:disabled{opacity:.45;cursor:default}
+.capa-note{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.9rem}
+.seduc-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.07);padding:12px;text-align:center;color:rgba(255,255,255,.55);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── CONTEÚDO ── */
+#conteudo{display:none}
+
+/* ── HEADER FIXO ── */
+.hdr-top{background:linear-gradient(90deg,var(--roxo) 0%,var(--escuro) 100%);color:white;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
+.hdr-nome{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:rgba(255,255,255,.75)}
+.hdr-nome span{color:#a8e090;font-weight:600}
+.hdr-prog{font-size:.78rem;color:rgba(255,255,255,.7);font-family:"JetBrains Mono",monospace}
+.hdr-prog span{color:#ffd700;font-weight:700}
+
+/* ── BARRA PROGRESSO ── */
+.bprog-wrap{height:4px;background:rgba(255,255,255,.15);position:sticky;top:48px;z-index:99}
+.bprog{height:4px;background:var(--verde);transition:width .4s;width:0%}
+
+/* ── QUESTÕES ── */
+.container{max-width:940px;margin:0 auto;padding:32px 20px 60px}
+.q-card{background:white;border-radius:var(--radius);padding:28px 36px;margin:20px 0;box-shadow:var(--sombra);border-top:4px solid var(--claro);transition:border-color .3s}
+.q-card.respondida{border-top-color:var(--verde)}
+.q-num{font-family:"JetBrains Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--medio);margin-bottom:10px}
+.fonte-bloco{background:#faf8ff;border-left:4px solid var(--roxo);border-radius:0 8px 8px 0;padding:14px 18px;margin:10px 0 16px}
+.fonte-autor{font-size:.68rem;font-weight:700;color:var(--roxo);text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px}
+.fonte-texto{font-size:.9rem;font-style:italic;color:var(--medio);line-height:1.75;margin-bottom:.35rem}
+.fonte-ref{font-size:.68rem;color:#999}
+.q-enunc{font-size:.95rem;margin-bottom:18px;color:var(--escuro);line-height:1.7;font-weight:600}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-radius:8px;border:2px solid #e8e8f0;cursor:pointer;transition:all .2s;font-size:.9rem;background:var(--claro)}
+.opt:hover:not(.bloqueada){border-color:var(--roxo);background:#f3eeff}
+.opt .letra{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.82rem;color:var(--roxo);min-width:20px;padding-top:1px}
+/* estado neutro após responder — SEM cor certo/errado */
+.opt.sel-neutro{background:#e8ecff;border-color:#93a4e0}
+.opt.sel-neutro .letra{color:#2d4abf}
+.opt.bloqueada{cursor:default}
+/* gabarito (só no PDF via html2canvas) */
+.opt.gab-ok{border-color:#4a9e3f!important;background:#edfaeb!important}
+.opt.gab-ok .letra{color:#4a9e3f!important}
+.opt.gab-err{border-color:#e74c3c!important;background:#fdecea!important}
+.opt.gab-err .letra{color:#e74c3c!important}
+.opt.gab-dim{opacity:.45}
+
+/* ── ACOES FINAIS ── */
+.acoes{display:flex;gap:14px;margin:36px 0 20px;flex-wrap:wrap}
+.btn-pdf{padding:14px 34px;border-radius:50px;font-size:.95rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;border:none;transition:all .2s;letter-spacing:.03em;background:var(--roxo);color:white;box-shadow:0 6px 20px rgba(107,47,160,.35)}
+.btn-pdf:hover{transform:translateY(-2px);background:#5a2590}
+.btn-restart{background:white;color:var(--verde);border:2px solid var(--verde);padding:14px 34px;border-radius:50px;font-size:.95rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-restart:hover{background:var(--verde);color:white}
+
+/* ── AVISO INCOMPLETO ── */
+#alerta-incompleto{display:none;background:#fff3cd;border:2px solid #ffc107;border-radius:10px;padding:16px 22px;margin:20px 0;color:#7d5a00;font-weight:600;font-size:.9rem}
+
+/* ── RESULTADO CARD ── */
+#resultado{display:none}
+.res-card{background:white;border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:0 0 2rem;box-shadow:var(--sombra);border:2px solid var(--roxo)}
+.res-card h2{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--escuro);margin-bottom:.7rem}
+.aluno-res{font-size:.88rem;color:var(--medio);margin-bottom:.4rem}
+.nota-big{font-size:4rem;font-weight:900;color:var(--verde);line-height:1;font-family:"Playfair Display",serif}
+.nota-big span{font-size:1.5rem;color:var(--medio);font-weight:400}
+.nota-pts{font-size:.78rem;color:var(--medio);margin:.2rem 0 .7rem}
+.res-det{font-size:.83rem;color:var(--medio);margin-bottom:1rem}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:.9rem 0 1.3rem}
+.ri{background:var(--claro);border-radius:8px;padding:.6rem;text-align:center}
+.ri .rv{font-size:1.25rem;font-weight:700;color:var(--escuro)}
+.ri .rl{font-size:.62rem;color:var(--medio);text-transform:uppercase;letter-spacing:.05em}
+.msg{font-size:.97rem;font-weight:600;color:var(--roxo);margin:.4rem 0 1.3rem}
+
+/* ── PDF OVERLAY ── */
+#pdf-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center}
+.pdf-box{background:white;border-radius:16px;padding:44px 52px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35);max-width:380px;width:90%}
+.pdf-box .ico{font-size:2.8rem;margin-bottom:12px}
+.pdf-box h4{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;margin-bottom:8px;color:var(--escuro)}
+.pdf-box p{color:#666;font-size:.87rem;margin-bottom:4px}
+.pdf-spin{width:40px;height:40px;border:4px solid #e8e8f0;border-top-color:var(--roxo);border-radius:50%;animation:spin .8s linear infinite;margin:16px auto 0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#pdf-prog-wrap{height:6px;background:#e8e8f0;border-radius:4px;margin-top:18px;overflow:hidden}
+#pdf-prog{height:6px;background:var(--roxo);border-radius:4px;width:0%;transition:width .3s}
+#pdf-prog-txt{font-size:.76rem;color:#888;margin-top:6px;font-family:"JetBrains Mono",monospace}
+
+@media(max-width:640px){
+  .cbox{padding:30px 22px}
+  .cbox-titulo{font-size:1.6rem}
+  .container{padding:1rem 1rem 50px}
+  .q-card{padding:20px 16px}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── POPUP RESULTADO ── */
+#popup-resultado{display:none;position:fixed;inset:0;background:rgba(26,26,46,.82);z-index:8000;align-items:center;justify-content:center;padding:1rem}
+#popup-resultado.aberto{display:flex}
+.popup-box{background:white;border-radius:20px;padding:2.8rem 2.4rem 2.2rem;max-width:480px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.4);position:relative;animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.popup-box .pop-ico{font-size:3rem;margin-bottom:.6rem}
+.popup-box h2{font-family:"Playfair Display",serif;font-size:1.45rem;color:var(--escuro);margin-bottom:.5rem}
+.popup-aluno{font-size:.85rem;color:var(--medio);margin-bottom:.3rem}
+.popup-nota{font-size:4.2rem;font-weight:900;line-height:1;font-family:"Playfair Display",serif}
+.popup-nota.nota-ex{color:#4a9e3f}
+.popup-nota.nota-bom{color:#6b2fa0}
+.popup-nota.nota-med{color:#e67e22}
+.popup-nota.nota-baixo{color:#e74c3c}
+.popup-nota span{font-size:1.5rem;color:var(--medio);font-weight:400}
+.popup-pts{font-size:.77rem;color:var(--medio);margin:.2rem 0 .7rem}
+.popup-det{font-size:.83rem;color:var(--medio);margin-bottom:1rem}
+.popup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:.8rem 0 1.3rem}
+.popup-grid .ri{background:var(--claro);border-radius:8px;padding:.6rem}
+.popup-grid .ri .rv{font-size:1.2rem;font-weight:700;color:var(--escuro)}
+.popup-grid .ri .rl{font-size:.6rem;color:var(--medio);text-transform:uppercase;letter-spacing:.05em}
+.popup-msg{font-size:.95rem;font-weight:600;color:var(--roxo);margin:.3rem 0 1.4rem}
+.popup-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.popup-btns .btn-pdf{padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;border:none;transition:all .2s;letter-spacing:.03em;background:var(--roxo);color:white;box-shadow:0 6px 20px rgba(107,47,160,.35)}
+.popup-btns .btn-pdf:hover{transform:translateY(-2px);background:#5a2590}
+.popup-btns .btn-restart{background:white;color:var(--verde);border:2px solid var(--verde);padding:.72rem 1.6rem;border-radius:50px;font-size:.88rem;font-family:"Source Serif 4",serif;font-weight:600;cursor:pointer;transition:all .2s}
+.popup-btns .btn-restart:hover{background:var(--verde);color:white}
+
+</style>
+</head>
+<body>
+
+<!-- ══ CAPA ══ -->
+<div id="capa">
+  <div class="cbox">
+    <div class="cbox-titulo">Revolução Francesa<br>e seus Impactos</div>
+    <div class="cbox-sub">Recompondo e ampliando aprendizagens…</div>
+    <div class="cbox-disc">Ciências Humanas e Sociais Aplicadas · História</div>
+    <div class="chips">
+      <span class="chip">20 questões</span>
+      <span class="chip">0,5 pt cada</span>
+      <span class="chip">Gabarito no PDF</span>
+    </div>
+    <label class="campo-label" for="cnome">Nome completo do aluno(a)</label>
+    <input type="text" id="cnome" class="campo-nome" placeholder="Digite seu nome completo aqui…"
+      autocomplete="off" oninput="chkNome()" onkeydown="if(event.key==='Enter')iniciar()">
+    <button class="btn-start" id="bstart" onclick="iniciar()" disabled>Iniciar Avaliação →</button>
+    <p class="capa-note">Responda todas as 20 questões para gerar o PDF com gabarito comentado.</p>
+  </div>
+  <div class="seduc-bar">Colégio Estadual Rodolfo de Oliveira · Goiânia · 2026</div>
+</div>
+
+<!-- ══ CONTEÚDO ══ -->
+<div id="conteudo">
+  <div class="hdr-top">
+    <div class="hdr-nome">Aluno(a): <span id="hdr-nome">—</span></div>
+    <div class="hdr-prog">Respondidas: <span id="hdr-resp">0</span> / 20</div>
+  </div>
+  <div class="bprog-wrap"><div class="bprog" id="bprog"></div></div>
+
+  <div class="container">
+    <div id="alerta-incompleto">
+      ⚠️ Avaliação incompleta. Faltam <strong id="qtd-faltando"></strong> questão(ões).
+      Role a página, responda todas e tente novamente.
+    </div>
+    <div id="questoes"></div>
+  </div>
+
+<!-- ══ POPUP RESULTADO ══ -->
+<div id="popup-resultado">
+  <div class="popup-box">
+    <div class="pop-ico" id="pop-ico">🏆</div>
+    <h2>Avaliação Concluída!</h2>
+    <p class="popup-aluno" id="pop-aluno"></p>
+    <div class="popup-nota" id="pop-nota"></div>
+    <p class="popup-pts" id="pop-pts"></p>
+    <p class="popup-det" id="pop-det"></p>
+    <div class="popup-grid" id="pop-grid"></div>
+    <p class="popup-msg" id="pop-msg"></p>
+    <div class="popup-btns">
+      <button class="btn-pdf" onclick="fecharPopupEBaixar()">📥 Baixar PDF com gabarito</button>
+      <button class="btn-restart" onclick="location.reload()">↺ Reiniciar</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const TOTAL=20;
+let nome='',acertos=0,erros=0,resp=0;
+const done=new Set(), resps=[];
+
+function chkNome(){
+  const v=document.getElementById('cnome').value.trim();
+  const b=document.getElementById('bstart');
+  b.disabled=v.length<3;
+}
+function iniciar(){
+  nome=document.getElementById('cnome').value.trim();
+  if(nome.length<3)return;
+  document.getElementById('capa').style.display='none';
+  document.getElementById('conteudo').style.display='block';
+  document.getElementById('hdr-nome').textContent=nome;
+}
+function n10(a){return(a/TOTAL*10).toFixed(1);}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+
+const Q=[
+  {fontes:[
+    {au:'LEFEBVRE, Georges',rf:'A Revolução Francesa. São Paulo: IBRASA, 1989.',tx:'"A Revolução Francesa representa o apogeu de um longo desenvolvimento econômico e social que fez da burguesia a senhora do mundo."'},
+    {au:'SOBOUL, Albert',rf:'A Revolução Francesa. Rio de Janeiro: Difel, 2003.',tx:'"A crise do Antigo Regime, que se prolongou por todo o século XVIII, foi ao mesmo tempo econômica, social e política, atingindo a estrutura fundamental da sociedade feudal."'},
+    {au:'VOVELLE, Michel',rf:'A Revolução Francesa: 1789-1799. São Paulo: Editora UNESP, 2012.',tx:'"A Revolução Francesa não começou em 14 de julho de 1789, mas foi o resultado de um longo processo de transformações nas estruturas materiais e mentais da sociedade francesa."'},
+    {au:'FURET, François',rf:'Pensando a Revolução Francesa. Rio de Janeiro: Paz e Terra, 1989.',tx:'"A Revolução Francesa não é simplesmente uma ruptura política, mas uma transformação radical do imaginário social e das formas de legitimidade do poder."'}
+  ],
+  en:'Com base nas interpretações historiográficas apresentadas acima, assinale a alternativa que melhor expressa o sentido histórico atribuído à Revolução Francesa.',
+  gab:'A Revolução Francesa não foi um evento simples nem isolado. Lefebvre destaca a ascensão burguesa; Soboul, a crise estrutural do feudalismo; Vovelle, o longo processo de transformações materiais e mentais; Furet, a ruptura no imaginário político. Todos apontam para um fenômeno complexo, multidimensional e de longa duração.',
+  ops:[
+    {l:'A',t:'A Revolução foi um evento repentino e essencialmente político, marcado pela substituição violenta de um regime por outro, sem consequências duradouras nas estruturas sociais.',c:false},
+    {l:'B',t:'A Revolução Francesa representou um momento isolado e desconectado das transformações econômicas e culturais que ocorriam na Europa desde o século XVI.',c:false},
+    {l:'C',t:'A Revolução foi um fenômeno complexo e de longa duração, marcado por transformações econômicas, sociais, culturais e políticas que culminaram na ascensão da burguesia e na reconfiguração da legitimidade do poder.',c:true},
+    {l:'D',t:'A Revolução Francesa, embora significativa, restringiu-se a mudanças institucionais superficiais, mantendo intactas as hierarquias sociais herdadas do feudalismo.',c:false},
+    {l:'E',t:'A Revolução Francesa foi impulsionada apenas por fatores econômicos, como a crise financeira do Estado francês e o aumento dos preços dos alimentos.',c:false}
+  ]},
+  {fontes:[
+    {au:'TOCQUEVILLE, Alexis de',rf:'O Antigo Regime e a Revolução. 2. ed. Brasília: Editora Universidade de Brasília, 1997. p. 67.',tx:'"A Revolução Francesa não teve por efeito apenas mudar o governo, mas abolir a antiga forma da sociedade; teve de atacar simultaneamente todos os poderes estabelecidos, arruinar todas as influências reconhecidas."'}
+  ],
+  en:'Com base no fragmento acima, é correto afirmar que, para Tocqueville, a Revolução Francesa:',
+  gab:'Tocqueville distingue a simples mudança de governo da ruptura estrutural profunda. Para ele, a Revolução atacou simultaneamente todas as formas de poder e influência do Antigo Regime, configurando uma transformação social sem precedentes — não apenas uma reforma política de superfície.',
+  ops:[
+    {l:'A',t:'Representou uma ruptura meramente política, limitada à substituição da monarquia por um novo regime governamental.',c:false},
+    {l:'B',t:'Conservou os fundamentos da sociedade feudal, modificando apenas os ocupantes do poder.',c:false},
+    {l:'C',t:'Foi uma transformação superficial que apenas mascarou a permanência das estruturas de dominação anteriores.',c:false},
+    {l:'D',t:'Representou uma transformação profunda e estrutural, ao romper com as instituições e autoridades tradicionais da sociedade do Antigo Regime.',c:true},
+    {l:'E',t:'Manteve o poder nas mãos dos mesmos grupos privilegiados, sem promover mudanças reais na estrutura social ou cultural.',c:false}
+  ]},
+  {fontes:[
+    {au:'MATHIEZ, Albert',rf:'História da Revolução Francesa. São Paulo: Fulgor, 1965. p. 78.',tx:'"A crise econômica que precede imediatamente a Revolução Francesa, com a carestia do pão e a escassez de alimentos, foi o estopim que levou o povo à insurreição."'},
+    {au:'DOYLE, William',rf:'A Revolução Francesa: uma introdução. São Paulo: Ática, 1999. p. 56.',tx:'"O colapso financeiro da monarquia francesa não foi acidental ou resultado apenas de má administração, mas consequência estrutural de um sistema político incapaz de se reformar."'}
+  ],
+  en:'Com base nas análises dos dois autores, assinale a alternativa que melhor sintetiza as causas da Revolução Francesa.',
+  gab:'Mathiez aponta o fator imediato: a fome e a carestia do pão que empurraram o povo às ruas. Doyle identifica a causa estrutural: um sistema político cujas instituições bloqueavam qualquer reforma fiscal. A combinação desses dois níveis — causa imediata e estrutural — é o que melhor explica a eclosão revolucionária.',
+  ops:[
+    {l:'A',t:'A Revolução foi provocada exclusivamente pela fome e pela miséria, sem envolvimento das elites ou influência de crises políticas.',c:false},
+    {l:'B',t:'A insatisfação popular surgiu apenas de fatores ideológicos, sem relação direta com as condições materiais ou econômicas.',c:false},
+    {l:'C',t:'A crise que levou à Revolução resultou da combinação entre fatores estruturais — como a rigidez do sistema político — e fatores imediatos — como a escassez de alimentos e a carestia.',c:true},
+    {l:'D',t:'O colapso da monarquia poderia ter sido evitado com reformas administrativas pontuais e empréstimos financeiros bem geridos.',c:false},
+    {l:'E',t:'A Revolução ocorreu por influência estrangeira e ideias iluministas importadas, sendo a crise interna apenas um pretexto.',c:false}
+  ]},
+  {fontes:[
+    {au:'GOUGH, Hugh',rf:'O Terror na Revolução Francesa. Rio de Janeiro: Jorge Zahar Editor, 2000. p. 89.',tx:'"O Terror não foi simplesmente uma aberração ou um desvio da revolução, mas uma resposta às ameaças internas e externas que pareciam colocar em risco todo o processo revolucionário."'}
+  ],
+  en:'Com base no fragmento de Hugh Gough, é correto afirmar que o período do Terror na Revolução Francesa:',
+  gab:'Gough adota interpretação contextualista: o Terror não foi loucura nem desvio, mas resposta às guerras externas (Áustria, Prússia) e à contrarrevolução interna (Vendeia). Os jacobinos agiram sob pressão real, o que confere ao Terror uma lógica política dentro do processo revolucionário — ainda que violenta e controversa.',
+  ops:[
+    {l:'A',t:'Representou uma ruptura completa com os ideais da Revolução, motivada exclusivamente pelo autoritarismo dos jacobinos.',c:false},
+    {l:'B',t:'Foi um episódio irracional e isolado, desprovido de qualquer justificativa dentro do processo revolucionário.',c:false},
+    {l:'C',t:'Constituiu uma estratégia deliberada de repressão das classes populares e de fortalecimento da monarquia constitucional.',c:false},
+    {l:'D',t:'Deve ser interpretado como uma resposta político-estratégica às ameaças concretas que colocavam em risco a continuidade da Revolução.',c:true},
+    {l:'E',t:'Foi um erro histórico sem qualquer conexão com os contextos internos e externos da França revolucionária.',c:false}
+  ]},
+  {fontes:[
+    {au:'KOSELLECK, Reinhart',rf:'Crítica e Crise: uma contribuição à patogênese do mundo burguês. Rio de Janeiro: EDUERJ/Contraponto, 1999. p. 88.',tx:'"A crítica iluminista ao absolutismo continha em si mesma o germe da crise revolucionária, ao criar um espaço público de contestação política que o Estado não podia mais controlar."'}
+  ],
+  en:'Com base na análise de Reinhart Koselleck, assinale a alternativa que melhor expressa a relação entre o Iluminismo e a eclosão da Revolução Francesa:',
+  gab:'Koselleck identifica um paradoxo: ao criticar o absolutismo, os iluministas criaram um espaço público autônomo — salões, imprensa, academias — que o Estado não conseguia mais controlar. Esse espaço foi o "germe" da crise: ao tornar o poder objeto de debate racional, o Iluminismo minou a legitimidade do Antigo Regime e abriu caminho para a ruptura revolucionária.',
+  ops:[
+    {l:'A',t:'O Iluminismo reforçou o absolutismo ao propor a centralização do poder real e a contenção das liberdades individuais.',c:false},
+    {l:'B',t:'A difusão das ideias iluministas criou novas formas de crítica ao poder, rompendo com o monopólio da autoridade estatal e alimentando o surgimento de movimentos revolucionários.',c:true},
+    {l:'C',t:'A crítica iluminista foi rapidamente absorvida pelo Estado absolutista, impedindo que houvesse qualquer ruptura política.',c:false},
+    {l:'D',t:'O Iluminismo não teve influência sobre a Revolução Francesa, pois suas ideias eram apenas abstratas e filosóficas, distantes da prática política.',c:false},
+    {l:'E',t:'A contestação promovida pelos iluministas restringiu-se aos círculos aristocráticos e não alcançou as camadas populares.',c:false}
+  ]},
+  {fontes:[
+    {au:'HOBSBAWM, Eric J.',rf:'Ecos da Marselhesa: dois séculos reveem a Revolução Francesa. São Paulo: Companhia das Letras, 1996. p. 21.',tx:'"Durante duzentos anos, a Revolução Francesa tem sido o paradigma de todas as revoluções subsequentes, o modelo com o qual todas as outras são comparadas e julgadas."'}
+  ],
+  en:'A partir da interpretação de Eric Hobsbawm, é correto afirmar que a Revolução Francesa:',
+  gab:'Hobsbawm usa "paradigma" no sentido de modelo exemplar. A Revolução estabeleceu os parâmetros do que se entende por revolução política: ruptura com a ordem anterior, tomada do poder, proclamação de novos princípios. Todas as revoluções posteriores — da Russa às independências latino-americanas — se definem em relação a esse modelo.',
+  ops:[
+    {l:'A',t:'Foi uma experiência isolada, sem relevância simbólica ou prática para os movimentos políticos posteriores.',c:false},
+    {l:'B',t:'Representou uma ruptura breve, logo superada por modelos mais modernos de transformação política e social.',c:false},
+    {l:'C',t:'Teve impacto apenas local, restrito à política interna da França nos séculos XVIII e XIX.',c:false},
+    {l:'D',t:'Tornou-se um referencial histórico e simbólico para os processos revolucionários posteriores, funcionando como modelo e padrão de comparação ao longo de dois séculos.',c:true},
+    {l:'E',t:'Teve importância restrita ao seu papel como evento militar na derrubada do absolutismo europeu.',c:false}
+  ]},
+  {fontes:[
+    {au:'HOBSBAWM, Eric J.; RUDÉ, George',rf:'Capitão Swing: a expansão capitalista e as revoltas rurais na Inglaterra do início do século XIX. Rio de Janeiro: Francisco Alves, 1982. p. 183.',tx:'"Os movimentos camponeses e operários na Inglaterra, embora diferentes dos franceses, foram profundamente influenciados pelo exemplo da Revolução Francesa e seu ideal de justiça social."'}
+  ],
+  en:'Com base na citação de Hobsbawm e Rudé, é correto afirmar que os levantes rurais e operários ingleses do século XIX:',
+  gab:'Hobsbawm e Rudé reconhecem as diferenças de contexto — o capitalismo agrário inglês era distinto do Antigo Regime francês —, mas afirmam que os ideais de justiça social da Revolução Francesa forneceram vocabulário e legitimidade às lutas dos trabalhadores ingleses. A influência foi real, mediada e adaptada às condições locais.',
+  ops:[
+    {l:'A',t:'Não guardavam nenhuma relação com a Revolução Francesa, sendo motivados exclusivamente por questões econômicas locais.',c:false},
+    {l:'B',t:'Foram inspirados pelos ideais de justiça social difundidos pela Revolução Francesa, ainda que em contexto histórico diferente do francês.',c:true},
+    {l:'C',t:'Rejeitaram completamente os princípios da Revolução Francesa, por considerar o movimento de natureza elitista e urbana.',c:false},
+    {l:'D',t:'Reproduziram integralmente o modelo jacobino, sem qualquer adaptação às condições do capitalismo industrial inglês.',c:false},
+    {l:'E',t:'Foram influenciados apenas pela Revolução Americana, não apresentando qualquer vínculo com o processo revolucionário francês.',c:false}
+  ]},
+  {fontes:[
+    {au:'MOTA, Carlos Guilherme',rf:'A Revolução Francesa e seu impacto na América Latina. São Paulo: Nova Stella Editorial, 1989. p. 76.',tx:'"As ideias liberais e republicanas da Revolução Francesa chegaram ao Brasil filtradas pela experiência portuguesa e pela realidade colonial escravista, gerando apropriações e adaptações específicas."'}
+  ],
+  en:'A partir da análise do historiador Carlos Guilherme Mota, assinale a alternativa que melhor descreve a recepção das ideias revolucionárias francesas no Brasil colonial:',
+  gab:'Mota aponta dois filtros que condicionaram a chegada das ideias revolucionárias ao Brasil: a intermediação da cultura política lusitana e as contradições da sociedade escravista. Uma elite dependente da escravidão não podia abraçar integralmente os princípios de liberdade e igualdade — daí a apropriação seletiva que excluía os escravizados do alcance desses ideais.',
+  ops:[
+    {l:'A',t:'As ideias da Revolução Francesa foram rejeitadas no Brasil por serem incompatíveis com a tradição ibérica absolutista.',c:false},
+    {l:'B',t:'Os princípios da Revolução Francesa chegaram ao Brasil intactos, sendo aplicados de forma imediata e sem resistência pela elite colonial.',c:false},
+    {l:'C',t:'As ideias revolucionárias foram apropriadas no Brasil de forma crítica e adaptada, condicionadas pelas estruturas coloniais e escravistas vigentes.',c:true},
+    {l:'D',t:'A influência da Revolução Francesa limitou-se às elites intelectuais portuguesas, sem impacto direto nos movimentos políticos brasileiros.',c:false},
+    {l:'E',t:'A Revolução Francesa não teve qualquer relevância para o processo de independência ou formação política na América Latina.',c:false}
+  ]},
+  {fontes:[
+    {au:'COSTA, Emília Viotti da',rf:'Da Monarquia à República: momentos decisivos. São Paulo: Editora UNESP, 2010. p. 38.',tx:'"A Conjuração Baiana de 1798 revela como as ideias revolucionárias francesas foram apropriadas pelos segmentos populares urbanos, incluindo negros e mulatos livres, que as adaptaram à realidade colonial brasileira."'}
+  ],
+  en:'Com base na análise da historiadora Emília Viotti da Costa, é correto afirmar que a Conjuração Baiana de 1798:',
+  gab:'A Conjuração Baiana foi notável por sua composição social diversa: artesãos, negros e mulatos livres participaram ativamente. Ao contrário da Inconfidência Mineira, que excluía a abolição, a Conjuração Baiana incorporou a dimensão racial à luta política, reinterpretando os ideais de liberdade e igualdade à luz da realidade colonial e escravista brasileira.',
+  ops:[
+    {l:'A',t:'Foi um movimento exclusivamente da elite letrada e branca, sem qualquer participação popular ou influência de ideias externas.',c:false},
+    {l:'B',t:'Rejeitou as ideias da Revolução Francesa por considerá-las inadequadas à realidade de uma colônia escravista.',c:false},
+    {l:'C',t:'Demonstrou como os ideais de liberdade e igualdade foram reinterpretados por setores populares, que os integraram às suas lutas contra a opressão social e racial na colônia.',c:true},
+    {l:'D',t:'Buscava apenas melhorias salariais e condições de trabalho, sem conexão com ideias políticas mais amplas.',c:false},
+    {l:'E',t:'A influência francesa restringiu-se ao campo filosófico e não teve impacto prático nas ações dos movimentos sociais brasileiros do período colonial.',c:false}
+  ]},
+  {fontes:[
+    {au:'BENSAÏD, Daniel',rf:'Os Despossuídos: Karl Marx, os ladrões de madeira e o direito dos pobres. São Paulo: Boitempo, 2017. p. 342.',tx:'"As reivindicações sociais e políticas da Revolução Francesa permanecem inacabadas. O projeto de uma sociedade onde a liberdade não sirva de máscara para a opressão econômica, onde a igualdade não seja apenas formal, mas real, e onde a fraternidade não seja apenas um slogan, mas uma prática cotidiana de solidariedade, continua a ser o grande desafio das democracias contemporâneas."'}
+  ],
+  en:'Com base na citação de Daniel Bensaïd, é correto afirmar que:',
+  gab:'Bensaïd adota perspectiva marxista crítica: os princípios de 1789 foram proclamados formalmente, mas não realizados materialmente. A liberdade jurídica pode coexistir com a opressão econômica; a igualdade perante a lei não elimina a desigualdade real; a fraternidade permanece slogan. O projeto revolucionário é um "horizonte inacabado" — desafio permanente, não conquista concluída.',
+  ops:[
+    {l:'A',t:'As democracias modernas já concretizaram plenamente os ideais de liberdade, igualdade e fraternidade proclamados pela Revolução Francesa.',c:false},
+    {l:'B',t:'O legado da Revolução Francesa tornou-se obsoleto e irrelevante frente aos desafios políticos e sociais do século XXI.',c:false},
+    {l:'C',t:'Embora formalmente defendidos, os ideais revolucionários ainda não foram plenamente realizados nas práticas sociais, políticas e econômicas das democracias contemporâneas.',c:true},
+    {l:'D',t:'A igualdade e a fraternidade foram valores progressivamente abandonados após a Revolução Francesa, restando apenas a liberdade individual como princípio democrático atual.',c:false},
+    {l:'E',t:'O texto defende que a Revolução foi um fracasso total e que seus ideais devem ser substituídos por outros modelos de organização política.',c:false}
+  ]},
+  {fontes:[
+    {au:'SOBOUL, Albert',rf:'A Revolução Francesa. Lisboa: Livros Horizonte, 1979. v. 2, p. 483-484.',tx:'"O Terceiro Estado compreendia, confundidos em suas classes, todos os plebeus, 96% da nação. Esta entidade legal dissimulava elementos sociais diversos cuja ação específica diversificava o curso da Revolução. [...] O ódio à aristocracia, a oposição irredutível aos ricos foram os fermentos de unidade das massas laboriosas. Quando as más colheitas e a crise econômica que delas resultava as puseram em movimento, elas não se ordenaram como classe distinta, mas como associadas ao artesanato, atrás da burguesia."'}
+  ],
+  en:'De acordo com o texto de Albert Soboul, qual foi o principal fator de coesão que impulsionou a participação das camadas populares na Revolução Francesa?',
+  gab:'Soboul destaca que o Terceiro Estado era heterogêneo: alta burguesia, pequena burguesia, artesãos, camponeses. O que os uniu não foi uma consciência de classe coesa, mas o ódio compartilhado à aristocracia. Quando as crises econômicas eclodiram, essas massas se moveram juntas, atrás da burguesia, sem constituir um bloco político autônomo — o que explica tanto a força quanto os limites do movimento popular.',
+  ops:[
+    {l:'A',t:'A consciência de classe bem definida dos trabalhadores urbanos, que organizaram levantes de forma autônoma e independente da burguesia.',c:false},
+    {l:'B',t:'A liderança intelectual dos filósofos iluministas, que convenceram as camadas populares a aderirem ao projeto político burguês.',c:false},
+    {l:'C',t:'A combinação entre o ódio compartilhado à aristocracia e as crises econômicas, que uniram grupos sociais heterogêneos em torno da luta contra a velha ordem.',c:true},
+    {l:'D',t:'A influência direta da Revolução Americana, cujos princípios igualitários inspiraram as massas parisienses a romperem com o Antigo Regime.',c:false},
+    {l:'E',t:'O projeto político da pequena burguesia jacobina, que liderou diretamente as camadas populares desde o início do processo revolucionário.',c:false}
+  ]},
+  {fontes:[
+    {au:'SIEYÈS, Emmanuel-Joseph',rf:"Qu'est-ce que le Tiers État? [O que é o Terceiro Estado?]. Paris, 1789.",tx:'"Que é o Terceiro Estado? Tudo. Que tem sido até agora na ordem política? Nada. Que deseja? Vir a ser alguma coisa. [...] Ele é o homem forte e robusto que tem um dos braços ainda acorrentados. Se suprimíssemos a ordem privilegiada, a nação não seria algo de menos e sim alguma coisa mais. Assim, que é o Terceiro Estado? Tudo, mas um tudo livre e florescente. Nada pode caminhar sem ele, tudo iria infinitamente melhor sem os outros."'}
+  ],
+  en:"O panfleto de Sieyès, publicado às vésperas da Revolução Francesa em 1789, tinha como principal objetivo político:",
+  gab:"Sieyès escreveu o panfleto para mobilizar o Terceiro Estado — 96% da população — a exigir representação política efetiva. A metáfora do 'homem com o braço acorrentado' ilustra a contradição: quem sustenta economicamente a nação é excluído das decisões políticas. O texto questionou a legitimidade dos privilégios da nobreza e do clero e tornou-se um dos manifestos mais influentes às vésperas da Revolução.",
+  ops:[
+    {l:'A',t:'Defender a manutenção dos privilégios da nobreza e do clero como pilares da estabilidade da monarquia francesa.',c:false},
+    {l:'B',t:'Propor uma aliança entre o Terceiro Estado e a nobreza para pressionar o rei a convocar os Estados Gerais.',c:false},
+    {l:'C',t:'Questionar a legitimidade dos privilégios das ordens superiores e reivindicar representação política efetiva para o Terceiro Estado, que representava a quase totalidade da nação.',c:true},
+    {l:'D',t:'Defender a abolição imediata da monarquia e a proclamação de uma república democrática de sufrágio universal.',c:false},
+    {l:'E',t:'Apresentar uma proposta de reforma fiscal que permitisse ao Estado francês saldar suas dívidas sem alterar as estruturas sociais vigentes.',c:false}
+  ]},
+  {fontes:[
+    {au:'VOVELLE, Michel',rf:'A Revolução Francesa explicada à minha neta. São Paulo: Editora UNESP, 2007. p. 17.',tx:'"Na França, Montesquieu, Voltaire, Rousseau, Diderot, cada um com seu estilo, fizeram ressoar a voz da filosofia. Contra a intolerância religiosa e em defesa das liberdades, contra o arbítrio do absolutismo e em defesa de um regime político em que os cidadãos, protegidos por uma Constituição, participam da administração do Estado."'}
+  ],
+  en:'Com base no trecho de Michel Vovelle, é correto afirmar que os principais pensadores iluministas franceses compartilhavam, apesar de suas diferenças, o seguinte horizonte político:',
+  gab:'Apesar das diferenças entre Montesquieu (separação dos poderes), Voltaire (liberdade religiosa), Rousseau (soberania popular) e Diderot (enciclopedismo crítico), Vovelle identifica um denominador comum: a crítica ao absolutismo e à intolerância religiosa, e a defesa de um Estado constitucional em que os cidadãos participem do governo — bases do liberalismo político moderno.',
+  ops:[
+    {l:'A',t:'A defesa intransigente da monarquia absoluta como forma de governo mais racional e eficiente para a França do século XVIII.',c:false},
+    {l:'B',t:'A crítica à intolerância religiosa e ao absolutismo, e a reivindicação de um Estado constitucional no qual os cidadãos participassem do governo.',c:true},
+    {l:'C',t:'A proposta de uma república igualitária fundada na abolição da propriedade privada e na redistribuição das riquezas nacionais.',c:false},
+    {l:'D',t:'A defesa da soberania exclusiva do papa como fonte de legitimidade política para os Estados europeus do Antigo Regime.',c:false},
+    {l:'E',t:'A valorização das tradições medievais e dos privilégios aristocráticos como elementos essenciais à ordem social francesa.',c:false}
+  ]},
+  {fontes:[
+    {au:'HOBSBAWM, Eric J.',rf:'A Era das Revoluções: 1789-1848. 4. ed. Rio de Janeiro: Paz e Terra, 1982. p. 77.',tx:'"Este documento é um manifesto contra a sociedade hierárquica de privilégios nobres, mas não um manifesto a favor de uma sociedade democrática e igualitária. \'Os homens nascem e vivem livres e iguais perante as leis\', dizia seu primeiro artigo; mas ele também prevê a existência de distinções sociais, ainda que \'somente no terreno da utilidade comum\'. A propriedade privada era um direito natural, sagrado, inalienável e inviolável."'}
+  ],
+  en:'De acordo com a análise de Eric Hobsbawm sobre a Declaração dos Direitos do Homem e do Cidadão de 1789, é correto afirmar que esse documento:',
+  gab:'Hobsbawm revela a ambiguidade da Declaração: proclama que todos são iguais perante a lei — rompendo com privilégios hereditários —, mas protege a propriedade privada como direito sagrado e admite distinções sociais. Trata-se de um manifesto burguês: garante igualdade jurídica formal e liberdade econômica, mas não igualdade material.',
+  ops:[
+    {l:'A',t:'Era um manifesto radicalmente igualitário, pois aboliu todas as formas de distinção social e garantiu igualdade material plena entre os cidadãos.',c:false},
+    {l:'B',t:'Expressava os interesses políticos da burguesia, pois combinava a defesa formal da igualdade jurídica com a proteção intransigente da propriedade privada.',c:true},
+    {l:'C',t:'Representou a vitória definitiva das camadas populares sobre a aristocracia, ao eliminar toda forma de privilégio e garantir democracia plena.',c:false},
+    {l:'D',t:'Foi um documento essencialmente conservador, pois defendia a restauração dos valores e das instituições do Antigo Regime.',c:false},
+    {l:'E',t:'Tinha caráter estritamente jurídico e formal, sem nenhuma dimensão política ou social relevante para o contexto revolucionário.',c:false}
+  ]},
+  {fontes:[
+    {au:'FURET, François',rf:'Pensando a Revolução Francesa. Rio de Janeiro: Paz e Terra, 1989. p. 23.',tx:'"A história \'moderna\' termina em 1789, com aquilo que a Revolução batizou de \'Antigo Regime\'. [...] 1789 é a chave para o antes e para o depois. Separa-os, e, portanto, os define, os \'explica\'."'}
+  ],
+  en:"A partir da interpretação de François Furet, é correto afirmar que a Revolução Francesa de 1789:",
+  gab:"Furet defende que 1789 não é apenas um evento político: é o marco que criou a distinção entre 'Antigo Regime' e 'modernidade'. Antes e depois de 1789 só têm sentido em relação a esse divisor. Essa ideia justifica o uso da Revolução Francesa como início da Era Contemporânea pela historiografia — ela redefiniu as categorias políticas, sociais e culturais do mundo ocidental.",
+  ops:[
+    {l:'A',t:'Foi um evento de importância restrita, sem impacto significativo sobre a periodização da história ocidental.',c:false},
+    {l:'B',t:'Representou apenas uma crise política passageira, sem alterar profundamente as estruturas econômicas e sociais da França.',c:false},
+    {l:'C',t:'Constituiu um marco divisório fundamental na história ocidental, separando o mundo do Antigo Regime da era contemporânea e redefinindo as categorias com que compreendemos a modernidade política.',c:true},
+    {l:'D',t:'Foi resultado exclusivo das ideias dos filósofos iluministas, sem relação com as contradições econômicas e sociais do Antigo Regime.',c:false},
+    {l:'E',t:'Teve impacto apenas sobre a França, sem influência sobre as transformações políticas e sociais ocorridas em outros países europeus.',c:false}
+  ]},
+  {fontes:[
+    {au:'KANT, Immanuel',rf:'O conflito das faculdades. In: TERRA, Ricardo. Kant e o Direito. Rio de Janeiro: Zahar, 2004. p. 89.',tx:'"Mesmo se o alvo perseguido não tivesse sido alcançado, mesmo se a constituição por fim fracassasse, ou se voltasse progressivamente ao Antigo Regime, [...] tal acontecimento é por demais imenso, por demais identificado aos interesses da humanidade, tem demasiada influência sobre todas as partes do mundo para que os povos, em outras circunstâncias, dele não se lembrem e não sejam levados a recomeçar a experiência."'}
+  ],
+  en:'De acordo com Immanuel Kant, o que tornava a Revolução Francesa um acontecimento historicamente singular e inesquecível, mesmo considerando seus possíveis fracassos?',
+  gab:'Kant não avalia a Revolução pelo resultado imediato — ela poderia fracassar —, mas pela sua significação universal. O que a torna inesquecível é sua identificação com os interesses da humanidade como um todo. Para Kant, ela inaugurou um entusiasmo moral irreversível: mesmo que fracassasse, os povos se lembrariam dela e tentariam recomeçar.',
+  ops:[
+    {l:'A',t:'A violência extrema do Terror, que demonstrou a determinação dos revolucionários em defender os ideais da Revolução a qualquer custo.',c:false},
+    {l:'B',t:'As vitórias militares dos exércitos napoleônicos, que difundiram os ideais revolucionários por toda a Europa por meio da conquista.',c:false},
+    {l:'C',t:'O fato de ter produzido uma nova constituição escrita, modelo jurídico adotado por todos os países ocidentais nos séculos seguintes.',c:false},
+    {l:'D',t:'Sua identificação profunda com os interesses universais da humanidade e sua influência sobre povos de todo o mundo, tornando-a uma experiência que sempre poderia ser retomada.',c:true},
+    {l:'E',t:'A rapidez com que derrubou o absolutismo e estabeleceu a república, demonstrando que revoluções políticas podiam ser realizadas em pouco tempo.',c:false}
+  ]},
+  {fontes:[
+    {au:'TOCQUEVILLE, Alexis de',rf:'O Antigo Regime e a Revolução. 2. ed. Brasília: Editora Universidade de Brasília, 1982. p. 43 e 187.',tx:'"Os franceses fizeram, em 1789, o maior esforço no qual povo algum jamais se empenhou para cortar seu destino em dois, por assim dizer, e separar por um abismo o que tinham sido até então do que queriam ser de agora em diante. [...] A outra paixão [...] levava-os a querer viver não somente iguais mas também livres."'}
+  ],
+  en:'De acordo com Tocqueville, os franceses de 1789 eram movidos por duas paixões fundamentais. Qual das alternativas abaixo melhor as identifica?',
+  gab:'Tocqueville identifica duas paixões: (1) o ódio profundo à desigualdade herdada de séculos de hierarquia feudal, que os movia a destruir as instituições medievais; e (2) o desejo de liberdade, de não submeter-se a qualquer forma de tirania ou arbítrio. Essas duas paixões nem sempre são compatíveis — o que para Tocqueville explica as tensões do próprio processo revolucionário.',
+  ops:[
+    {l:'A',t:'O desejo de restaurar a monarquia absolutista e a busca pela independência política em relação às potências europeias.',c:false},
+    {l:'B',t:'A aspiração à igualdade social, que os movia a destruir as estruturas medievais, e o desejo de liberdade, que os impedia de aceitar qualquer forma de tirania.',c:true},
+    {l:'C',t:'A busca pela igualdade econômica entre as classes e o projeto de construção de um Estado socialista baseado na propriedade coletiva.',c:false},
+    {l:'D',t:'O sentimento nacionalista de superioridade francesa e a ambição de expandir os princípios revolucionários para outros países da Europa.',c:false},
+    {l:'E',t:'O ódio à religião católica e a determinação de construir uma sociedade laica e completamente separada de qualquer influência do clero.',c:false}
+  ]},
+  {fontes:[
+    {au:'HOBSBAWM, Eric J.',rf:'Ecos da Marselhesa: dois séculos reveem a Revolução Francesa. São Paulo: Companhia das Letras, 1996. p. 127.',tx:'"Felizmente, a Revolução Francesa ainda está viva. Pois Liberdade, Igualdade e Fraternidade e os valores da razão e do Iluminismo — os valores que construíram a civilização moderna — são mais necessários do que nunca, na medida em que o irracionalismo, a religião fundamentalista, o obscurantismo e a barbárie estão, mais uma vez, avançando sobre nós."'}
+  ],
+  en:'Com base no texto de Eric Hobsbawm, assinale a alternativa que melhor expressa sua avaliação sobre a atualidade da Revolução Francesa:',
+  gab:'Hobsbawm escreve em 1989 — bicentenário da Revolução —, mas sua análise permanece atual. Para ele, os valores iluministas de liberdade, igualdade e fraternidade não são relíquias do passado, mas ferramentas necessárias diante do avanço do irracionalismo, do fundamentalismo religioso e do obscurantismo. A Revolução "ainda está viva" porque os problemas que ela enfrentou continuam presentes.',
+  ops:[
+    {l:'A',t:'A Revolução Francesa esgotou seu papel histórico e seus ideais não têm mais relevância diante das novas ameaças do século XXI.',c:false},
+    {l:'B',t:'Os valores iluministas de liberdade, igualdade e fraternidade permanecem atuais e necessários, especialmente como resposta ao avanço do irracionalismo, do obscurantismo e do fundamentalismo religioso.',c:true},
+    {l:'C',t:'A civilização moderna já realizou plenamente os ideais iluministas, tornando desnecessária qualquer reflexão sobre o legado da Revolução Francesa.',c:false},
+    {l:'D',t:'O irracionalismo e o obscurantismo são fenômenos naturais e inevitáveis, diante dos quais os ideais iluministas mostram-se impotentes.',c:false},
+    {l:'E',t:'A Revolução Francesa foi importante apenas para a construção da identidade nacional francesa, sem valor universal para as sociedades contemporâneas.',c:false}
+  ]},
+  {fontes:[
+    {au:'LEFEBVRE, Georges',rf:'A Revolução Francesa. São Paulo: IBRASA, 1989. p. 156.',tx:'"A nobreza [...] queria conservar os seus privilégios; a burguesia desejava a igualdade de direitos, e a massa popular, animada por um ódio secular contra a aristocracia, constituía, pela sua força numérica, um instrumento de destruição de valor inestimável nas mãos dos revolucionários."'}
+  ],
+  en:'De acordo com Georges Lefebvre, qual foi o papel desempenhado pelas classes populares no processo revolucionário francês?',
+  gab:'Lefebvre adota a perspectiva marxista: as classes populares foram o instrumento de destruição do Antigo Regime pela sua força numérica e pelo ódio secular à aristocracia. Porém, foram dirigidas pela burguesia, que tinha projeto político definido: abolir os privilégios feudais para garantir igualdade jurídica e livre mercado. As massas não lideraram — foram mobilizadas.',
+  ops:[
+    {l:'A',t:'As classes populares lideraram o processo revolucionário de forma autônoma, impondo seu próprio programa político à burguesia e à nobreza.',c:false},
+    {l:'B',t:'As classes populares foram atores passivos, manipulados pela burguesia sem qualquer consciência política ou interesse próprio no processo.',c:false},
+    {l:'C',t:'As classes populares desempenharam um papel instrumental: sua força numérica e seu ódio à aristocracia foram essenciais para a destruição do Antigo Regime, ainda que sob a liderança política da burguesia.',c:true},
+    {l:'D',t:'As classes populares aliaram-se à nobreza contra a burguesia, buscando preservar as instituições tradicionais do Antigo Regime.',c:false},
+    {l:'E',t:'As classes populares foram irrelevantes no processo revolucionário, conduzido exclusivamente por intelectuais burgueses inspirados nas ideias iluministas.',c:false}
+  ]},
+  {fontes:[
+    {au:'DOYLE, William',rf:'A Revolução Francesa: uma introdução. São Paulo: Ática, 1999. p. 112.',tx:'"A Revolução criou o Estado moderno — um Estado baseado em uma constituição escrita, na igualdade jurídica dos cidadãos, na soberania nacional e na representação política. Esses princípios, embora nem sempre respeitados na prática, tornaram-se o vocabulário político da modernidade e o critério pelo qual os governos passaram a ser julgados."'}
+  ],
+  en:'Com base no fragmento de William Doyle, o principal legado político da Revolução Francesa para a modernidade foi:',
+  gab:'Doyle sintetiza o legado institucional da Revolução: ela criou o "vocabulário político da modernidade" — constituição escrita, igualdade jurídica, soberania nacional, representação política. Esses princípios tornaram-se os critérios pelos quais todos os governos modernos passaram a ser avaliados. Mesmo que nem sempre respeitados, eles definem o horizonte normativo da política contemporânea.',
+  ops:[
+    {l:'A',t:'A consolidação do modelo absolutista de governo como forma mais eficiente de organização política do Estado moderno.',c:false},
+    {l:'B',t:'A criação de um Estado imperial baseado na força militar, que se tornou o modelo de organização política adotado pelos países ocidentais.',c:false},
+    {l:'C',t:'O estabelecimento dos princípios constitucionais, da igualdade jurídica, da soberania nacional e da representação política como fundamentos do Estado moderno e critérios universais de legitimidade política.',c:true},
+    {l:'D',t:'A imposição do modelo republicano como única forma legítima de governo, eliminando definitivamente as monarquias europeias.',c:false},
+    {l:'E',t:'A criação de um sistema econômico baseado na propriedade coletiva dos meios de produção, que antecipou as ideias socialistas do século XIX.',c:false}
+  ]}
+];
+
+function buildQ(){
+  const ct=document.getElementById('questoes');
+  Q.forEach((q,i)=>{
+    const qid=i+1;
+    const fontes=q.fontes.map(f=>`
+      <div class="fonte-bloco">
+        <div class="fonte-autor">${f.au}</div>
+        <div class="fonte-texto">${f.tx}</div>
+        <div class="fonte-ref">${f.rf}</div>
+      </div>`).join('');
+    const opts=q.ops.map((op,j)=>`
+      <div class="opt" id="opt-${qid}-${j}" data-qid="${qid}" data-i="${j}" onclick="ans(${qid},${j})">
+        <span class="letra">${op.l}</span><span>${op.t}</span>
+      </div>`).join('');
+    ct.innerHTML+=`
+      <div class="q-card" id="qcard-${qid}">
+        <div class="q-num">Questão ${qid} &nbsp;·&nbsp; 0,5 ponto</div>
+        ${fontes}
+        <div class="q-enunc">${q.en}</div>
+        <div class="opts" id="opts-${qid}">${opts}</div>
+      </div>`;
+  });
+}
+
+function ans(qid,idx){
+  if(done.has(qid))return;
+  done.add(qid);
+  const q=Q[qid-1]; const op=q.ops[idx];
+  const corrIdx=q.ops.findIndex(o=>o.c);
+  // marcar neutro — sem revelar certo/errado
+  for(let j=0;j<q.ops.length;j++){
+    const b=document.getElementById('opt-'+qid+'-'+j);
+    b.onclick=null; b.classList.add('bloqueada');
+    if(j===idx) b.classList.add('sel-neutro');
+  }
+  document.getElementById('qcard-'+qid).classList.add('respondida');
+  if(op.c){acertos++;}else{erros++;}
+  resps.push({qid,idx,ok:op.c,eL:op.l,eT:op.t,cL:q.ops[corrIdx].l,cT:q.ops[corrIdx].t,cIdx:corrIdx,gab:q.gab});
+  resp++; upd();
+  if(resp===TOTAL) fim();
+}
+
+function upd(){
+  document.getElementById('hdr-resp').textContent=resp;
+  const pct=Math.round(resp/TOTAL*100);
+  document.getElementById('bprog').style.width=pct+'%';
+}
+
+function fim(){
+  const nt=n10(acertos), pct=Math.round(acertos/TOTAL*100);
+  const msg=pct>=90?'Desempenho excelente! 🎉':pct>=70?'Bom desempenho! 👍':pct>=50?'Desempenho razoável — revise o conteúdo.':'É necessário aprofundar o estudo do conteúdo.';
+  const ico=pct>=90?'🏆':pct>=70?'🎯':pct>=50?'📚':'💡';
+  const notaClass=pct>=90?'nota-ex':pct>=70?'nota-bom':pct>=50?'nota-med':'nota-baixo';
+  document.getElementById('pop-ico').textContent=ico;
+  document.getElementById('pop-aluno').innerHTML='Aluno(a): <strong>'+nome+'</strong>';
+  document.getElementById('pop-nota').className='popup-nota '+notaClass;
+  document.getElementById('pop-nota').innerHTML=nt+'<span>/10</span>';
+  document.getElementById('pop-pts').textContent='0,5 ponto por questão · '+acertos+' × 0,5 = '+(acertos*.5).toFixed(1)+' pontos';
+  document.getElementById('pop-det').textContent=acertos+' acertos · '+erros+' erros · '+pct+'% de aproveitamento';
+  document.getElementById('pop-grid').innerHTML=
+    '<div class="ri"><div class="rv">'+acertos+'</div><div class="rl">Acertos</div></div>'+
+    '<div class="ri"><div class="rv">'+erros+'</div><div class="rl">Erros</div></div>'+
+    '<div class="ri"><div class="rv">'+pct+'%</div><div class="rl">Aproveit.</div></div>';
+  document.getElementById('pop-msg').textContent=msg;
+  // Abrir popup com animação
+  setTimeout(()=>{
+    document.getElementById('popup-resultado').classList.add('aberto');
+  },400);
+}
+
+function fecharPopupEBaixar(){
+  document.getElementById('popup-resultado').classList.remove('aberto');
+  setTimeout(()=>tentarPDF(),300);
+}
+
+function tentarPDF(){
+  const faltam=[];
+  for(let i=1;i<=TOTAL;i++) if(!done.has(i)) faltam.push(i);
+  if(faltam.length>0){
+    document.getElementById('qtd-faltando').textContent=faltam.length;
+    const al=document.getElementById('alerta-incompleto');
+    al.style.display='block';
+    al.scrollIntoView({behavior:'smooth',block:'center'});
+    // rolar até primeira faltando
+    setTimeout(()=>{
+      const el=document.getElementById('qcard-'+faltam[0]);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    },600);
+    return;
+  }
+  document.getElementById('alerta-incompleto').style.display='none';
+  gerarPDF();
+}
+
+async function gerarPDF(){
+  // Montar overlay de progresso
+  const overlay=document.createElement('div');
+  overlay.id='pdf-overlay';
+  overlay.innerHTML=`<div class="pdf-box">
+    <div class="ico">📄</div>
+    <h4>Gerando PDF…</h4>
+    <p>Renderizando questões e gabarito.</p>
+    <p>Aguarde alguns instantes.</p>
+    <div id="pdf-prog-wrap"><div id="pdf-prog"></div></div>
+    <div id="pdf-prog-txt">0%</div>
+  </div>`;
+  document.body.appendChild(overlay);
+  await sleep(80);
+
+  const setP=(pct,msg)=>{
+    document.getElementById('pdf-prog').style.width=pct+'%';
+    document.getElementById('pdf-prog-txt').textContent=msg||pct+'%';
+  };
+
+  try{
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:'portrait',unit:'px',format:'a4',hotfixes:['px_scaling']});
+    const PW=pdf.internal.pageSize.getWidth();
+    const PH=pdf.internal.pageSize.getHeight();
+    const MARGIN=28;
+    const CW=PW-MARGIN*2;
+    let y=MARGIN;
+
+    const addImg=async(el)=>{
+      const canvas=await html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:'#ffffff',scrollX:0,scrollY:0,windowWidth:900});
+      const imgW=CW;
+      const imgH=(canvas.height/canvas.width)*imgW;
+      const dataUrl=canvas.toDataURL('image/jpeg',.93);
+      if(y+imgH>PH-MARGIN){pdf.addPage();y=MARGIN;}
+      if(imgH>PH-MARGIN*2){const sh=PH-MARGIN*2;pdf.addImage(dataUrl,'JPEG',MARGIN,y,CW,sh);y+=sh+6;}
+      else{pdf.addImage(dataUrl,'JPEG',MARGIN,y,imgW,imgH);y+=imgH+6;}
+    };
+
+    // ── CAPA ──
+    setP(4,'Preparando capa…'); await sleep(50);
+    const now=new Date();
+    const dtStr=now.toLocaleDateString('pt-BR')+' às '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    const nt=n10(acertos), pct=Math.round(acertos/TOTAL*100);
+    const coverEl=document.createElement('div');
+    coverEl.style.cssText='width:860px;font-family:Arial,sans-serif;overflow:hidden;border-radius:0;position:absolute;left:-9999px;top:0';
+    coverEl.innerHTML=`
+      <div style="background:linear-gradient(135deg,#1a1a2e 0%,#6b2fa0 60%,#4a9e3f 100%);padding:50px 56px 44px;color:white">
+        <div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;opacity:.7;font-weight:700;margin-bottom:8px">Ciências Humanas e Sociais Aplicadas</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-.5px;line-height:1.15;margin-bottom:6px">Revolução Francesa<br>e seus Impactos</div>
+        <div style="font-size:14px;opacity:.75;font-style:italic;margin-bottom:24px">Avaliação com gabarito comentado</div>
+        <div style="font-size:22px;font-weight:900;background:rgba(255,255,255,.15);display:inline-block;padding:7px 22px;border-radius:8px;margin-bottom:4px">HISTÓRIA · 20 questões</div>
+        <div style="font-size:14px;margin-top:14px;opacity:.8">Colégio Estadual Rodolfo de Oliveira · Goiânia · 2026</div>
+      </div>
+      <div style="background:#f5f5fa;padding:30px 56px">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#6b2fa0;font-weight:700;margin-bottom:8px">Aluno(a)</div>
+        <div style="font-size:22px;font-weight:700;color:#1a1a2e;border-bottom:3px solid #6b2fa0;padding-bottom:8px;display:inline-block;margin-bottom:20px">${nome}</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px">
+          <div style="background:white;border-radius:8px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07)">
+            <div style="font-size:28px;font-weight:900;color:#4a9e3f">${nt}</div>
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888">Nota /10</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07)">
+            <div style="font-size:28px;font-weight:900;color:#1a1a2e">${acertos}</div>
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888">Acertos</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07)">
+            <div style="font-size:28px;font-weight:900;color:#e74c3c">${erros}</div>
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888">Erros</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.07)">
+            <div style="font-size:28px;font-weight:900;color:#6b2fa0">${pct}%</div>
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888">Aproveit.</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#aaa">Gerado em: ${dtStr}</div>
+      </div>`;
+    document.body.appendChild(coverEl);
+    await sleep(60);
+    await addImg(coverEl);
+    document.body.removeChild(coverEl);
+
+    // ── QUESTÕES ──
+    for(let i=0;i<resps.length;i++){
+      const r=resps[i];
+      const q=Q[r.qid-1];
+      setP(Math.round(6+(i/TOTAL)*84),`Questão ${r.qid} de ${TOTAL}…`);
+      await sleep(20);
+
+      const isOK=r.ok;
+      const barBg=isOK?'#4a9e3f':'#e74c3c';
+      const barLabel=isOK?'✓ CORRETA':'✗ INCORRETA';
+
+      // Montar fontes
+      const fontesHtml=q.fontes.map(f=>`
+        <div style="background:#faf8ff;border-left:4px solid #6b2fa0;border-radius:0 6px 6px 0;padding:12px 16px;margin:10px 0">
+          <div style="font-size:10px;font-weight:700;color:#6b2fa0;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">${f.au}</div>
+          <div style="font-size:12.5px;font-style:italic;color:#4a4a6a;line-height:1.75;margin-bottom:5px">${f.tx}</div>
+          <div style="font-size:10px;color:#999">${f.rf}</div>
+        </div>`).join('');
+
+      // Montar alternativas com gabarito
+      const optsHtml=q.ops.map((op,j)=>{
+        const isCor=j===r.cIdx;
+        const isErr=j===r.idx&&!r.ok;
+        const bg=isCor?'#edfaeb':isErr?'#fdecea':'#f5f5fa';
+        const border=isCor?'2px solid #4a9e3f':isErr?'2px solid #e74c3c':'1px solid #e0e0ee';
+        const fc=isCor?'#2d7a27':isErr?'#c0392b':'#333';
+        const fw=isCor||isErr?'700':'400';
+        const mark=isCor?' ✓':isErr?' ✗':'';
+        return `<div style="background:${bg};border:${border};border-radius:6px;padding:9px 14px;margin-bottom:6px;font-size:12.5px;color:${fc};font-weight:${fw};display:flex;align-items:flex-start;gap:10px">
+          <span style="font-weight:700;min-width:18px">${op.l}</span>
+          <span>${op.t}${mark}</span>
+        </div>`;
+      }).join('');
+
+      // Resultado + comentário
+      const resBg=isOK?'#edfaeb':'#fdecea';
+      const resC=isOK?'#2d7a27':'#c0392b';
+      const resTxt=isOK
+        ?'✓ Resposta correta — Alternativa '+r.cL+'.'
+        :'✗ Sua resposta: Alternativa '+r.eL+' (incorreta).  Resposta correta: Alternativa '+r.cL+' — '+r.cT;
+
+      const wrap=document.createElement('div');
+      wrap.style.cssText='width:860px;font-family:Arial,sans-serif;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0e0ee;position:absolute;left:-9999px;top:0';
+      wrap.innerHTML=`
+        <div style="background:${barBg};padding:10px 20px;display:flex;justify-content:space-between;align-items:center">
+          <span style="color:white;font-weight:700;font-size:13px;letter-spacing:.5px">QUESTÃO ${r.qid} &nbsp;·&nbsp; 0,5 PONTO</span>
+          <span style="color:white;font-size:13px;font-weight:700">${barLabel}</span>
+        </div>
+        <div style="padding:16px 20px 6px">
+          ${fontesHtml}
+          <div style="font-size:13px;font-weight:700;color:#1a1a2e;line-height:1.65;margin:12px 0 14px">${q.en}</div>
+          ${optsHtml}
+        </div>
+        <div style="background:${resBg};padding:10px 20px;font-size:12px;font-weight:700;color:${resC};border-top:1px solid rgba(0,0,0,.06)">${resTxt}</div>
+        <div style="background:#f0f8ff;border-top:1px solid #d0e8ff;padding:12px 20px">
+          <div style="font-size:10px;font-weight:700;color:#1a5ca8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📝 Comentário</div>
+          <div style="font-size:12px;color:#1a1a2e;line-height:1.65">${q.gab}</div>
+        </div>`;
+      document.body.appendChild(wrap);
+      await sleep(25);
+      await addImg(wrap);
+      document.body.removeChild(wrap);
+    }
+
+    // ── RODAPÉ EM TODAS AS PÁGINAS ──
+    setP(94,'Finalizando…'); await sleep(30);
+    const totalPages=pdf.getNumberOfPages();
+    for(let p=1;p<=totalPages;p++){
+      pdf.setPage(p);
+      const footEl=document.createElement('div');
+      footEl.style.cssText=`width:${Math.round(PW)}px;height:22px;background:#f5f5fa;display:flex;align-items:center;justify-content:space-between;padding:0 ${MARGIN}px;font-size:10px;color:#888;font-family:Arial,sans-serif;position:absolute;left:-9999px;top:0`;
+      footEl.innerHTML=`<span>Revolução Francesa e seus Impactos · Gabarito · ${nome}</span><span>Página ${p} de ${totalPages}</span>`;
+      document.body.appendChild(footEl);
+      const fc=await html2canvas(footEl,{scale:2,logging:false,backgroundColor:'#f5f5fa'});
+      document.body.removeChild(footEl);
+      const fUrl=fc.toDataURL('image/jpeg',.9);
+      const fH=(fc.height/fc.width)*PW;
+      pdf.setFillColor(245,245,250);
+      pdf.rect(0,PH-fH,PW,fH,'F');
+      pdf.addImage(fUrl,'JPEG',0,PH-fH,PW,fH);
+    }
+
+    setP(100,'Salvando…'); await sleep(200);
+    const safeName=nome.replace(/[^a-zA-Z0-9_\-]/g,'_');
+    pdf.save('GabaritoRevFrancesa_'+safeName+'.pdf');
+
+  }catch(err){
+    console.error(err);
+    alert('Erro ao gerar PDF: '+err.message);
+  }finally{
+    const ov=document.getElementById('pdf-overlay');
+    if(ov) document.body.removeChild(ov);
+  }
+}
+
+buildQ();
+
+// Fechar popup ao clicar fora
+document.getElementById('popup-resultado').addEventListener('click',function(e){
+  if(e.target===this) this.classList.remove('aberto');
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
